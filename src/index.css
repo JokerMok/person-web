@@ -1,0 +1,255 @@
+/* Google Fonts import for Tech Startup pairing from UI/UX Pro Max */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Tech Startup font pairing */
+  font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  color-scheme: dark;
+  /* Dark Mode OLED background from UI/UX Pro Max */
+  color: rgba(255, 255, 255, 0.9);
+  background-color: #0a0e27;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Improved scroll behavior */
+  scroll-behavior: smooth;
+}
+
+/* Heading font override */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', 'DM Sans', sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  /* Improved background with subtle noise */
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* Enhanced glassmorphism utilities from UI/UX Pro Max */
+.glass {
+  backdrop-filter: blur(12px);
+  background: rgba(18, 24, 45, 0.95);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  /* Remove border and inset shadow that cause white outline */
+}
+
+/* Glass variant for cards */
+.glass-card {
+  backdrop-filter: blur(16px);
+  background: rgba(18, 24, 45, 0.85);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: rgba(18, 24, 45, 0.95);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Enhanced grid pattern background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(96, 165, 250, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96, 165, 250, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+}
+
+/* Subtle border utilities with improved contrast */
+.border-grid {
+  border: 1px solid rgba(96, 165, 250, 0.12);
+}
+
+/* Smooth fade-in animation with staggered delays support */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Staggered animation delays */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+.delay-200 {
+  animation-delay: 0.2s;
+}
+.delay-300 {
+  animation-delay: 0.3s;
+}
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+/* Modern scanline effect for technical aesthetic */
+.scanline {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.06),
+    rgba(0, 0, 0, 0.06) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.5;
+  animation: scanline-move 8s linear infinite;
+}
+
+@keyframes scanline-move {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Enhanced professional background with multiple gradients */
+.professional-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.12;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 128, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(0, 255, 255, 0.2) 0%, transparent 50%);
+  animation: professional-pulse 15s ease-in-out infinite alternate;
+  filter: blur(80px);
+}
+
+/* Custom background image support */
+.custom-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.08;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: professional-pulse 15s ease-in-out infinite alternate;
+  filter: saturate(0.8) brightness(0.6);
+}
+
+@keyframes professional-pulse {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    transform: scale(1.1) rotate(1deg);
+  }
+}
+
+/* Improved hover effects with smooth transitions */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+/* Enhanced button hover effect */
+.btn-hover {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(18, 24, 45, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.7);
+}
+
+/* Animation for page transitions */
+.page-transition {
+  animation: page-fade-in 0.5s ease-out forwards;
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6 0%, #0080ff 50%, #00ffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
