@@ -4,16 +4,16 @@ import { ArrowDown, Download, Code, Briefcase, Brain, Zap, FileText, BarChart3, 
 import ImageCarousel from './components/ImageCarousel'
 
 // 导入所有需要的图片
-import miniProgramPrototype from './images/mini-program-prototype.jpg'
-import invoiceRecognitionAgent from './images/invoice-recognition-agent.jpg'
-import aiLeadScoringFlowchart from './images/ai-lead-scoring-flowchart.jpg'
-import aiLeadScoringFlowchart2 from './images/ai-lead-scoring-flowchart-2.jpg'
-import aiLeadScoringFlowchart3 from './images/ai-lead-scoring-flowchart-3.jpg'
-import smartWaterAiAgentWorkflow from './images/smart-water-ai-agent-dify-workflow.jpg'
-import smartWaterAiAgentWorkflow2 from './images/smart-water-ai-agent-dify-workflow-2.jpg'
-import moldCloudPlatformUi from './images/mold-cloud-platform-ui-design.jpg'
-import moldCloudPlatformUi2 from './images/mold-cloud-platform-ui-design-2.jpg'
-import wechatQrCode from './images/wechat-qr-code.jpg'
+const miniProgramPrototype = new URL('./images/mini-program-prototype.jpg', import.meta.url).href
+const invoiceRecognitionAgent = new URL('./images/invoice-recognition-agent.jpg', import.meta.url).href
+const aiLeadScoringFlowchart = new URL('./images/ai-lead-scoring-flowchart.jpg', import.meta.url).href
+const aiLeadScoringFlowchart2 = new URL('./images/ai-lead-scoring-flowchart-2.jpg', import.meta.url).href
+const aiLeadScoringFlowchart3 = new URL('./images/ai-lead-scoring-flowchart-3.jpg', import.meta.url).href
+const smartWaterAiAgentWorkflow = new URL('./images/smart-water-ai-agent-dify-workflow.jpg', import.meta.url).href
+const smartWaterAiAgentWorkflow2 = new URL('./images/smart-water-ai-agent-dify-workflow-2.jpg', import.meta.url).href
+const moldCloudPlatformUi = new URL('./images/mold-cloud-platform-ui-design.jpg', import.meta.url).href
+const moldCloudPlatformUi2 = new URL('./images/mold-cloud-platform-ui-design-2.jpg', import.meta.url).href
+const wechatQrCode = new URL('./images/wechat-qr-code.jpg', import.meta.url).href
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false)
