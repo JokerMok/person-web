@@ -3,6 +3,18 @@ import { motion } from 'framer-motion'
 import { ArrowDown, Download, Code, Briefcase, Brain, Zap, FileText, BarChart3, Globe, Database } from 'lucide-react'
 import ImageCarousel from './components/ImageCarousel'
 
+// 导入所有需要的图片
+import miniProgramPrototype from './images/mini-program-prototype.jpg'
+import invoiceRecognitionAgent from './images/invoice-recognition-agent.jpg'
+import aiLeadScoringFlowchart from './images/ai-lead-scoring-flowchart.jpg'
+import aiLeadScoringFlowchart2 from './images/ai-lead-scoring-flowchart-2.jpg'
+import aiLeadScoringFlowchart3 from './images/ai-lead-scoring-flowchart-3.jpg'
+import smartWaterAiAgentWorkflow from './images/smart-water-ai-agent-dify-workflow.jpg'
+import smartWaterAiAgentWorkflow2 from './images/smart-water-ai-agent-dify-workflow-2.jpg'
+import moldCloudPlatformUi from './images/mold-cloud-platform-ui-design.jpg'
+import moldCloudPlatformUi2 from './images/mold-cloud-platform-ui-design-2.jpg'
+import wechatQrCode from './images/wechat-qr-code.jpg'
+
 function App() {
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -167,8 +179,8 @@ function App() {
                   <div className="bg-gray-800/30 rounded-lg p-2 border border-gray-700">
                     <ImageCarousel 
                       images={[
-                        '/src/images/mini-program-prototype.jpg',
-                        '/src/images/invoice-recognition-agent.jpg'
+                        miniProgramPrototype,
+                        invoiceRecognitionAgent
                       ]} 
                       altPrefix="快速原型与智能体实战演示"
                       size="100%"
@@ -258,9 +270,9 @@ function App() {
                 <div className="md:w-1/2 flex flex-col h-full">
                   <ImageCarousel 
                     images={[
-                      '/src/images/ai-lead-scoring-flowchart.jpg',
-                      '/src/images/ai-lead-scoring-flowchart-2.jpg',
-                      '/src/images/ai-lead-scoring-flowchart-3.jpg'
+                      aiLeadScoringFlowchart,
+                      aiLeadScoringFlowchart2,
+                      aiLeadScoringFlowchart3
                     ]} 
                     altPrefix="AI线索评分流程图"
                   />
@@ -317,8 +329,8 @@ function App() {
                 <div className="md:w-1/2 flex flex-col">
                   <ImageCarousel 
                     images={[
-                      '/src/images/smart-water-ai-agent-dify-workflow.jpg',
-                      '/src/images/smart-water-ai-agent-dify-workflow-2.jpg'
+                      smartWaterAiAgentWorkflow,
+                      smartWaterAiAgentWorkflow2
                     ]} 
                     altPrefix="智慧水务AI助手Dify工作流"
                   />
@@ -378,8 +390,8 @@ function App() {
                 <div className="md:w-1/2 flex flex-col">
                   <ImageCarousel 
                     images={[
-                      '/src/images/mold-cloud-platform-ui-design.jpg',
-                      '/src/images/mold-cloud-platform-ui-design-2.jpg'
+                      moldCloudPlatformUi,
+                      moldCloudPlatformUi2
                     ]} 
                     altPrefix="模具云供应链协同平台UI设计"
                   />
@@ -436,7 +448,7 @@ function App() {
               <div className="mt-10">
                 <div className="text-xs text-gray-500 uppercase tracking-wider mb-4">微信扫码</div>
                 <ImageCarousel 
-                  images={['/src/images/wechat-qr-code.jpg']} 
+                  images={[wechatQrCode]} 
                   altPrefix="微信二维码"
                   size="200px"
                   noBackground={true}
