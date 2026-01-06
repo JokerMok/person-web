@@ -54,10 +54,23 @@
         .carousel-slide {
             display: none;
             animation: fadeIn 0.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
         }
 
         .carousel-slide.active {
-            display: block;
+            display: flex;
+        }
+
+        .carousel-slide img {
+            object-fit: contain !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+            width: auto !important;
+            height: auto !important;
         }
 
         @keyframes fadeIn {
@@ -552,15 +565,26 @@
     <div id="imageModal" class="modal">
         <div class="modal-content">
             <span class="absolute top-4 right-4 text-white text-3xl cursor-pointer hover:text-gray-300" onclick="closeModal()">&times;</span>
-            <img id="modalImage" src="" alt="Modal Image" />
-            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                <button class="absolute left-4 bottom-1/2 -translate-y-1/2 bg-gray-900/80 hover:bg-gray-900 p-2 rounded-full transition-all text-white" onclick="prevModalSlide()">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="absolute right-4 bottom-1/2 -translate-y-1/2 bg-gray-900/80 hover:bg-gray-900 p-2 rounded-full transition-all text-white" onclick="nextModalSlide()">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+            <div class="absolute top-4 left-4 bg-gray-900/80 hover:bg-gray-900 px-3 py-2 rounded-full text-white text-sm font-medium backdrop-blur-sm">
+                <span id="zoomLevel">100%</span>
             </div>
+            <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
+                <img 
+                    id="modalImage" 
+                    src="" 
+                    alt="Modal Image" 
+                    style="transform: scale(1); transition: transform 0.1s ease-out; cursor: grab;"
+                    onmousedown="handleMouseDown(event)"
+                    onwheel="handleWheel(event)"
+                />
+            </div>
+            <!-- 修复左右翻页按钮位置和功能 -->
+            <button class="absolute left-4 top-1/2 -translate-y-1/2 bg-gray-900/80 hover:bg-gray-900 p-2 rounded-full transition-all text-white" onclick="prevModalSlide()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-900/80 hover:bg-gray-900 p-2 rounded-full transition-all text-white" onclick="nextModalSlide()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
     </div>
 
@@ -582,6 +606,11 @@
         let currentSlide = {};
         let modalImages = [];
         let currentModalSlide = 0;
+        // 缩放相关变量
+        let modalZoom = 1;
+        let imagePosition = { x: 0, y: 0 };
+        let isDragging = false;
+        let dragStart = { x: 0, y: 0 };
 
         // Auto play carousel
         function startAutoPlay() {
@@ -660,6 +689,9 @@
             modalImg.src = img.src;
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+            
+            // 重置缩放和位置
+            resetModalZoom();
         }
 
         function closeModal() {
@@ -668,16 +700,80 @@
             document.body.style.overflow = '';
         }
 
+        // 修复左右翻页逻辑
         function nextModalSlide() {
             const modalImg = document.getElementById('modalImage');
             currentModalSlide = (currentModalSlide + 1) % modalImages.length;
             modalImg.src = modalImages[currentModalSlide];
+            // 重置缩放和位置
+            resetModalZoom();
         }
 
         function prevModalSlide() {
             const modalImg = document.getElementById('modalImage');
             currentModalSlide = (currentModalSlide - 1 + modalImages.length) % modalImages.length;
             modalImg.src = modalImages[currentModalSlide];
+            // 重置缩放和位置
+            resetModalZoom();
+        }
+
+        // 重置缩放和位置
+        function resetModalZoom() {
+            modalZoom = 1;
+            imagePosition = { x: 0, y: 0 };
+            updateModalImageTransform();
+        }
+
+        // 更新图片变换
+        function updateModalImageTransform() {
+            const modalImg = document.getElementById('modalImage');
+            const zoomLevel = document.getElementById('zoomLevel');
+            modalImg.style.transform = `scale(${modalZoom}) translate(${imagePosition.x}px, ${imagePosition.y}px)`;
+            zoomLevel.textContent = `${Math.round(modalZoom * 100)}%`;
+        }
+
+        // 滚轮缩放功能
+        function handleWheel(event) {
+            event.preventDefault();
+            const delta = event.deltaY > 0 ? -0.1 : 0.1;
+            modalZoom = Math.max(0.5, Math.min(5, modalZoom + delta));
+            updateModalImageTransform();
+        }
+
+        // 鼠标拖拽功能
+        function handleMouseDown(event) {
+            event.preventDefault();
+            isDragging = true;
+            dragStart = {
+                x: event.clientX - imagePosition.x,
+                y: event.clientY - imagePosition.y
+            };
+            
+            // 添加鼠标移动和释放事件监听
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', handleMouseUp);
+            
+            // 改变鼠标样式
+            event.target.style.cursor = 'grabbing';
+        }
+
+        function handleMouseMove(event) {
+            if (isDragging) {
+                imagePosition = {
+                    x: event.clientX - dragStart.x,
+                    y: event.clientY - dragStart.y
+                };
+                updateModalImageTransform();
+            }
+        }
+
+        function handleMouseUp(event) {
+            isDragging = false;
+            // 移除事件监听
+            document.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mouseup', handleMouseUp);
+            // 恢复鼠标样式
+            document.getElementById('modalImage').style.cursor = 'grab';
         }
 
         // Close modal when clicking outside
