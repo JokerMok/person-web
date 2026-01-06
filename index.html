@@ -1,13 +1,704 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>莫臻轩 | 11年产品专家 | AI落地实战</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>莫臻轩 | 11年软件产品专家 | AI应用探索者</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 自定义样式 */
+        .gradient-text {
+            background: linear-gradient(to right, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .group:hover .btn-hover {
+            opacity: 1;
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.1), 0 10px 10px -5px rgba(59, 130, 246, 0.04);
+        }
+
+        .grid-bg {
+            background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.1) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+
+        /* 图片轮播样式 */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body class="bg-[#0f172a] text-white">
+    <!-- Navigation -->
+    <nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5 bg-transparent">
+        <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
+            <div class="text-xl font-bold gradient-text">
+                JokerMok个人网站
+            </div>
+            <div class="hidden md:flex space-x-10">
+                <a href="#hero" class="text-gray-400 hover:text-blue-500 transition-colors text-sm font-medium tracking-wide">首页</a>
+                <a href="#value" class="text-gray-400 hover:text-blue-500 transition-colors text-sm font-medium tracking-wide">价值</a>
+                <a href="#projects" class="text-gray-400 hover:text-blue-500 transition-colors text-sm font-medium tracking-wide">案例</a>
+                <a href="#footer" class="text-gray-400 hover:text-blue-500 transition-colors text-sm font-medium tracking-wide">联系</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
+        <!-- Content -->
+        <div class="container mx-auto px-4 md:px-8 z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
+                    <span class="gradient-text">
+                        重构B2B复杂业务
+                    </span>
+                </h1>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
+                    <span class="gradient-text">
+                        定义AI落地新范式
+                    </span>
+                </h1>
+                <p class="text-lg md:text-xl lg:text-2xl text-gray-400 mb-12 leading-relaxed max-w-3xl mx-auto">
+                    我是莫臻轩 | 11年软件产品专家 | AI应用探索者
+                </p>
+                <p class="text-lg md:text-xl lg:text-2xl text-gray-400 mb-12 leading-relaxed max-w-3xl mx-auto">
+                    致力于将深厚产业积淀与前沿AI技术结合，构建下一代企业增长引擎
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                    <a 
+                        href="#projects" 
+                        class="px-12 py-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center gap-2 shadow-lg shadow-blue-900/40"
+                    >
+                        查看我的AI实战案例
+                        <i class="fas fa-arrow-down"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition Section -->
+    <section id="value" class="py-24 bg-[#1e293b] grid-bg">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center tracking-tight">
+                    <span class="gradient-text">
+                        双引擎驱动的产品能力
+                    </span>
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Left Side: Solid B2B Foundation -->
+                    <div class="glass-card rounded-xl p-8 border border-gray-700 hover-lift flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-6 mb-6">
+                                <div class="w-14 h-14 bg-blue-600/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-briefcase text-blue-500 text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-blue-500">深厚的B2B底座</h3>
+                            </div>
+                            <p class="text-gray-400 mb-8 text-sm leading-relaxed">
+                                11 年深耕企业数字化核心腹地。由于具备跨越 5+ 垂直行业的实战经验，我擅长将复杂的线下业务解耦为清晰的数字模型。从亿级流水的交易平台到精密制造的 MES 系统，我提供的不仅仅是功能堆叠，而是经得起业务扩张考验的顶层架构。
+                            </p>
+                        </div>
+                        
+                        <div class="space-y-5">
+                            <div class="flex items-center gap-3 p-3 bg-slate-1000/50 rounded-lg border border-slate-750">
+                                <i class="fas fa-file-alt w-4 h-4 text-blue-500"></i>
+                                <span class="text-gray-300 font-medium">PMP & 高级信管师双重认证</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-slate-1000/50 rounded-lg border border-slate-750">
+                                <i class="fas fa-globe w-4 h-4 text-blue-500"></i>
+                                <span class="text-gray-300 font-medium">复杂系统顶层架构设计</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-slate-1000/50 rounded-lg border border-slate-750">
+                                <i class="fas fa-database w-4 h-4 text-blue-500"></i>
+                                <span class="text-gray-300 font-medium">全生命周期产品管理</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-slate-1000/50 rounded-lg border border-slate-750">
+                                <i class="fas fa-chart-bar w-4 h-4 text-blue-500"></i>
+                                <span class="text-gray-300 font-medium">亿级流水业务支撑能力</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side: Agile AI Engine -->
+                    <div class="glass-card rounded-xl p-8 border border-gray-700 hover-lift">
+                        <div class="flex items-center gap-6 mb-6">
+                            <div class="w-14 h-14 bg-blue-600/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-brain text-blue-500 text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-blue-500">敏捷AI引擎</h3>
+                        </div>
+                        <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+                            拒绝纸上谈兵的 PPT 规划。我推崇‘以手思考’，利用 LLM、低代码与 Vibe Coding 技术，将从 0 到 1 的验证周期从‘月’缩短为‘天’。在资源受限的环境下，依然能快速交付高可用、可交互的智能体原型，让商业想法即刻落地。
+                        </p>
+                        
+                        <!-- Live Prototype & Agent Demos -->
+                        <div class="mt-4">
+                            <h4 class="text-lg font-semibold mb-4 text-gray-200">快速原型与智能体实战演示</h4>
+                            <div class="bg-gray-800/30 rounded-lg p-2 border border-gray-700">
+                                <!-- Image Carousel -->
+                                <div class="carousel-container group hover-lift bg-gray-800 rounded-lg border border-gray-700" style="aspect-ratio: 16/9;">
+                                    <div class="carousel-slide active">
+                                        <img src="images/mini-program-prototype.jpg" alt="快速原型与智能体实战演示 1" class="w-full h-full object-contain cursor-pointer" onclick="openModal(this, ['images/mini-program-prototype.jpg', 'images/invoice-recognition-agent.jpg'])" />
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="images/invoice-recognition-agent.jpg" alt="快速原型与智能体实战演示 2" class="w-full h-full object-contain cursor-pointer" onclick="openModal(this, ['images/mini-program-prototype.jpg', 'images/invoice-recognition-agent.jpg'])" />
+                                    </div>
+                                    
+                                    <!-- Navigation Arrows -->
+                                    <button class="absolute left-3 top-1/2 -translate-y-1/2 bg-gray-900/80 hover:bg-gray-900 p-2 rounded-full transition-all opacity-0 group-hover:opacity-100 z-10" onclick="prevSlide(this)">
+                                        <i class="fas fa-chevron-left text-white text-lg"></i>
+                                    </button>
+                                    <button class="absolute right-3 top-1/2 -translate-y-1/2 bg-gray-900/80 hover:bg-gray-900 p-2 rounded-full transition-all opacity-0 group-hover:opacity-100 z-10" onclick="nextSlide(this)">
+                                        <i class="fas fa-chevron-right text-white text-lg"></i>
+                                    </button>
+                                    
+                                    <!-- Indicators -->
+                                    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                                        <button class="w-6 h-2 rounded-full bg-blue-500" onclick="goToSlide(this, 0)"></button>
+                                        <button class="w-2 h-2 rounded-full bg-gray-600 hover:bg-gray-500" onclick="goToSlide(this, 1)"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Case Studies -->
+    <section id="projects" class="py-24 bg-[#1e293b] grid-bg">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center tracking-tight">
+                    <span class="gradient-text">
+                        B端AI实战案例
+                    </span>
+                </h2>
+            </div>
+            
+            <div class="space-y-16">
+                <!-- Case 1: AI B2B Lead Acquisition -->
+                <div class="glass-card rounded-xl p-8 md:p-10 border border-gray-700 hover-lift">
+                    <div class="flex flex-col md:flex-row gap-10 items-stretch">
+                        <div class="md:w-1/2 flex flex-col">
+                            <div class="mb-6">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="px-4 py-1.5 bg-blue-600/10 text-blue-500 rounded-full text-xs font-semibold">
+                                        #RevenueGrowth
+                                    </div>
+                                    <div class="px-4 py-1.5 bg-blue-600/10 text-blue-500 rounded-full text-xs font-semibold">
+                                        #SalesTech
+                                    </div>
+                                    <div class="px-4 py-1.5 bg-blue-600/10 text-blue-500 rounded-full text-xs font-semibold">
+                                        #AI-Flow
+                                    </div>
+                                </div>
+                                <h3 class="text-2xl md:text-3xl font-bold mb-4 text-white">AI驱动的线索获客系统</h3>
+                                <p class="text-gray-400 text-sm leading-relaxed">
+                                    基于LLM的自动化线索清洗与评分系统。通过多源数据融合与意图识别，大幅提升销售转化效率。
+                                </p>
+                            </div>
+                            
+                            <!-- Lead Scoring Visualization -->
+                            <div class="bg-slate-800/50 p-6 rounded-lg border border-slate-750">
+                                <h4 class="text-lg font-semibold mb-5 text-gray-200">线索评分效果</h4>
+                                <div class="space-y-5">
+                                    <div>
+                                        <div class="flex justify-between text-sm mb-2">
+                                            <span class="text-gray-400 font-medium">线索质量提升</span>
+                                            <span class="text-blue-500 font-bold">85%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-750 rounded-full h-2.5">
+                                            <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-2.5 rounded-full" style="width: 85%;"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-sm mb-2">
+                                            <span class="text-gray-400 font-medium">转化效率提升</span>
+                                            <span class="text-blue-500 font-bold">72%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-750 rounded-full h-2.5">
+                                            <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-2.5 rounded-full" style="width: 72%;"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-sm mb-2">
+                                            <span class="text-gray-400 font-medium">人工成本降低</span>
+                                            <span class="text-blue-500 font-bold">68%</span>
+                                        </div>
+                                        <div class="w-full bg-slate-750 rounded-full h-2.5">
+                                            <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-2.5 rounded-full" style="width: 68%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 flex flex-col">
+                            <!-- Image Carousel -->
+                            <div class="carousel-container group hover-lift bg-gray-800 rounded-lg border border-gray-700" style="aspect-ratio: 16/9;">
+                                <div class="carousel-slide active">
+                                    <img src="images/ai-lead-scoring-flowchart.jpg" alt="AI线索评分流程图 1" class="w-full h-full object-contain cursor-pointer" onclick="openModal(this, ['images/ai-lead-scoring-flowchart.jpg', 'images/ai-lead-scoring-flowchart-2.jpg', 'images/ai-lead-scoring-flowchart-3.jpg'])" />
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="images/ai-lead-scoring-flowchart-2.jpg" alt="AI线索评分流程图 2" class="w-full h-full object-contain cursor-pointer" onclick="openModal(this, ['images/ai-lead-scoring-flowchart.jpg', 'images/ai-lead-scoring-flowchart-2.jpg', 'images/ai-lead-scoring-flowchart-3.jpg'])" />
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="images/ai-lead-scoring-flowchart-3.jpg" alt="AI线索评分流程图 3" class="w-full h-full object-contain cursor-pointer" onclick="openModal(this, ['images/ai-lead-scoring-flowchart.jpg', 'images/ai-lead-scoring-flowchart-2.jpg', 'images/ai-lead-scoring-flowchart-3.jpg'])" />
+                                </div>
+                                
+                                <!-- Navigation Arrows -->
+                                <button class="absolute left-3 top-1/2 -translate-y-1/2 bg-gray-900/80 hover:bg-gray-900 p-2 rounded-full transition-all opacity-0 group-hover:opacity-100 z-10" onclick="prevSlide(this)">
+                                    <i class="fas fa-chevron-left text-white text-lg"></i>
+                                </button>
+                                <button class="absolute right-3 top-1/2 -translate-y-1/2 bg-gray-900/80 hover:bg-gray-900 p-2 rounded-full transition-all opacity-0 group-hover:opacity-100 z-10" onclick="nextSlide(this)">
+                                    <i class="fas fa-chevron-right text-white text-lg"></i>
+                                </button>
+                                
+                                <!-- Indicators -->
+                                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                                    <button class="w-6 h-2 rounded-full bg-blue-500" onclick="goToSlide(this, 0)"></button>
+                                    <button class="w-2 h-2 rounded-full bg-gray-600 hover:bg-gray-500" onclick="goToSlide(this, 1)"></button>
+                                    <button class="w-2 h-2 rounded-full bg-gray-600 hover:bg-gray-500" onclick="goToSlide(this, 2)"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case 2: Smart Water AI Agent -->
+                <div class="glass-card rounded-xl p-8 md:p-10 border border-gray-700 hover-lift">
+                    <div class="flex flex-col md:flex-row-reverse gap-10 items-stretch">
+                        <div class="md:w-1/2 flex flex-col">
+                            <div class="mb-6">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="px-4 py-1.5 bg-blue-600/10 text-blue-500 rounded-full text-xs font-semibold">
+                                        #LLM-Orchestration
+                                    </div>
+                                    <div class="px-4 py-1.5 bg-blue-600/10 text-blue-500 rounded-full text-xs font-semibold">
+                                        #Dify
+                                    </div>
+                                    <div class="px-4 py-1.5 bg-blue-600/10 text-blue-500 rounded-full text-xs font-semibold">
+                                        #PromptEngineering
+                                    </div>
+                                </div>
+                                <h3 class="text-2xl md:text-3xl font-bold mb-4 text-white">智慧水务AI助手</h3>
+                                <p class="text-gray-400 text-sm leading-relaxed">
+                                    基于Dify构建的复杂业务智能体。实现自然语言查数、自动生成报表与设备故障预警，重塑传统水务交互体验。
+                                </p>
+                            </div>
+                            
+                            <!-- Key Features -->
+                            <div class="bg-slate-800/50 p-6 rounded-lg border border-slate-750">
+                                <h4 class="text-lg font-semibold mb-5 text-gray-200">核心功能</h4>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="flex items-center gap-3 p-3 bg-slate-750/50 rounded-lg">
+                                        <i class="fas fa-bolt text-blue-500 text-sm"></i>
+                                        <span class="text-gray-300 text-sm font-medium">自然语言查询</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 bg-slate-750/50 rounded-lg">
+                                        <i class="fas fa-bolt text-blue-500 text-sm"></i>
+                                        <span class="text-gray-300 text-sm font-medium">自动报表生成</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 bg-slate-750/50 rounded-lg">
+                                        <i class="fas fa-bolt text-blue-500 text-sm"></i>
+                                        <span class="text-gray-300 text-sm font-medium">设备故障预警</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 bg-slate-750/50 rounded-lg">
+                                        <i class="fas fa-bolt text-blue-500 text-sm"></i>
+                                        <span class="text-gray-300 text-sm font-medium">实时数据监控</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 flex flex-col">
+                            <!-- Image Carousel -->
+                            <div class="carousel-container group hover-lift bg-gray-800 rounded-lg border border-gray-700" style="aspect-ratio: 16/9;">
+                                <div class="carousel-slide active">
+                                    <img src="images/smart-water-ai-agent-dify-workflow.jpg" alt="智慧水务AI助手Dify工作流 1" class="w-full h-full object-contain cursor-pointer" onclick="openModal(this, ['images/smart-water-ai-agent-dify-workflow.jpg', 'images/smart-water-ai-agent-dify-workflow-2.jpg'])" />
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="images/smart-water-ai-agent-dify-workflow-2.jpg" alt="智慧水务AI助手Dify工作流 2" class="w-full h-full object-contain cursor-pointer" onclick="openModal(this, ['images/smart-water-ai-agent-dify-workflow.jpg', 'images/smart-water-ai-agent-dify-workflow-2.jpg'])" />
+                                </div>
+                                
+                                <!-- Navigation Arrows -->
+                                <button class="absolute left-3 top-1/2 -translate-y-1/2 bg-gray-900/80 hover:bg-gray-900 p-2 rounded-full transition-all opacity-0 group-hover:opacity-100 z-10" onclick="prevSlide(this)">
+                                    <i class="fas fa-chevron-left text-white text-lg"></i>
+                                </button>
+                                <button class="absolute right-3 top-1/2 -translate-y-1/2 bg-gray-900/80 hover:bg-gray-900 p-2 rounded-full transition-all opacity-0 group-hover:opacity-100 z-10" onclick="nextSlide(this)">
+                                    <i class="fas fa-chevron-right text-white text-lg"></i>
+                                </button>
+                                
+                                <!-- Indicators -->
+                                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                                    <button class="w-6 h-2 rounded-full bg-blue-500" onclick="goToSlide(this, 0)"></button>
+                                    <button class="w-2 h-2 rounded-full bg-gray-600 hover:bg-gray-500" onclick="goToSlide(this, 1)"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case 3: Mold Cloud Platform -->
+                <div class="glass-card rounded-xl p-8 md:p-10 border border-gray-700 hover-lift">
+                    <div class="flex flex-col md:flex-row gap-10 items-stretch">
+                        <div class="md:w-1/2 flex flex-col">
+                            <div class="mb-6">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="px-4 py-1.5 bg-blue-600/10 text-blue-500 rounded-full text-xs font-semibold">
+                                        #Complex-B2B
+                                    </div>
+                                    <div class="px-4 py-1.5 bg-blue-600/10 text-blue-500 rounded-full text-xs font-semibold">
+                                        #SaaS-Architecture
+                                    </div>
+                                    <div class="px-4 py-1.5 bg-blue-600/10 text-blue-500 rounded-full text-xs font-semibold">
+                                        #National-Level
+                                    </div>
+                                </div>
+                                <h3 class="text-2xl md:text-3xl font-bold mb-4 text-white">模具云供应链协同平台</h3>
+                                <p class="text-gray-400 text-sm leading-relaxed">
+                                    国家级工业互联网项目。主导从0到1的供应链协同体系设计，支撑复杂的多角色交易与履约流程。
+                                </p>
+                            </div>
+                            
+                            <!-- Business Impact -->
+                            <div class="bg-slate-800/50 p-6 rounded-lg border border-slate-750">
+                                <h4 class="text-lg font-semibold mb-6 text-gray-200">业务影响</h4>
+                                <div class="grid grid-cols-3 gap-6">
+                                    <div class="flex flex-col items-center text-center">
+                                        <div class="w-32 h-24 bg-gradient-to-br from-blue-600/20 to-blue-700/20 rounded-lg flex items-center justify-center border border-slate-750 mb-3">
+                                            <span class="text-3xl font-bold bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">5000+</span>
+                                        </div>
+                                        <span class="text-gray-400 text-sm font-medium">覆盖企业数</span>
+                                    </div>
+                                    <div class="flex flex-col items-center text-center">
+                                        <div class="w-32 h-24 bg-gradient-to-br from-blue-600/20 to-blue-700/20 rounded-lg flex items-center justify-center border border-slate-750 mb-3">
+                                            <span class="text-3xl font-bold bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">10亿+</span>
+                                        </div>
+                                        <span class="text-gray-400 text-sm font-medium">年交易额</span>
+                                    </div>
+                                    <div class="flex flex-col items-center text-center">
+                                        <div class="w-32 h-24 bg-gradient-to-br from-blue-600/20 to-blue-700/20 rounded-lg flex items-center justify-center border border-slate-750 mb-3">
+                                            <span class="text-3xl font-bold bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">45%</span>
+                                        </div>
+                                        <span class="text-gray-400 text-sm font-medium">协同效率提升</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 flex flex-col">
+                            <!-- Image Carousel -->
+                            <div class="carousel-container group hover-lift bg-gray-800 rounded-lg border border-gray-700" style="aspect-ratio: 16/9;">
+                                <div class="carousel-slide active">
+                                    <img src="images/mold-cloud-platform-ui-design.jpg" alt="模具云供应链协同平台UI设计 1" class="w-full h-full object-contain cursor-pointer" onclick="openModal(this, ['images/mold-cloud-platform-ui-design.jpg', 'images/mold-cloud-platform-ui-design-2.jpg'])" />
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="images/mold-cloud-platform-ui-design-2.jpg" alt="模具云供应链协同平台UI设计 2" class="w-full h-full object-contain cursor-pointer" onclick="openModal(this, ['images/mold-cloud-platform-ui-design.jpg', 'images/mold-cloud-platform-ui-design-2.jpg'])" />
+                                </div>
+                                
+                                <!-- Navigation Arrows -->
+                                <button class="absolute left-3 top-1/2 -translate-y-1/2 bg-gray-900/80 hover:bg-gray-900 p-2 rounded-full transition-all opacity-0 group-hover:opacity-100 z-10" onclick="prevSlide(this)">
+                                    <i class="fas fa-chevron-left text-white text-lg"></i>
+                                </button>
+                                <button class="absolute right-3 top-1/2 -translate-y-1/2 bg-gray-900/80 hover:bg-gray-900 p-2 rounded-full transition-all opacity-0 group-hover:opacity-100 z-10" onclick="nextSlide(this)">
+                                    <i class="fas fa-chevron-right text-white text-lg"></i>
+                                </button>
+                                
+                                <!-- Indicators -->
+                                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                                    <button class="w-6 h-2 rounded-full bg-blue-500" onclick="goToSlide(this, 0)"></button>
+                                    <button class="w-2 h-2 rounded-full bg-gray-600 hover:bg-gray-500" onclick="goToSlide(this, 1)"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Professional Philosophy -->
+    <footer id="footer" class="py-24 bg-[#0f172a] border-t border-gray-800 grid-bg">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <!-- Professional Philosophy -->
+                <div class="lg:col-span-7">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6">
+                        <span class="gradient-text">
+                            专业理念
+                        </span>
+                    </h2>
+                    <p class="text-lg text-gray-400 leading-relaxed max-w-3xl">
+                        在AI时代，稳健不是保守，而是为了让创新走得更远。我不仅提供远见，更提供可落地的路径。
+                    </p>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="lg:col-span-5">
+                    <h3 class="text-xl font-bold mb-6 text-white">联系我</h3>
+                    <div class="space-y-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center border border-slate-750">
+                                    <i class="fas fa-envelope text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">邮箱</div>
+                                    <div class="text-gray-300 font-medium">mozhenxuan@163.com</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- WeChat QR Code -->
+                    <div class="mt-10">
+                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-4">微信扫码</div>
+                        <div class="carousel-container group hover-lift bg-gray-800 rounded-lg border border-gray-700" style="width: 200px; height: 200px;">
+                            <div class="carousel-slide active">
+                                <img src="images/wechat-qr-code.jpg" alt="微信二维码" class="w-full h-full object-contain cursor-pointer" onclick="openModal(this, ['images/wechat-qr-code.jpg'])" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="mt-20 pt-10 border-t border-slate-800 text-center">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                    <p class="text-gray-500 text-sm">© 2024 莫臻轩. 保留所有权利.</p>
+                    <div class="flex items-center gap-6">
+                        <a href="#" class="text-gray-500 hover:text-blue-500 text-sm transition-colors">隐私政策</a>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 text-sm transition-colors">使用条款</a>
+                        <a href="#" class="text-gray-500 hover:text-blue-500 text-sm transition-colors">Cookie政策</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="absolute top-4 right-4 text-white text-3xl cursor-pointer hover:text-gray-300" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Modal Image" />
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                <button class="absolute left-4 bottom-1/2 -translate-y-1/2 bg-gray-900/80 hover:bg-gray-900 p-2 rounded-full transition-all text-white" onclick="prevModalSlide()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="absolute right-4 bottom-1/2 -translate-y-1/2 bg-gray-900/80 hover:bg-gray-900 p-2 rounded-full transition-all text-white" onclick="nextModalSlide()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('glass', 'py-3');
+                nav.classList.remove('py-5', 'bg-transparent');
+            } else {
+                nav.classList.remove('glass', 'py-3');
+                nav.classList.add('py-5', 'bg-transparent');
+            }
+        });
+
+        // Image Carousel functionality
+        let currentSlide = {};
+        let modalImages = [];
+        let currentModalSlide = 0;
+
+        // Auto play carousel
+        function startAutoPlay() {
+            const carousels = document.querySelectorAll('.carousel-container');
+            carousels.forEach((carousel, index) => {
+                if (!currentSlide[index]) {
+                    currentSlide[index] = 0;
+                }
+                setInterval(() => {
+                    const slides = carousel.querySelectorAll('.carousel-slide');
+                    if (slides.length > 1) {
+                        // Directly update the slide instead of relying on button
+                        currentSlide[index] = (currentSlide[index] + 1) % slides.length;
+                        updateSlide(carousel, currentSlide[index]);
+                    }
+                }, 3000);
+            });
+        }
+
+        // Next slide
+        function nextSlide(button) {
+            const carousel = button.closest('.carousel-container');
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const carouselIndex = Array.from(document.querySelectorAll('.carousel-container')).indexOf(carousel);
+            
+            currentSlide[carouselIndex] = (currentSlide[carouselIndex] + 1) % slides.length;
+            updateSlide(carousel, currentSlide[carouselIndex]);
+        }
+
+        // Previous slide
+        function prevSlide(button) {
+            const carousel = button.closest('.carousel-container');
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const carouselIndex = Array.from(document.querySelectorAll('.carousel-container')).indexOf(carousel);
+            
+            currentSlide[carouselIndex] = (currentSlide[carouselIndex] - 1 + slides.length) % slides.length;
+            updateSlide(carousel, currentSlide[carouselIndex]);
+        }
+
+        // Go to specific slide
+        function goToSlide(button, slideIndex) {
+            const carousel = button.closest('.carousel-container');
+            const carouselIndex = Array.from(document.querySelectorAll('.carousel-container')).indexOf(carousel);
+            
+            currentSlide[carouselIndex] = slideIndex;
+            updateSlide(carousel, slideIndex);
+        }
+
+        // Update slide display
+        function updateSlide(carousel, slideIndex) {
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const indicators = carousel.querySelectorAll('.absolute.bottom-3 button');
+            
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === slideIndex);
+            });
+            
+            indicators.forEach((indicator, index) => {
+                if (index === slideIndex) {
+                    indicator.classList.add('w-6', 'bg-blue-500');
+                    indicator.classList.remove('w-2', 'bg-gray-600', 'hover:bg-gray-500');
+                } else {
+                    indicator.classList.add('w-2', 'bg-gray-600', 'hover:bg-gray-500');
+                    indicator.classList.remove('w-6', 'bg-blue-500');
+                }
+            });
+        }
+
+        // Modal functionality
+        function openModal(img, images) {
+            modalImages = images;
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            currentModalSlide = modalImages.indexOf(img.src);
+            modalImg.src = img.src;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function nextModalSlide() {
+            const modalImg = document.getElementById('modalImage');
+            currentModalSlide = (currentModalSlide + 1) % modalImages.length;
+            modalImg.src = modalImages[currentModalSlide];
+        }
+
+        function prevModalSlide() {
+            const modalImg = document.getElementById('modalImage');
+            currentModalSlide = (currentModalSlide - 1 + modalImages.length) % modalImages.length;
+            modalImg.src = modalImages[currentModalSlide];
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // ESC key to close modal
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            startAutoPlay();
+        });
+    </script>
+</body>
 </html>
