@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>莫臻轩 | B2B AI 产品战略与落地</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #05070d;
+            --bg-2: #08111c;
+            --panel: rgba(8, 17, 28, 0.72);
+            --panel-strong: rgba(9, 23, 36, 0.9);
+            --line: rgba(215, 247, 255, 0.14);
+            --line-strong: rgba(215, 247, 255, 0.28);
+            --text: #f5faff;
+            --muted: #9aaec0;
+            --soft: #c6d8e8;
+            --accent: #9be7ff;
+            --accent-2: #d7f7ff;
+            --cyan: #33d6e8;
+            --max: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at 80% 8%, rgba(155, 231, 255, 0.14), transparent 26%),
+                linear-gradient(180deg, var(--bg) 0%, #070b12 46%, #04060a 100%);
+            color: var(--text);
+            font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .site-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -10;
+            pointer-events: none;
+            background:
+                linear-gradient(rgba(215, 247, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(215, 247, 255, 0.035) 1px, transparent 1px);
+            background-size: 64px 64px;
+            mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+        }
+
+        .container {
+            width: min(var(--max), calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 42px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+
+        .section {
+            position: relative;
+            padding: 108px 0;
+            border-top: 1px solid rgba(215, 247, 255, 0.08);
+        }
+
+        .section-heading {
+            display: grid;
+            grid-template-columns: minmax(0, 0.84fr) minmax(260px, 0.56fr);
+            gap: 48px;
+            align-items: end;
+            margin-bottom: 44px;
+        }
+
+        .section-heading h2 {
+            margin: 16px 0 0;
+            color: var(--text);
+            font-size: 3rem;
+            font-weight: 850;
+            line-height: 1.08;
+            letter-spacing: 0;
+        }
+
+        .section-heading p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+
+        .glass {
+            background: rgba(5, 11, 18, 0.86);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .site-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 50;
+            padding: 22px 0;
+            transition: padding 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .brand strong {
+            color: var(--text);
+            font-size: 1rem;
+            letter-spacing: 0.08em;
+        }
+
+        .brand strong em {
+            color: var(--accent-2);
+            font-style: normal;
+        }
+
+        .brand span {
+            color: var(--muted);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+        }
+
+        .nav-links a {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            color: var(--soft);
+            font-size: 0.86rem;
+            font-weight: 700;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a span {
+            color: var(--muted);
+            font-size: 0.58rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-2);
+        }
+
+        .hero {
+            min-height: 100vh;
+            min-height: 100svh;
+            padding: 136px 0 72px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background:
+                radial-gradient(circle at 74% 30%, rgba(155, 231, 255, 0.18), transparent 29%),
+                radial-gradient(circle at 18% 78%, rgba(51, 214, 232, 0.08), transparent 30%),
+                linear-gradient(130deg, #05070d 0%, #08111c 58%, #04121a 100%);
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
+            gap: 64px;
+            align-items: center;
+        }
+
+        .hero-title {
+            margin: 22px 0 0;
+            max-width: 830px;
+            color: #ffffff;
+            font-size: 6.25rem;
+            font-weight: 900;
+            line-height: 0.98;
+            letter-spacing: 0;
+            text-shadow: 0 0 34px rgba(215, 247, 255, 0.16);
+        }
+
+        .hero-title span {
+            display: block;
+            font-size: 0.78em;
+            color: #dffbff;
+            text-shadow: 0 0 38px rgba(155, 231, 255, 0.32);
+        }
+
+        .hero-lede {
+            max-width: 720px;
+            margin: 30px 0 0;
+            color: var(--soft);
+            font-size: 1.18rem;
+            line-height: 1.9;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .hero-meta span {
+            border: 1px solid var(--line);
+            padding: 10px 14px;
+            color: var(--accent-2);
+            background: rgba(8, 17, 28, 0.62);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 18px;
+            margin-top: 42px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            min-height: 50px;
+            border: 1px solid var(--line-strong);
+            padding: 0 20px;
+            color: var(--text);
+            font-weight: 800;
+            background: linear-gradient(135deg, rgba(215, 247, 255, 0.12), rgba(51, 214, 232, 0.16));
+            box-shadow: 0 20px 54px rgba(51, 214, 232, 0.12);
+            transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            border-color: rgba(215, 247, 255, 0.56);
+            background: linear-gradient(135deg, rgba(215, 247, 255, 0.18), rgba(51, 214, 232, 0.22));
+        }
+
+        .text-link {
+            color: var(--muted);
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+
+        .hero-visual {
+            position: relative;
+            border: 1px solid var(--line-strong);
+            min-height: 560px;
+            overflow: hidden;
+            background: var(--panel);
+            box-shadow:
+                0 36px 110px rgba(51, 214, 232, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.16);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+        }
+
+        .hero-visual::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            background: linear-gradient(
+                180deg,
+                transparent 0%,
+                rgba(155, 231, 255, 0.18) 48%,
+                rgba(215, 247, 255, 0.3) 50%,
+                rgba(155, 231, 255, 0.18) 52%,
+                transparent 100%
+            );
+            opacity: 0.65;
+            transform: translateY(-110%);
+            animation: verticalScan 5.5s ease-in-out infinite;
+        }
+
+        .hero-visual::after {
+            content: "";
+            position: absolute;
+            inset: -40% -80%;
+            z-index: 3;
+            pointer-events: none;
+            background: linear-gradient(115deg, transparent 38%, rgba(255, 255, 255, 0.2) 49%, transparent 60%);
+            animation: scan 8s ease-in-out infinite;
+        }
+
+        .radar-stage {
+            position: relative;
+            z-index: 1;
+            height: 390px;
+            border-bottom: 1px solid var(--line);
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 50% 50%, rgba(155, 231, 255, 0.14), transparent 38%),
+                linear-gradient(rgba(215, 247, 255, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(215, 247, 255, 0.06) 1px, transparent 1px);
+            background-size: auto, 74px 74px, 74px 74px;
+        }
+
+        .radar {
+            position: absolute;
+            inset: 54px 42px 34px;
+            z-index: 2;
+            display: grid;
+            place-items: center;
+            pointer-events: none;
+        }
+
+        .radar::before {
+            content: "";
+            position: absolute;
+            width: min(74%, 278px);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, rgba(155, 231, 255, 0.32), rgba(155, 231, 255, 0.05) 26%, transparent 32% 100%);
+            animation: radarSweep 5.6s linear infinite;
+        }
+
+        .radar::after {
+            content: "";
+            position: absolute;
+            width: min(70%, 260px);
+            aspect-ratio: 1;
+            border: 1px solid rgba(215, 247, 255, 0.22);
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 48px rgba(155, 231, 255, 0.035),
+                0 0 0 96px rgba(155, 231, 255, 0.02),
+                inset 0 0 46px rgba(155, 231, 255, 0.09);
+        }
+
+        .radar-grid {
+            position: absolute;
+            width: min(72%, 270px);
+            aspect-ratio: 1;
+            border: 1px solid rgba(215, 247, 255, 0.16);
+            transform: rotate(45deg);
+        }
+
+        .radar-grid::before,
+        .radar-grid::after {
+            content: "";
+            position: absolute;
+            inset: 21%;
+            border: 1px solid rgba(215, 247, 255, 0.14);
+        }
+
+        .radar-grid::after {
+            inset: 38%;
+            background: rgba(155, 231, 255, 0.07);
+        }
+
+        .radar-polygon {
+            position: absolute;
+            width: min(58%, 224px);
+            aspect-ratio: 1;
+            clip-path: polygon(50% 0%, 94% 30%, 80% 86%, 22% 86%, 6% 30%);
+            background: linear-gradient(135deg, rgba(215, 247, 255, 0.28), rgba(51, 214, 232, 0.08));
+            border: 1px solid rgba(215, 247, 255, 0.38);
+            animation: radarBreathe 4.8s ease-in-out infinite;
+        }
+
+        .radar-axis {
+            position: absolute;
+            width: min(84%, 320px);
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(215, 247, 255, 0.28), transparent);
+        }
+
+        .radar-axis:nth-of-type(2) {
+            transform: rotate(72deg);
+        }
+
+        .radar-axis:nth-of-type(3) {
+            transform: rotate(144deg);
+        }
+
+        .radar-axis:nth-of-type(4) {
+            transform: rotate(216deg);
+        }
+
+        .radar-axis:nth-of-type(5) {
+            transform: rotate(288deg);
+        }
+
+        .radar-node {
+            position: absolute;
+            border: 1px solid rgba(215, 247, 255, 0.86);
+            background: rgba(155, 231, 255, 0.72);
+            border-radius: 50%;
+            box-shadow: 0 0 22px rgba(155, 231, 255, 0.76);
+            animation: pulseDot 2.8s ease-in-out infinite;
+        }
+
+        .radar-node.one {
+            top: 12%;
+            left: 49%;
+            width: 9px;
+            height: 9px;
+        }
+
+        .radar-node.two {
+            top: 37%;
+            right: 15%;
+            width: 8px;
+            height: 8px;
+            animation-delay: 0.5s;
+        }
+
+        .radar-node.three {
+            right: 27%;
+            bottom: 14%;
+            width: 10px;
+            height: 10px;
+            animation-delay: 1s;
+        }
+
+        .radar-node.four {
+            bottom: 20%;
+            left: 24%;
+            width: 8px;
+            height: 8px;
+            animation-delay: 1.4s;
+        }
+
+        .radar-node.five {
+            top: 36%;
+            left: 14%;
+            width: 10px;
+            height: 10px;
+            animation-delay: 1.8s;
+        }
+
+        .radar-label {
+            position: absolute;
+            z-index: 4;
+            color: rgba(215, 247, 255, 0.72);
+            font-size: 0.66rem;
+            font-weight: 850;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .radar-label.top {
+            top: 38px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .radar-label.right {
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .radar-label.bottom {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .radar-label.left {
+            left: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .signal-layer {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .signal-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(215, 247, 255, 0.74), transparent);
+            opacity: 0.42;
+            transform-origin: center;
+        }
+
+        .signal-line.one {
+            top: 31%;
+            left: 10%;
+            width: 78%;
+            animation: signalSlide 6s ease-in-out infinite;
+        }
+
+        .signal-line.two {
+            top: 52%;
+            left: 14%;
+            width: 70%;
+            transform: rotate(-18deg);
+            animation: signalSlide 7.5s ease-in-out infinite reverse;
+        }
+
+        .signal-line.three {
+            top: 66%;
+            left: 22%;
+            width: 56%;
+            transform: rotate(22deg);
+            animation: signalSlide 8.4s ease-in-out infinite;
+        }
+
+        .signal-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border: 1px solid rgba(215, 247, 255, 0.82);
+            background: rgba(155, 231, 255, 0.72);
+            border-radius: 50%;
+            box-shadow: 0 0 22px rgba(155, 231, 255, 0.82);
+            animation: pulseDot 2.8s ease-in-out infinite;
+        }
+
+        .signal-dot.a {
+            top: 30%;
+            left: 24%;
+        }
+
+        .signal-dot.b {
+            top: 49%;
+            right: 18%;
+            animation-delay: 0.7s;
+        }
+
+        .signal-dot.c {
+            top: 67%;
+            left: 48%;
+            animation-delay: 1.2s;
+        }
+
+        .signal-label {
+            position: absolute;
+            right: 22px;
+            top: 22px;
+            z-index: 4;
+            border: 1px solid rgba(215, 247, 255, 0.18);
+            padding: 8px 10px;
+            color: var(--accent-2);
+            background: rgba(5, 11, 18, 0.56);
+            font-size: 0.62rem;
+            font-weight: 850;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .trust-grid {
+            position: relative;
+            z-index: 4;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .trust-item {
+            position: relative;
+            min-height: 168px;
+            padding: 22px 18px;
+            border-right: 1px solid var(--line);
+            background: rgba(5, 11, 18, 0.22);
+            overflow: hidden;
+        }
+
+        .trust-item:last-child {
+            border-right: 0;
+        }
+
+        .trust-item::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(215, 247, 255, 0.16), transparent 42%);
+            opacity: 0;
+            animation: metricPulse 4.8s ease-in-out infinite;
+        }
+
+        .trust-item:nth-child(2)::before {
+            animation-delay: 0.7s;
+        }
+
+        .trust-item:nth-child(3)::before {
+            animation-delay: 1.4s;
+        }
+
+        .trust-item strong {
+            position: relative;
+            display: block;
+            color: var(--text);
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .trust-item span {
+            position: relative;
+            display: block;
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.82rem;
+            line-height: 1.6;
+        }
+
+        .capability-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .capability {
+            min-height: 360px;
+            border: 1px solid var(--line);
+            padding: 30px;
+            background: linear-gradient(180deg, rgba(215, 247, 255, 0.07), rgba(8, 17, 28, 0.58));
+        }
+
+        .capability small {
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .capability h3 {
+            margin: 22px 0 14px;
+            color: var(--text);
+            font-size: 1.56rem;
+            font-weight: 850;
+        }
+
+        .capability p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.85;
+        }
+
+        .capability ul {
+            display: grid;
+            gap: 12px;
+            margin: 28px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .capability li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--soft);
+            font-size: 0.9rem;
+        }
+
+        .capability li::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+        }
+
+        .proof-strip {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .proof-card {
+            border: 1px solid var(--line);
+            padding: 28px;
+            background: rgba(8, 17, 28, 0.55);
+        }
+
+        .proof-card h3 {
+            margin: 0 0 12px;
+            color: var(--text);
+            font-size: 1.25rem;
+        }
+
+        .proof-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .case-stack {
+            display: grid;
+            gap: 18px;
+        }
+
+        .case-strip {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(280px, 440px);
+            gap: 0;
+            border: 1px solid var(--line);
+            background: rgba(8, 17, 28, 0.56);
+            overflow: hidden;
+        }
+
+        .case-link {
+            display: block;
+            padding: 34px;
+            transition: background 0.2s ease;
+        }
+
+        .case-link:hover {
+            background: rgba(215, 247, 255, 0.04);
+        }
+
+        .case-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .case-tags span {
+            border: 1px solid var(--line);
+            padding: 6px 9px;
+            color: var(--accent);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+        }
+
+        .case-title-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: start;
+            margin-bottom: 28px;
+        }
+
+        .case-title-row h3 {
+            margin: 0;
+            color: var(--text);
+            font-size: 1.85rem;
+            font-weight: 850;
+            line-height: 1.2;
+        }
+
+        .case-title-row i {
+            color: var(--accent);
+        }
+
+        .case-columns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .case-columns small {
+            color: var(--accent);
+            font-size: 0.68rem;
+            font-weight: 850;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .case-columns p {
+            margin: 9px 0 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.75;
+        }
+
+        .case-result {
+            color: var(--text) !important;
+            font-size: 1.35rem !important;
+            font-weight: 850;
+            line-height: 1.25 !important;
+        }
+
+        .case-visual {
+            position: relative;
+            min-height: 100%;
+            border-left: 1px solid var(--line);
+            background: #07111c;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            min-height: 310px;
+        }
+
+        .carousel-slide {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            min-height: 310px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            display: flex;
+        }
+
+        .carousel-slide img {
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+            object-fit: cover !important;
+            cursor: pointer;
+            opacity: 0.82;
+        }
+
+        .case-control {
+            position: absolute;
+            top: 50%;
+            z-index: 3;
+            display: grid;
+            place-items: center;
+            width: 34px;
+            height: 34px;
+            border: 1px solid var(--line);
+            color: var(--text);
+            background: rgba(5, 11, 18, 0.72);
+            transform: translateY(-50%);
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .case-control:hover {
+            border-color: var(--line-strong);
+            background: rgba(8, 17, 28, 0.95);
+        }
+
+        .case-control.prev {
+            left: 14px;
+        }
+
+        .case-control.next {
+            right: 14px;
+        }
+
+        .case-dots {
+            position: absolute;
+            right: 0;
+            bottom: 0.75rem;
+            left: 0;
+            z-index: 3;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .framework {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid var(--line);
+            background: rgba(8, 17, 28, 0.52);
+        }
+
+        .step {
+            position: relative;
+            min-height: 280px;
+            padding: 28px;
+            border-right: 1px solid var(--line);
+        }
+
+        .step:last-child {
+            border-right: 0;
+        }
+
+        .step span {
+            color: rgba(215, 247, 255, 0.28);
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .step small {
+            display: block;
+            margin-top: 34px;
+            color: var(--accent);
+            font-size: 0.74rem;
+            font-weight: 850;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .step h3 {
+            margin: 12px 0 12px;
+            color: var(--text);
+            font-size: 1.34rem;
+            font-weight: 850;
+        }
+
+        .step p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.8;
+        }
+
+        .contact {
+            padding-bottom: 88px;
+        }
+
+        .contact-panel {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 260px;
+            gap: 42px;
+            align-items: center;
+            border: 1px solid var(--line-strong);
+            padding: 48px;
+            background:
+                linear-gradient(135deg, rgba(215, 247, 255, 0.08), rgba(8, 17, 28, 0.78)),
+                var(--panel);
+        }
+
+        .contact-panel h2 {
+            max-width: 760px;
+            margin: 16px 0 18px;
+            color: var(--text);
+            font-size: 2.65rem;
+            font-weight: 850;
+            line-height: 1.15;
+        }
+
+        .contact-panel p {
+            max-width: 720px;
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.9;
+        }
+
+        .contact-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .contact-item {
+            border: 1px solid var(--line);
+            padding: 12px 14px;
+            color: var(--soft);
+            background: rgba(5, 11, 18, 0.5);
+        }
+
+        .qr-box {
+            justify-self: end;
+            border: 1px solid var(--line);
+            padding: 14px;
+            background: rgba(245, 250, 255, 0.96);
+        }
+
+        .qr-box img {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+        }
+
+        .footer-note {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 28px;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 92%;
+            max-height: 90%;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scan {
+            0%, 46% { transform: translateX(-26%); opacity: 0; }
+            58% { opacity: 1; }
+            78%, 100% { transform: translateX(26%); opacity: 0; }
+        }
+
+        @keyframes verticalScan {
+            0%, 42% { transform: translateY(-110%); opacity: 0; }
+            52% { opacity: 0.78; }
+            72%, 100% { transform: translateY(110%); opacity: 0; }
+        }
+
+        @keyframes signalSlide {
+            0%, 100% { opacity: 0.22; filter: blur(0); }
+            50% { opacity: 0.72; filter: blur(0.2px); }
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { transform: scale(0.82); opacity: 0.42; }
+            50% { transform: scale(1.25); opacity: 1; }
+        }
+
+        @keyframes radarSweep {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes radarBreathe {
+            0%, 100% { opacity: 0.6; transform: scale(0.96); }
+            50% { opacity: 0.95; transform: scale(1.02); }
+        }
+
+        @keyframes metricPulse {
+            0%, 100% { opacity: 0; transform: translateY(100%); }
+            48%, 62% { opacity: 0.5; transform: translateY(0); }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-layout,
+            .section-heading,
+            .case-strip,
+            .contact-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 4.55rem;
+            }
+
+            .hero-visual {
+                min-height: auto;
+            }
+
+            .case-visual {
+                border-top: 1px solid var(--line);
+                border-left: 0;
+            }
+
+            .capability-grid,
+            .framework {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .step:nth-child(2) {
+                border-right: 0;
+            }
+
+            .step:nth-child(-n+2) {
+                border-bottom: 1px solid var(--line);
+            }
+
+            .qr-box {
+                justify-self: start;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .container {
+                width: min(100% - 28px, var(--max));
+            }
+
+            .site-nav {
+                padding: 16px 0;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 108px;
+            }
+
+            .hero-title {
+                font-size: 3.05rem;
+                line-height: 1.08;
+            }
+
+            .hero-lede {
+                font-size: 1rem;
+            }
+
+            .hero-actions,
+            .hero-meta {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .hero-meta span,
+            .button {
+                width: 100%;
+            }
+
+            .radar-stage {
+                height: 290px;
+            }
+
+            .trust-grid,
+            .capability-grid,
+            .case-columns,
+            .framework,
+            .proof-strip {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-item,
+            .step {
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .trust-item:last-child,
+            .step:last-child {
+                border-bottom: 0;
+            }
+
+            .section {
+                padding: 78px 0;
+            }
+
+            .section-heading h2,
+            .contact-panel h2 {
+                font-size: 2.2rem;
+            }
+
+            .case-link,
+            .contact-panel {
+                padding: 24px;
+            }
+
+            .case-title-row {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .qr-box,
+            .qr-box img {
+                width: 100%;
+            }
+
+            .qr-box img {
+                height: auto;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-visual::before,
+            .hero-visual::after,
+            .hero-cta::before,
+            .signal-line,
+            .signal-dot,
+            .radar::before,
+            .radar-polygon,
+            .radar-node,
+            .trust-item::before {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="site-bg" aria-hidden="true"></div>
+
+    <nav id="nav" class="site-nav">
+        <div class="container nav-inner">
+            <a href="#hero" class="brand" aria-label="返回首页">
+                <strong>莫臻轩 <em>JokerMok</em></strong>
+                <span>AI Product Strategy</span>
+            </a>
+            <div class="nav-links" aria-label="主导航">
+                <a href="#hero">首页<span>Home</span></a>
+                <a href="#value">能力<span>Capabilities</span></a>
+                <a href="#projects">案例<span>Cases</span></a>
+                <a href="#framework">方法论<span>Framework</span></a>
+                <a href="#footer">联系<span>Contact</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="hero" class="hero relative">
+            <div class="container hero-layout">
+                <div>
+                    <div class="eyebrow">Executive AI Transformation</div>
+                    <h1 class="hero-title">
+                        重构B2B复杂业务
+                        <span>定义AI落地新范式</span>
+                    </h1>
+                    <p class="hero-lede">
+                        莫臻轩，11年软件产品专家，AI编排师、人机协作培训师。将复杂线下业务拆解为可增长、可验证、可规模化的数字产品与智能体系统。
+                    </p>
+                    <div class="hero-meta" aria-label="个人定位">
+                        <span>11年软件产品专家</span>
+                        <span>AI编排师</span>
+                        <span>人机协作培训师</span>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#projects" class="button">
+                            查看AI实战案例
+                            <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                        </a>
+                        <a href="#framework" class="text-link">查看落地方法论 / Framework</a>
+                    </div>
+                </div>
+
+                <aside class="hero-visual" aria-label="核心可信指标">
+                    <span class="signal-label">Live Capability Map</span>
+                    <div class="radar-stage" aria-label="动态能力雷达图">
+                        <div class="radar" aria-hidden="true">
+                            <span class="radar-grid"></span>
+                            <span class="radar-axis"></span>
+                            <span class="radar-axis"></span>
+                            <span class="radar-axis"></span>
+                            <span class="radar-axis"></span>
+                            <span class="radar-axis"></span>
+                            <span class="radar-polygon"></span>
+                            <span class="radar-node one"></span>
+                            <span class="radar-node two"></span>
+                            <span class="radar-node three"></span>
+                            <span class="radar-node four"></span>
+                            <span class="radar-node five"></span>
+                        </div>
+                        <span class="radar-label top">AI ORCHESTRATION</span>
+                        <span class="radar-label right">B2B SYSTEMS</span>
+                        <span class="radar-label bottom">DELIVERY</span>
+                        <span class="radar-label left">TRAINING</span>
+                        <div class="signal-layer" aria-hidden="true">
+                            <span class="signal-line one"></span>
+                            <span class="signal-line two"></span>
+                            <span class="signal-line three"></span>
+                        </div>
+                    </div>
+                    <div class="trust-grid">
+                        <div class="trust-item">
+                            <strong>11年</strong>
+                            <span>软件产品与复杂业务系统经验</span>
+                        </div>
+                        <div class="trust-item">
+                            <strong>5+</strong>
+                            <span>跨垂直行业的B2B数字化实践</span>
+                        </div>
+                        <div class="trust-item">
+                            <strong>天级</strong>
+                            <span>AI原型验证从月级缩短到天级</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="value" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <div class="eyebrow">Capabilities</div>
+                        <h2>降低企业AI落地的不确定性</h2>
+                    </div>
+                    <p>
+                        不从单点工具出发，而是从业务结构、产品验证和落地治理三个层面，把复杂业务变成可执行的AI应用路线。
+                    </p>
+                </div>
+
+                <div class="capability-grid">
+                    <article class="capability">
+                        <small>Business Modeling</small>
+                        <h3>复杂业务建模</h3>
+                        <p>将线下流程、角色关系、交易规则和履约链路抽象为清晰的数字产品结构。</p>
+                        <ul>
+                            <li>PMP &amp; 高级信管师双重认证</li>
+                            <li>复杂系统顶层架构设计</li>
+                            <li>亿级流水业务支撑经验</li>
+                        </ul>
+                    </article>
+
+                    <article class="capability">
+                        <small>AI Validation</small>
+                        <h3>AI应用验证</h3>
+                        <p>以可交互原型快速验证AI价值，让商业判断建立在真实使用场景上。</p>
+                        <ul>
+                            <li>LLM与智能体流程编排</li>
+                            <li>低代码与Vibe Coding原型</li>
+                            <li>从0到1验证周期压缩</li>
+                        </ul>
+                    </article>
+
+                    <article class="capability">
+                        <small>Product Governance</small>
+                        <h3>产品落地治理</h3>
+                        <p>让AI应用不止停留在演示，而能进入组织流程、数据体系与持续迭代机制。</p>
+                        <ul>
+                            <li>全生命周期产品管理</li>
+                            <li>跨团队需求与交付协同</li>
+                            <li>业务指标驱动的迭代闭环</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <div class="proof-strip">
+                    <article class="proof-card">
+                        <h3>深厚的B2B底座</h3>
+                        <p>11 年深耕企业数字化核心腹地，覆盖交易平台、工业互联网、MES、水务等复杂业务场景。</p>
+                    </article>
+                    <article class="proof-card">
+                        <h3>敏捷AI引擎</h3>
+                        <p>利用 LLM、Dify、低代码和快速原型，把抽象想法转化为可演示、可讨论、可迭代的产品样机。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <div class="eyebrow">Selected Cases</div>
+                        <h2>B端AI实战案例</h2>
+                    </div>
+                    <p>
+                        案例不只是功能展示，而是从业务问题、产品策略到可量化结果的证据链。
+                    </p>
+                </div>
+
+                <div class="case-stack">
+                    <article class="case-strip">
+                        <a href="ai-lead-scoring.html" class="case-link">
+                            <div class="case-tags">
+                                <span>#RevenueGrowth</span>
+                                <span>#SalesTech</span>
+                                <span>#AI-Flow</span>
+                            </div>
+                            <div class="case-title-row">
+                                <h3>AI驱动的线索获客系统</h3>
+                                <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            </div>
+                            <div class="case-columns">
+                                <div>
+                                    <small>Problem</small>
+                                    <p>线索来源分散，人工清洗与判断成本高，销售优先级缺乏统一标准。</p>
+                                </div>
+                                <div>
+                                    <small>Solution</small>
+                                    <p>基于LLM进行多源数据融合、意图识别、自动评分与线索分配。</p>
+                                </div>
+                                <div>
+                                    <small>Outcome</small>
+                                    <p class="case-result">85% 线索质量提升</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="case-visual">
+                            <div class="carousel-container group">
+                                <div class="carousel-slide active">
+                                    <img src="images/ai-lead-scoring-flowchart.jpg" alt="AI线索评分流程图 1" onclick="openModal(this, ['images/ai-lead-scoring-flowchart.jpg', 'images/ai-lead-scoring-flowchart-2.jpg', 'images/ai-lead-scoring-flowchart-3.jpg'])">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="images/ai-lead-scoring-flowchart-2.jpg" alt="AI线索评分流程图 2" onclick="openModal(this, ['images/ai-lead-scoring-flowchart.jpg', 'images/ai-lead-scoring-flowchart-2.jpg', 'images/ai-lead-scoring-flowchart-3.jpg'])">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="images/ai-lead-scoring-flowchart-3.jpg" alt="AI线索评分流程图 3" onclick="openModal(this, ['images/ai-lead-scoring-flowchart.jpg', 'images/ai-lead-scoring-flowchart-2.jpg', 'images/ai-lead-scoring-flowchart-3.jpg'])">
+                                </div>
+                                <button class="case-control prev" onclick="prevSlide(this)" aria-label="上一张"><i class="fas fa-chevron-left"></i></button>
+                                <button class="case-control next" onclick="nextSlide(this)" aria-label="下一张"><i class="fas fa-chevron-right"></i></button>
+                                <div class="case-dots absolute bottom-3">
+                                    <button class="w-6 h-2 bg-blue-500" onclick="goToSlide(this, 0)" aria-label="第1张"></button>
+                                    <button class="w-2 h-2 bg-gray-600 hover:bg-gray-500" onclick="goToSlide(this, 1)" aria-label="第2张"></button>
+                                    <button class="w-2 h-2 bg-gray-600 hover:bg-gray-500" onclick="goToSlide(this, 2)" aria-label="第3张"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="case-strip">
+                        <a href="smart-water-ai-agent.html" class="case-link">
+                            <div class="case-tags">
+                                <span>#LLM-Orchestration</span>
+                                <span>#Dify</span>
+                                <span>#PromptEngineering</span>
+                            </div>
+                            <div class="case-title-row">
+                                <h3>智慧水务AI助手</h3>
+                                <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            </div>
+                            <div class="case-columns">
+                                <div>
+                                    <small>Problem</small>
+                                    <p>传统水务数据查询、报表生成和设备预警依赖人工操作，响应链路长。</p>
+                                </div>
+                                <div>
+                                    <small>Solution</small>
+                                    <p>基于Dify构建业务智能体，实现自然语言查数、报表生成和故障预警。</p>
+                                </div>
+                                <div>
+                                    <small>Outcome</small>
+                                    <p class="case-result">自然语言驱动业务查询</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="case-visual">
+                            <div class="carousel-container group">
+                                <div class="carousel-slide active">
+                                    <img src="images/smart-water-ai-agent-dify-workflow.jpg" alt="智慧水务AI助手Dify工作流 1" onclick="openModal(this, ['images/smart-water-ai-agent-dify-workflow.jpg', 'images/smart-water-ai-agent-dify-workflow-2.jpg'])">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="images/smart-water-ai-agent-dify-workflow-2.jpg" alt="智慧水务AI助手Dify工作流 2" onclick="openModal(this, ['images/smart-water-ai-agent-dify-workflow.jpg', 'images/smart-water-ai-agent-dify-workflow-2.jpg'])">
+                                </div>
+                                <button class="case-control prev" onclick="prevSlide(this)" aria-label="上一张"><i class="fas fa-chevron-left"></i></button>
+                                <button class="case-control next" onclick="nextSlide(this)" aria-label="下一张"><i class="fas fa-chevron-right"></i></button>
+                                <div class="case-dots absolute bottom-3">
+                                    <button class="w-6 h-2 bg-blue-500" onclick="goToSlide(this, 0)" aria-label="第1张"></button>
+                                    <button class="w-2 h-2 bg-gray-600 hover:bg-gray-500" onclick="goToSlide(this, 1)" aria-label="第2张"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="case-strip">
+                        <a href="mold-cloud-platform.html" class="case-link">
+                            <div class="case-tags">
+                                <span>#Complex-B2B</span>
+                                <span>#SaaS-Architecture</span>
+                                <span>#National-Level</span>
+                            </div>
+                            <div class="case-title-row">
+                                <h3>模具云供应链协同平台</h3>
+                                <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            </div>
+                            <div class="case-columns">
+                                <div>
+                                    <small>Problem</small>
+                                    <p>多角色交易、履约、协同和供应链数据分散，平台需要从0到1建立秩序。</p>
+                                </div>
+                                <div>
+                                    <small>Solution</small>
+                                    <p>主导供应链协同体系设计，支撑复杂交易流程、履约关系和平台化扩张。</p>
+                                </div>
+                                <div>
+                                    <small>Outcome</small>
+                                    <p class="case-result">5000+企业覆盖 / 10亿+年交易额 / 45%协同效率提升</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="case-visual">
+                            <div class="carousel-container group">
+                                <div class="carousel-slide active">
+                                    <img src="images/mold-cloud-platform-ui-design.jpg" alt="模具云供应链协同平台UI设计 1" onclick="openModal(this, ['images/mold-cloud-platform-ui-design.jpg', 'images/mold-cloud-platform-ui-design-2.jpg'])">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="images/mold-cloud-platform-ui-design-2.jpg" alt="模具云供应链协同平台UI设计 2" onclick="openModal(this, ['images/mold-cloud-platform-ui-design.jpg', 'images/mold-cloud-platform-ui-design-2.jpg'])">
+                                </div>
+                                <button class="case-control prev" onclick="prevSlide(this)" aria-label="上一张"><i class="fas fa-chevron-left"></i></button>
+                                <button class="case-control next" onclick="nextSlide(this)" aria-label="下一张"><i class="fas fa-chevron-right"></i></button>
+                                <div class="case-dots absolute bottom-3">
+                                    <button class="w-6 h-2 bg-blue-500" onclick="goToSlide(this, 0)" aria-label="第1张"></button>
+                                    <button class="w-2 h-2 bg-gray-600 hover:bg-gray-500" onclick="goToSlide(this, 1)" aria-label="第2张"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="framework" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <div class="eyebrow">Framework</div>
+                        <h2>从复杂业务到AI应用</h2>
+                    </div>
+                    <p>
+                        将企业AI落地拆成四个连续动作：先看清业务，再快速验证，再编排智能体，最后进入规模化运营。
+                    </p>
+                </div>
+
+                <div class="framework">
+                    <article class="step">
+                        <span>01</span>
+                        <small>Decode</small>
+                        <h3>业务解构</h3>
+                        <p>梳理角色、流程、数据、规则和风险边界，找到AI真正能嵌入的业务节点。</p>
+                    </article>
+                    <article class="step">
+                        <span>02</span>
+                        <small>Prototype</small>
+                        <h3>快速原型</h3>
+                        <p>用低成本可交互原型验证场景价值，让决策从想象进入真实体验。</p>
+                    </article>
+                    <article class="step">
+                        <span>03</span>
+                        <small>Orchestrate</small>
+                        <h3>智能体编排</h3>
+                        <p>围绕业务动作组织提示词、工具、知识库和工作流，形成可执行系统。</p>
+                    </article>
+                    <article class="step">
+                        <span>04</span>
+                        <small>Scale</small>
+                        <h3>规模化落地</h3>
+                        <p>建立指标、权限、流程和迭代机制，让AI应用进入组织日常运转。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer" class="section contact">
+        <div class="container">
+            <div class="contact-panel">
+                <div>
+                    <div class="eyebrow">Contact</div>
+                    <h2>如果你正在把复杂业务转化为可落地的AI产品，我们可以聊聊。</h2>
+                    <p>
+                        适合交流的方向包括：B2B复杂业务数字化、AI应用从0到1验证、企业智能体工作流、产品战略与落地路径。
+                    </p>
+                    <div class="contact-items">
+                        <div class="contact-item"><i class="fas fa-envelope"></i> mozhenxuan@163.com</div>
+                        <div class="contact-item"><i class="fas fa-user"></i> 莫臻轩</div>
+                    </div>
+                </div>
+                <div class="qr-box">
+                    <img src="images/wechat-qr-code.jpg" alt="微信二维码" onclick="openModal(this, ['images/wechat-qr-code.jpg'])">
+                </div>
+            </div>
+            <div class="footer-note">
+                <span>© 2024 莫臻轩. 保留所有权利.</span>
+                <span>AI Product Strategy / B2B Systems / Product Delivery</span>
+            </div>
+        </div>
+    </footer>
+
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="absolute top-4 right-4 text-white text-3xl cursor-pointer hover:text-gray-300" onclick="closeModal()">&times;</span>
+            <div class="absolute top-4 left-4 bg-gray-900/80 hover:bg-gray-900 px-3 py-2 rounded-full text-white text-sm font-medium backdrop-blur-sm">
+                <span id="zoomLevel">100%</span>
+            </div>
+            <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
+                <img
+                    id="modalImage"
+                    src=""
+                    alt="Modal Image"
+                    style="transform: scale(1); transition: transform 0.1s ease-out; cursor: grab;"
+                    onmousedown="handleMouseDown(event)"
+                    onwheel="handleWheel(event)"
+                >
+            </div>
+            <button class="absolute left-4 top-1/2 -translate-y-1/2 bg-gray-900/80 hover:bg-gray-900 p-2 rounded-full transition-all text-white" onclick="prevModalSlide()" aria-label="上一张">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-900/80 hover:bg-gray-900 p-2 rounded-full transition-all text-white" onclick="nextModalSlide()" aria-label="下一张">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('glass');
+                nav.style.padding = '14px 0';
+            } else {
+                nav.classList.remove('glass');
+                nav.style.padding = '';
+            }
+        });
+
+        let currentSlide = {};
+        let modalImages = [];
+        let currentModalSlide = 0;
+        let modalZoom = 1;
+        let imagePosition = { x: 0, y: 0 };
+        let isDragging = false;
+        let dragStart = { x: 0, y: 0 };
+
+        function startAutoPlay() {
+            const carousels = document.querySelectorAll('.carousel-container');
+            carousels.forEach((carousel, index) => {
+                if (!currentSlide[index]) {
+                    currentSlide[index] = 0;
+                }
+                setInterval(() => {
+                    const slides = carousel.querySelectorAll('.carousel-slide');
+                    if (slides.length > 1) {
+                        currentSlide[index] = (currentSlide[index] + 1) % slides.length;
+                        updateSlide(carousel, currentSlide[index]);
+                    }
+                }, 4200);
+            });
+        }
+
+        function nextSlide(button) {
+            const carousel = button.closest('.carousel-container');
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const carouselIndex = Array.from(document.querySelectorAll('.carousel-container')).indexOf(carousel);
+            currentSlide[carouselIndex] = (currentSlide[carouselIndex] + 1) % slides.length;
+            updateSlide(carousel, currentSlide[carouselIndex]);
+        }
+
+        function prevSlide(button) {
+            const carousel = button.closest('.carousel-container');
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const carouselIndex = Array.from(document.querySelectorAll('.carousel-container')).indexOf(carousel);
+            currentSlide[carouselIndex] = (currentSlide[carouselIndex] - 1 + slides.length) % slides.length;
+            updateSlide(carousel, currentSlide[carouselIndex]);
+        }
+
+        function goToSlide(button, slideIndex) {
+            const carousel = button.closest('.carousel-container');
+            const carouselIndex = Array.from(document.querySelectorAll('.carousel-container')).indexOf(carousel);
+            currentSlide[carouselIndex] = slideIndex;
+            updateSlide(carousel, slideIndex);
+        }
+
+        function updateSlide(carousel, slideIndex) {
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const indicators = carousel.querySelectorAll('.case-dots button');
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === slideIndex);
+            });
+            indicators.forEach((indicator, index) => {
+                if (index === slideIndex) {
+                    indicator.classList.add('w-6', 'bg-blue-500');
+                    indicator.classList.remove('w-2', 'bg-gray-600', 'hover:bg-gray-500');
+                } else {
+                    indicator.classList.add('w-2', 'bg-gray-600', 'hover:bg-gray-500');
+                    indicator.classList.remove('w-6', 'bg-blue-500');
+                }
+            });
+        }
+
+        function openModal(img, images) {
+            modalImages = images.map((src) => new URL(src, window.location.href).href);
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            currentModalSlide = Math.max(0, modalImages.indexOf(img.src));
+            modalImg.src = modalImages[currentModalSlide];
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            resetModalZoom();
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function nextModalSlide() {
+            const modalImg = document.getElementById('modalImage');
+            currentModalSlide = (currentModalSlide + 1) % modalImages.length;
+            modalImg.src = modalImages[currentModalSlide];
+            resetModalZoom();
+        }
+
+        function prevModalSlide() {
+            const modalImg = document.getElementById('modalImage');
+            currentModalSlide = (currentModalSlide - 1 + modalImages.length) % modalImages.length;
+            modalImg.src = modalImages[currentModalSlide];
+            resetModalZoom();
+        }
+
+        function resetModalZoom() {
+            modalZoom = 1;
+            imagePosition = { x: 0, y: 0 };
+            updateModalImageTransform();
+        }
+
+        function updateModalImageTransform() {
+            const modalImg = document.getElementById('modalImage');
+            const zoomLevel = document.getElementById('zoomLevel');
+            modalImg.style.transform = `scale(${modalZoom}) translate(${imagePosition.x}px, ${imagePosition.y}px)`;
+            zoomLevel.textContent = `${Math.round(modalZoom * 100)}%`;
+        }
+
+        function handleWheel(event) {
+            event.preventDefault();
+            const delta = event.deltaY > 0 ? -0.1 : 0.1;
+            modalZoom = Math.max(0.5, Math.min(5, modalZoom + delta));
+            updateModalImageTransform();
+        }
+
+        function handleMouseDown(event) {
+            event.preventDefault();
+            isDragging = true;
+            dragStart = {
+                x: event.clientX - imagePosition.x,
+                y: event.clientY - imagePosition.y
+            };
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', handleMouseUp);
+            event.target.style.cursor = 'grabbing';
+        }
+
+        function handleMouseMove(event) {
+            if (isDragging) {
+                imagePosition = {
+                    x: event.clientX - dragStart.x,
+                    y: event.clientY - dragStart.y
+                };
+                updateModalImageTransform();
+            }
+        }
+
+        function handleMouseUp() {
+            isDragging = false;
+            document.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mouseup', handleMouseUp);
+            document.getElementById('modalImage').style.cursor = 'grab';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            startAutoPlay();
+        });
+    </script>
+</body>
+</html>
