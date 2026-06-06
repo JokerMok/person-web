@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>莫臻轩 | B2B AI 产品战略与落地</title>
+    <title>臻一 / 莫臻轩 | 岗位 AI 提效与 B2B AI 落地</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -12,6 +12,8 @@
             --bg-2: #08111c;
             --panel: rgba(8, 17, 28, 0.72);
             --panel-strong: rgba(9, 23, 36, 0.9);
+            --paper: #f6efe2;
+            --paper-2: #fff8ec;
             --line: rgba(215, 247, 255, 0.14);
             --line-strong: rgba(215, 247, 255, 0.28);
             --text: #f5faff;
@@ -20,6 +22,10 @@
             --accent: #9be7ff;
             --accent-2: #d7f7ff;
             --cyan: #33d6e8;
+            --warm: #f2bd57;
+            --warm-2: #ffe0a3;
+            --mint: #7ad7b5;
+            --ink: #101827;
             --max: 1180px;
         }
 
@@ -34,10 +40,12 @@
         body {
             margin: 0;
             background:
-                radial-gradient(circle at 80% 8%, rgba(155, 231, 255, 0.14), transparent 26%),
-                linear-gradient(180deg, var(--bg) 0%, #070b12 46%, #04060a 100%);
+                radial-gradient(circle at 80% 8%, rgba(242, 189, 87, 0.12), transparent 24%),
+                radial-gradient(circle at 12% 22%, rgba(122, 215, 181, 0.08), transparent 26%),
+                linear-gradient(180deg, var(--bg) 0%, #080e14 46%, #04060a 100%);
             color: var(--text);
             font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+            overflow-x: hidden;
         }
 
         a {
@@ -62,6 +70,42 @@
             mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
         }
 
+        .site-bg::before {
+            content: "";
+            position: absolute;
+            inset: -20% -10%;
+            background:
+                linear-gradient(115deg, transparent 0 34%, rgba(255, 224, 163, 0.08) 42%, transparent 50% 100%),
+                linear-gradient(65deg, transparent 0 42%, rgba(122, 215, 181, 0.07) 52%, transparent 62% 100%);
+            opacity: 0.76;
+            transform: translate3d(-8%, -4%, 0);
+        }
+
+        .site-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(115deg, transparent 0 18px, rgba(255, 224, 163, 0.045) 19px, transparent 21px),
+                repeating-linear-gradient(64deg, transparent 0 42px, rgba(122, 215, 181, 0.04) 43px, transparent 45px);
+            opacity: 0.42;
+            transform: translateX(-8%);
+        }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            width: 100%;
+            height: 3px;
+            pointer-events: none;
+            background: linear-gradient(90deg, var(--warm), var(--mint), var(--accent));
+            box-shadow: 0 0 18px rgba(255, 224, 163, 0.9), 0 0 34px rgba(122, 215, 181, 0.44);
+            transform: scaleX(var(--scroll-progress, 0));
+            transform-origin: left;
+        }
+
         .container {
             width: min(var(--max), calc(100% - 40px));
             margin: 0 auto;
@@ -71,7 +115,7 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            color: var(--accent);
+            color: var(--warm-2);
             font-size: 0.72rem;
             font-weight: 800;
             letter-spacing: 0.18em;
@@ -82,7 +126,7 @@
             content: "";
             width: 42px;
             height: 1px;
-            background: linear-gradient(90deg, var(--accent), transparent);
+            background: linear-gradient(90deg, var(--warm), transparent);
         }
 
         .section {
@@ -152,7 +196,7 @@
         }
 
         .brand strong em {
-            color: var(--accent-2);
+            color: var(--warm-2);
             font-style: normal;
         }
 
@@ -204,9 +248,12 @@
             inset: 0;
             z-index: -2;
             background:
-                radial-gradient(circle at 74% 30%, rgba(155, 231, 255, 0.18), transparent 29%),
-                radial-gradient(circle at 18% 78%, rgba(51, 214, 232, 0.08), transparent 30%),
-                linear-gradient(130deg, #05070d 0%, #08111c 58%, #04121a 100%);
+                linear-gradient(rgba(246, 239, 226, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(246, 239, 226, 0.035) 1px, transparent 1px),
+                radial-gradient(circle at 74% 30%, rgba(242, 189, 87, 0.15), transparent 27%),
+                radial-gradient(circle at 18% 78%, rgba(122, 215, 181, 0.08), transparent 30%),
+                linear-gradient(130deg, #05070d 0%, #08111c 58%, #07140f 100%);
+            background-size: 72px 72px, 72px 72px, auto, auto, auto;
         }
 
         .hero-layout {
@@ -217,6 +264,7 @@
         }
 
         .hero-title {
+            position: relative;
             margin: 22px 0 0;
             max-width: 830px;
             color: #ffffff;
@@ -228,10 +276,26 @@
         }
 
         .hero-title span {
+            position: relative;
             display: block;
             font-size: 0.78em;
-            color: #dffbff;
-            text-shadow: 0 0 38px rgba(155, 231, 255, 0.32);
+            color: var(--warm-2);
+            text-shadow: 0 0 38px rgba(242, 189, 87, 0.22);
+            overflow: hidden;
+        }
+
+        .hero-title span::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(105deg, transparent 0 34%, rgba(255, 255, 255, 0.76) 48%, transparent 62% 100%);
+            mix-blend-mode: overlay;
+            transform: translateX(-115%);
+            opacity: 0;
+        }
+
+        .hero-title:hover span::after {
+            animation: titleSweep 0.9s ease both;
         }
 
         .hero-lede {
@@ -252,7 +316,7 @@
         .hero-meta span {
             border: 1px solid var(--line);
             padding: 10px 14px;
-            color: var(--accent-2);
+            color: var(--paper-2);
             background: rgba(8, 17, 28, 0.62);
         }
 
@@ -265,6 +329,8 @@
         }
 
         .button {
+            position: relative;
+            overflow: hidden;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -272,21 +338,50 @@
             min-height: 50px;
             border: 1px solid var(--line-strong);
             padding: 0 20px;
-            color: var(--text);
+            color: #08111c;
             font-weight: 800;
-            background: linear-gradient(135deg, rgba(215, 247, 255, 0.12), rgba(51, 214, 232, 0.16));
-            box-shadow: 0 20px 54px rgba(51, 214, 232, 0.12);
+            background: linear-gradient(135deg, var(--paper-2), var(--warm));
+            box-shadow: 0 20px 54px rgba(242, 189, 87, 0.16);
             transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .button::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(110deg, transparent 0 34%, rgba(255, 255, 255, 0.72) 50%, transparent 66% 100%);
+            transform: translateX(-120%);
+            transition: transform 0.62s ease;
+        }
+
+        .button:hover::before {
+            transform: translateX(120%);
+        }
+
+        .button > * {
+            position: relative;
+            z-index: 1;
         }
 
         .button:hover {
             transform: translateY(-2px);
-            border-color: rgba(215, 247, 255, 0.56);
-            background: linear-gradient(135deg, rgba(215, 247, 255, 0.18), rgba(51, 214, 232, 0.22));
+            border-color: rgba(255, 224, 163, 0.7);
+            background: linear-gradient(135deg, #fffaf0, #ffc966);
+        }
+
+        .button:focus-visible,
+        .text-link:focus-visible,
+        .nav-links a:focus-visible,
+        .diagnosis-choice:focus-visible,
+        .lab-card:focus-visible,
+        .case-control:focus-visible,
+        .case-dots button:focus-visible {
+            outline: 3px solid rgba(255, 224, 163, 0.86);
+            outline-offset: 3px;
         }
 
         .text-link {
-            color: var(--muted);
+            color: var(--warm-2);
             font-size: 0.92rem;
             font-weight: 700;
         }
@@ -302,6 +397,9 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.16);
             backdrop-filter: blur(22px);
             -webkit-backdrop-filter: blur(22px);
+            transform-style: preserve-3d;
+            transition: transform 0.18s ease, box-shadow 0.25s ease;
+            isolation: isolate;
         }
 
         .hero-visual::before {
@@ -320,7 +418,6 @@
             );
             opacity: 0.65;
             transform: translateY(-110%);
-            animation: verticalScan 5.5s ease-in-out infinite;
         }
 
         .hero-visual::after {
@@ -330,254 +427,7 @@
             z-index: 3;
             pointer-events: none;
             background: linear-gradient(115deg, transparent 38%, rgba(255, 255, 255, 0.2) 49%, transparent 60%);
-            animation: scan 8s ease-in-out infinite;
-        }
-
-        .radar-stage {
-            position: relative;
-            z-index: 1;
-            height: 390px;
-            border-bottom: 1px solid var(--line);
-            overflow: hidden;
-            background:
-                radial-gradient(circle at 50% 50%, rgba(155, 231, 255, 0.14), transparent 38%),
-                linear-gradient(rgba(215, 247, 255, 0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(215, 247, 255, 0.06) 1px, transparent 1px);
-            background-size: auto, 74px 74px, 74px 74px;
-        }
-
-        .radar {
-            position: absolute;
-            inset: 54px 42px 34px;
-            z-index: 2;
-            display: grid;
-            place-items: center;
-            pointer-events: none;
-        }
-
-        .radar::before {
-            content: "";
-            position: absolute;
-            width: min(74%, 278px);
-            aspect-ratio: 1;
-            border-radius: 50%;
-            background: conic-gradient(from 0deg, rgba(155, 231, 255, 0.32), rgba(155, 231, 255, 0.05) 26%, transparent 32% 100%);
-            animation: radarSweep 5.6s linear infinite;
-        }
-
-        .radar::after {
-            content: "";
-            position: absolute;
-            width: min(70%, 260px);
-            aspect-ratio: 1;
-            border: 1px solid rgba(215, 247, 255, 0.22);
-            border-radius: 50%;
-            box-shadow:
-                0 0 0 48px rgba(155, 231, 255, 0.035),
-                0 0 0 96px rgba(155, 231, 255, 0.02),
-                inset 0 0 46px rgba(155, 231, 255, 0.09);
-        }
-
-        .radar-grid {
-            position: absolute;
-            width: min(72%, 270px);
-            aspect-ratio: 1;
-            border: 1px solid rgba(215, 247, 255, 0.16);
-            transform: rotate(45deg);
-        }
-
-        .radar-grid::before,
-        .radar-grid::after {
-            content: "";
-            position: absolute;
-            inset: 21%;
-            border: 1px solid rgba(215, 247, 255, 0.14);
-        }
-
-        .radar-grid::after {
-            inset: 38%;
-            background: rgba(155, 231, 255, 0.07);
-        }
-
-        .radar-polygon {
-            position: absolute;
-            width: min(58%, 224px);
-            aspect-ratio: 1;
-            clip-path: polygon(50% 0%, 94% 30%, 80% 86%, 22% 86%, 6% 30%);
-            background: linear-gradient(135deg, rgba(215, 247, 255, 0.28), rgba(51, 214, 232, 0.08));
-            border: 1px solid rgba(215, 247, 255, 0.38);
-            animation: radarBreathe 4.8s ease-in-out infinite;
-        }
-
-        .radar-axis {
-            position: absolute;
-            width: min(84%, 320px);
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(215, 247, 255, 0.28), transparent);
-        }
-
-        .radar-axis:nth-of-type(2) {
-            transform: rotate(72deg);
-        }
-
-        .radar-axis:nth-of-type(3) {
-            transform: rotate(144deg);
-        }
-
-        .radar-axis:nth-of-type(4) {
-            transform: rotate(216deg);
-        }
-
-        .radar-axis:nth-of-type(5) {
-            transform: rotate(288deg);
-        }
-
-        .radar-node {
-            position: absolute;
-            border: 1px solid rgba(215, 247, 255, 0.86);
-            background: rgba(155, 231, 255, 0.72);
-            border-radius: 50%;
-            box-shadow: 0 0 22px rgba(155, 231, 255, 0.76);
-            animation: pulseDot 2.8s ease-in-out infinite;
-        }
-
-        .radar-node.one {
-            top: 12%;
-            left: 49%;
-            width: 9px;
-            height: 9px;
-        }
-
-        .radar-node.two {
-            top: 37%;
-            right: 15%;
-            width: 8px;
-            height: 8px;
-            animation-delay: 0.5s;
-        }
-
-        .radar-node.three {
-            right: 27%;
-            bottom: 14%;
-            width: 10px;
-            height: 10px;
-            animation-delay: 1s;
-        }
-
-        .radar-node.four {
-            bottom: 20%;
-            left: 24%;
-            width: 8px;
-            height: 8px;
-            animation-delay: 1.4s;
-        }
-
-        .radar-node.five {
-            top: 36%;
-            left: 14%;
-            width: 10px;
-            height: 10px;
-            animation-delay: 1.8s;
-        }
-
-        .radar-label {
-            position: absolute;
-            z-index: 4;
-            color: rgba(215, 247, 255, 0.72);
-            font-size: 0.66rem;
-            font-weight: 850;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-        }
-
-        .radar-label.top {
-            top: 38px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .radar-label.right {
-            right: 24px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .radar-label.bottom {
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .radar-label.left {
-            left: 24px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .signal-layer {
-            position: absolute;
-            inset: 0;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .signal-line {
-            position: absolute;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(215, 247, 255, 0.74), transparent);
-            opacity: 0.42;
-            transform-origin: center;
-        }
-
-        .signal-line.one {
-            top: 31%;
-            left: 10%;
-            width: 78%;
-            animation: signalSlide 6s ease-in-out infinite;
-        }
-
-        .signal-line.two {
-            top: 52%;
-            left: 14%;
-            width: 70%;
-            transform: rotate(-18deg);
-            animation: signalSlide 7.5s ease-in-out infinite reverse;
-        }
-
-        .signal-line.three {
-            top: 66%;
-            left: 22%;
-            width: 56%;
-            transform: rotate(22deg);
-            animation: signalSlide 8.4s ease-in-out infinite;
-        }
-
-        .signal-dot {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            border: 1px solid rgba(215, 247, 255, 0.82);
-            background: rgba(155, 231, 255, 0.72);
-            border-radius: 50%;
-            box-shadow: 0 0 22px rgba(155, 231, 255, 0.82);
-            animation: pulseDot 2.8s ease-in-out infinite;
-        }
-
-        .signal-dot.a {
-            top: 30%;
-            left: 24%;
-        }
-
-        .signal-dot.b {
-            top: 49%;
-            right: 18%;
-            animation-delay: 0.7s;
-        }
-
-        .signal-dot.c {
-            top: 67%;
-            left: 48%;
-            animation-delay: 1.2s;
+            opacity: 0.25;
         }
 
         .signal-label {
@@ -621,15 +471,12 @@
             inset: 0;
             background: linear-gradient(180deg, rgba(215, 247, 255, 0.16), transparent 42%);
             opacity: 0;
-            animation: metricPulse 4.8s ease-in-out infinite;
         }
 
         .trust-item:nth-child(2)::before {
-            animation-delay: 0.7s;
         }
 
         .trust-item:nth-child(3)::before {
-            animation-delay: 1.4s;
         }
 
         .trust-item strong {
@@ -649,6 +496,281 @@
             line-height: 1.6;
         }
 
+        .identity-map {
+            position: relative;
+            z-index: 4;
+            display: grid;
+            gap: 18px;
+            padding: 26px;
+        }
+
+        .identity-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 224, 163, 0.3);
+            padding: 24px;
+            background:
+                linear-gradient(135deg, rgba(255, 248, 236, 0.12), rgba(242, 189, 87, 0.06)),
+                rgba(5, 11, 18, 0.58);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .identity-card::before,
+        .capability::before,
+        .diagnosis-choice::before,
+        .lab-card::before,
+        .step::before,
+        .case-strip::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(120deg, transparent 0 36%, rgba(255, 224, 163, 0.14) 50%, transparent 64% 100%);
+            opacity: 0;
+            transform: translateX(-120%);
+            transition: opacity 0.2s ease;
+        }
+
+        .identity-card:hover::before,
+        .capability:hover::before,
+        .diagnosis-choice:hover::before,
+        .lab-card:hover::before,
+        .step:hover::before,
+        .case-strip:hover::before {
+            opacity: 1;
+            animation: cardSweep 1.2s ease both;
+        }
+
+        .identity-card::after,
+        .capability::after,
+        .diagnosis-choice::after,
+        .lab-card::after,
+        .step::after,
+        .case-strip::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            border: 1px solid transparent;
+            background:
+                linear-gradient(90deg, rgba(255, 224, 163, 0.72), transparent, rgba(122, 215, 181, 0.58)) border-box;
+            -webkit-mask:
+                linear-gradient(#000 0 0) padding-box,
+                linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.24s ease;
+        }
+
+        .identity-card:hover::after,
+        .capability:hover::after,
+        .diagnosis-choice:hover::after,
+        .lab-card:hover::after,
+        .step:hover::after,
+        .case-strip:hover::after {
+            opacity: 1;
+            animation: borderIgnite 0.9s ease both;
+        }
+
+        .identity-card.secondary {
+            border-color: rgba(122, 215, 181, 0.28);
+            background:
+                linear-gradient(135deg, rgba(122, 215, 181, 0.12), rgba(51, 214, 232, 0.04)),
+                rgba(5, 11, 18, 0.48);
+        }
+
+        .identity-card small,
+        .loop-step small,
+        .diagnosis-choice small {
+            color: var(--warm-2);
+            font-size: 0.7rem;
+            font-weight: 850;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .identity-card h3 {
+            margin: 12px 0 10px;
+            color: var(--text);
+            font-size: 1.45rem;
+            font-weight: 850;
+            line-height: 1.22;
+        }
+
+        .identity-card p {
+            margin: 0;
+            color: var(--soft);
+            font-size: 0.94rem;
+            line-height: 1.75;
+        }
+
+        .route-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            border: 1px solid rgba(255, 224, 163, 0.28);
+            padding: 8px 10px;
+            color: var(--warm-2);
+            background: rgba(5, 11, 18, 0.46);
+            font-size: 0.76rem;
+            font-weight: 800;
+        }
+
+        .loop-map {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .loop-step {
+            position: relative;
+            overflow: hidden;
+            min-height: 96px;
+            border: 1px solid rgba(215, 247, 255, 0.12);
+            padding: 14px;
+            background: rgba(5, 11, 18, 0.44);
+        }
+
+        .loop-step::after {
+            content: "";
+            position: absolute;
+            inset: auto 14px 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--warm), var(--mint), transparent);
+            transform: scaleX(1);
+            transform-origin: left;
+            opacity: 0.62;
+        }
+
+        .loop-step:nth-child(2)::after {
+        }
+
+        .loop-step:nth-child(3)::after {
+        }
+
+        .loop-step:nth-child(4)::after {
+        }
+
+        .loop-step strong {
+            display: block;
+            margin-top: 8px;
+            color: var(--text);
+            font-size: 0.98rem;
+        }
+
+        .diagnosis {
+            border-top-color: rgba(242, 189, 87, 0.16);
+        }
+
+        .diagnosis-panel {
+            display: grid;
+            grid-template-columns: minmax(0, 0.86fr) minmax(300px, 0.54fr);
+            gap: 28px;
+            border: 1px solid rgba(255, 224, 163, 0.24);
+            padding: 34px;
+            background:
+                linear-gradient(135deg, rgba(246, 239, 226, 0.08), rgba(8, 17, 28, 0.72)),
+                rgba(5, 11, 18, 0.7);
+        }
+
+        .diagnosis-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .diagnosis-choice {
+            position: relative;
+            overflow: hidden;
+            min-height: 158px;
+            border: 1px solid var(--line);
+            padding: 18px;
+            color: inherit;
+            text-align: left;
+            background: rgba(5, 11, 18, 0.46);
+            cursor: pointer;
+            transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .diagnosis-choice:hover,
+        .diagnosis-choice.active {
+            transform: translateY(-2px);
+            border-color: rgba(255, 224, 163, 0.62);
+            background: rgba(242, 189, 87, 0.1);
+        }
+
+        .diagnosis-choice strong {
+            display: block;
+            margin: 12px 0 8px;
+            color: var(--text);
+            font-size: 1.12rem;
+        }
+
+        .diagnosis-choice span {
+            display: block;
+            color: var(--muted);
+            font-size: 0.86rem;
+            line-height: 1.65;
+        }
+
+        .diagnosis-result {
+            align-self: stretch;
+            border: 1px solid rgba(122, 215, 181, 0.26);
+            padding: 26px;
+            background: var(--paper);
+            color: var(--ink);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+        }
+
+        .diagnosis-result small {
+            color: #6a541e;
+            font-size: 0.72rem;
+            font-weight: 850;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .diagnosis-result h3 {
+            margin: 14px 0 12px;
+            color: var(--ink);
+            font-size: 1.55rem;
+            font-weight: 850;
+            line-height: 1.25;
+        }
+
+        .diagnosis-result p {
+            margin: 0;
+            color: #3a4658;
+            line-height: 1.85;
+        }
+
+        .diagnosis-result ul {
+            display: grid;
+            gap: 10px;
+            margin: 22px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .diagnosis-result li {
+            display: flex;
+            gap: 10px;
+            color: #1c2a3c;
+            line-height: 1.55;
+        }
+
+        .diagnosis-result li::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            margin-top: 8px;
+            flex: 0 0 auto;
+            background: #0c8f70;
+        }
+
         .capability-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -656,10 +778,18 @@
         }
 
         .capability {
+            position: relative;
+            overflow: hidden;
             min-height: 360px;
             border: 1px solid var(--line);
             padding: 30px;
             background: linear-gradient(180deg, rgba(215, 247, 255, 0.07), rgba(8, 17, 28, 0.58));
+            transition: border-color 0.2s ease, box-shadow 0.25s ease;
+        }
+
+        .capability:hover {
+            border-color: rgba(255, 224, 163, 0.42);
+            box-shadow: 0 24px 72px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.12);
         }
 
         .capability small {
@@ -739,12 +869,169 @@
         }
 
         .case-strip {
+            position: relative;
             display: grid;
             grid-template-columns: minmax(0, 1fr) minmax(280px, 440px);
             gap: 0;
             border: 1px solid var(--line);
             background: rgba(8, 17, 28, 0.56);
             overflow: hidden;
+            transition: border-color 0.2s ease, box-shadow 0.25s ease;
+        }
+
+        .case-strip:hover {
+            border-color: rgba(255, 224, 163, 0.35);
+            box-shadow: 0 28px 88px rgba(0, 0, 0, 0.22);
+        }
+
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .lab-card {
+            position: relative;
+            display: flex;
+            min-height: 360px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            padding: 22px;
+            background:
+                radial-gradient(circle at 18% 0%, rgba(255, 224, 163, 0.1), transparent 34%),
+                linear-gradient(180deg, rgba(215, 247, 255, 0.055), rgba(8, 17, 28, 0.62));
+            color: inherit;
+            flex-direction: column;
+            transition: border-color 0.2s ease, box-shadow 0.25s ease, transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .lab-card:hover {
+            border-color: rgba(255, 224, 163, 0.46);
+            box-shadow: 0 30px 92px rgba(0, 0, 0, 0.26), 0 0 46px rgba(122, 215, 181, 0.08);
+        }
+
+        .lab-card.featured {
+            grid-column: span 2;
+            background:
+                radial-gradient(circle at 12% 0%, rgba(255, 224, 163, 0.18), transparent 36%),
+                radial-gradient(circle at 86% 20%, rgba(122, 215, 181, 0.12), transparent 34%),
+                linear-gradient(180deg, rgba(215, 247, 255, 0.07), rgba(8, 17, 28, 0.68));
+        }
+
+        .lab-card small {
+            position: relative;
+            z-index: 1;
+            color: var(--warm-2);
+            font-size: 0.68rem;
+            font-weight: 850;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .lab-card h3 {
+            position: relative;
+            z-index: 1;
+            margin: 18px 0 12px;
+            color: var(--text);
+            font-size: 1.42rem;
+            font-weight: 850;
+            line-height: 1.18;
+        }
+
+        .lab-card.featured h3 {
+            max-width: 440px;
+            font-size: 1.85rem;
+        }
+
+        .lab-card p {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.78;
+        }
+
+        .lab-card ul {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            gap: 10px;
+            margin: 22px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .lab-card li {
+            display: flex;
+            gap: 10px;
+            color: var(--soft);
+            font-size: 0.86rem;
+            line-height: 1.55;
+        }
+
+        .lab-card li::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            margin-top: 7px;
+            flex: 0 0 auto;
+            background: var(--mint);
+            box-shadow: 0 0 12px rgba(122, 215, 181, 0.58);
+        }
+
+        .lab-meta {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+            padding-top: 24px;
+        }
+
+        .lab-meta span,
+        .lab-link {
+            border: 1px solid rgba(215, 247, 255, 0.14);
+            padding: 7px 9px;
+            color: var(--accent-2);
+            background: rgba(5, 11, 18, 0.5);
+            font-size: 0.72rem;
+            font-weight: 800;
+        }
+
+        .lab-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--warm-2);
+        }
+
+        .lab-orbit {
+            position: absolute;
+            right: -52px;
+            bottom: -52px;
+            width: 164px;
+            aspect-ratio: 1;
+            border: 1px solid rgba(255, 224, 163, 0.16);
+            border-radius: 50%;
+            opacity: 0.72;
+        }
+
+        .lab-orbit::before,
+        .lab-orbit::after {
+            content: "";
+            position: absolute;
+            inset: 22%;
+            border: 1px solid rgba(122, 215, 181, 0.14);
+            border-radius: 50%;
+        }
+
+        .lab-orbit::after {
+            inset: 45%;
+            background: rgba(255, 224, 163, 0.16);
+            box-shadow: 0 0 28px rgba(255, 224, 163, 0.28);
         }
 
         .case-link {
@@ -858,6 +1145,14 @@
             object-fit: cover !important;
             cursor: pointer;
             opacity: 0.82;
+            transform: scale(1.02);
+            transition: transform 0.55s ease, opacity 0.35s ease, filter 0.35s ease;
+        }
+
+        .case-strip:hover .carousel-slide.active img {
+            opacity: 1;
+            transform: scale(1.08);
+            filter: saturate(1.08) contrast(1.04);
         }
 
         .case-control {
@@ -900,17 +1195,93 @@
         }
 
         .framework {
+            position: relative;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             border: 1px solid var(--line);
             background: rgba(8, 17, 28, 0.52);
+            overflow: hidden;
+        }
+
+        .framework::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 32%;
+            background: linear-gradient(90deg, transparent, rgba(122, 215, 181, 0.12), rgba(255, 224, 163, 0.1), transparent);
+            transform: translateX(210%);
+            opacity: 0.45;
         }
 
         .step {
             position: relative;
+            z-index: 1;
+            overflow: hidden;
             min-height: 280px;
             padding: 28px;
             border-right: 1px solid var(--line);
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .step:hover {
+            background: rgba(255, 224, 163, 0.05);
+            border-color: rgba(255, 224, 163, 0.28);
+        }
+
+        .motion-card {
+            transform:
+                perspective(1000px)
+                rotateX(var(--tilt-x, 0deg))
+                rotateY(var(--tilt-y, 0deg))
+                translate3d(0, var(--lift, 0px), 0);
+            transform-style: preserve-3d;
+            will-change: transform;
+            transition: transform 0.18s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+        }
+
+        .motion-card:hover {
+            --lift: -10px;
+            box-shadow:
+                0 34px 110px rgba(0, 0, 0, 0.32),
+                0 0 48px rgba(255, 224, 163, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.14);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            filter: blur(10px);
+            transition:
+                opacity 0.75s ease var(--reveal-delay, 0ms),
+                transform 0.75s ease var(--reveal-delay, 0ms),
+                filter 0.75s ease var(--reveal-delay, 0ms);
+        }
+
+        .reveal.in-view {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        .text-reveal {
+            opacity: 0;
+            transform: translateY(18px) skewY(1.5deg);
+            filter: blur(9px);
+            clip-path: inset(0 0 100% 0);
+            transition:
+                opacity 0.48s ease var(--text-delay, 0ms),
+                transform 0.48s ease var(--text-delay, 0ms),
+                filter 0.48s ease var(--text-delay, 0ms),
+                clip-path 0.48s ease var(--text-delay, 0ms);
+        }
+
+        .text-reveal.in-view,
+        .reveal.in-view .text-reveal {
+            opacity: 1;
+            transform: translateY(0) skewY(0);
+            filter: blur(0);
+            clip-path: inset(0 0 0 0);
         }
 
         .step:last-child {
@@ -1050,47 +1421,34 @@
             to { opacity: 1; }
         }
 
-        @keyframes scan {
-            0%, 46% { transform: translateX(-26%); opacity: 0; }
-            58% { opacity: 1; }
-            78%, 100% { transform: translateX(26%); opacity: 0; }
+        @keyframes titleSweep {
+            0%, 46% { transform: translateX(-115%); opacity: 0; }
+            58% { opacity: 0.85; }
+            74%, 100% { transform: translateX(115%); opacity: 0; }
         }
 
-        @keyframes verticalScan {
-            0%, 42% { transform: translateY(-110%); opacity: 0; }
-            52% { opacity: 0.78; }
-            72%, 100% { transform: translateY(110%); opacity: 0; }
+        @keyframes cardSweep {
+            0% { transform: translateX(-120%); }
+            100% { transform: translateX(120%); }
         }
 
-        @keyframes signalSlide {
-            0%, 100% { opacity: 0.22; filter: blur(0); }
-            50% { opacity: 0.72; filter: blur(0.2px); }
+        @keyframes borderIgnite {
+            0% { filter: hue-rotate(0deg) brightness(1); }
+            50% { filter: hue-rotate(28deg) brightness(1.3); }
+            100% { filter: hue-rotate(0deg) brightness(1); }
         }
 
-        @keyframes pulseDot {
-            0%, 100% { transform: scale(0.82); opacity: 0.42; }
-            50% { transform: scale(1.25); opacity: 1; }
-        }
-
-        @keyframes radarSweep {
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes radarBreathe {
-            0%, 100% { opacity: 0.6; transform: scale(0.96); }
-            50% { opacity: 0.95; transform: scale(1.02); }
-        }
-
-        @keyframes metricPulse {
-            0%, 100% { opacity: 0; transform: translateY(100%); }
-            48%, 62% { opacity: 0.5; transform: translateY(0); }
+        @keyframes resultSwap {
+            0% { opacity: 0; transform: translateY(12px) scale(0.98); filter: blur(8px); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
         }
 
         @media (max-width: 1024px) {
             .hero-layout,
             .section-heading,
             .case-strip,
-            .contact-panel {
+            .contact-panel,
+            .diagnosis-panel {
                 grid-template-columns: 1fr;
             }
 
@@ -1108,8 +1466,14 @@
             }
 
             .capability-grid,
-            .framework {
+            .framework,
+            .diagnosis-grid,
+            .labs-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .lab-card.featured {
+                grid-column: span 2;
             }
 
             .step:nth-child(2) {
@@ -1127,7 +1491,9 @@
 
         @media (max-width: 720px) {
             .container {
-                width: min(100% - 28px, var(--max));
+                width: min(calc(100% - 28px), var(--max));
+                max-width: calc(100vw - 28px);
+                margin-inline: auto;
             }
 
             .site-nav {
@@ -1143,8 +1509,10 @@
             }
 
             .hero-title {
-                font-size: 3.05rem;
+                max-width: 100%;
+                font-size: 2.72rem;
                 line-height: 1.08;
+                overflow-wrap: break-word;
             }
 
             .hero-lede {
@@ -1170,8 +1538,15 @@
             .capability-grid,
             .case-columns,
             .framework,
-            .proof-strip {
+            .proof-strip,
+            .diagnosis-grid,
+            .labs-grid,
+            .loop-map {
                 grid-template-columns: 1fr;
+            }
+
+            .lab-card.featured {
+                grid-column: span 1;
             }
 
             .trust-item,
@@ -1195,7 +1570,8 @@
             }
 
             .case-link,
-            .contact-panel {
+            .contact-panel,
+            .diagnosis-panel {
                 padding: 24px;
             }
 
@@ -1215,33 +1591,50 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .hero-visual::before,
-            .hero-visual::after,
-            .hero-cta::before,
-            .signal-line,
-            .signal-dot,
-            .radar::before,
-            .radar-polygon,
-            .radar-node,
-            .trust-item::before {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
+
+            .hero-title span::after {
                 animation: none;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+                filter: none;
+            }
+
+            .text-reveal {
+                opacity: 1;
+                transform: none;
+                filter: none;
+                clip-path: none;
             }
         }
     </style>
 </head>
 <body>
     <div class="site-bg" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
 
     <nav id="nav" class="site-nav">
         <div class="container nav-inner">
             <a href="#hero" class="brand" aria-label="返回首页">
-                <strong>莫臻轩 <em>JokerMok</em></strong>
-                <span>AI Product Strategy</span>
+                <strong>臻一 <em>JokerMok</em></strong>
+                <span>AI SOP Lab</span>
             </a>
             <div class="nav-links" aria-label="主导航">
                 <a href="#hero">首页<span>Home</span></a>
                 <a href="#value">能力<span>Capabilities</span></a>
+                <a href="#diagnosis">诊断<span>Diagnostic</span></a>
                 <a href="#projects">案例<span>Cases</span></a>
+                <a href="#labs">项目<span>Labs</span></a>
                 <a href="#framework">方法论<span>Framework</span></a>
                 <a href="#footer">联系<span>Contact</span></a>
             </div>
@@ -1252,53 +1645,47 @@
         <section id="hero" class="hero relative">
             <div class="container hero-layout">
                 <div>
-                    <div class="eyebrow">Executive AI Transformation</div>
+                    <div class="eyebrow">Zhenyi AI Enablement System</div>
                     <h1 class="hero-title">
-                        重构B2B复杂业务
-                        <span>定义AI落地新范式</span>
+                        把岗位工作流
+                        <span>改造成 AI SOP</span>
                     </h1>
                     <p class="hero-lede">
-                        莫臻轩，11年软件产品专家，AI编排师、人机协作培训师。将复杂线下业务拆解为可增长、可验证、可规模化的数字产品与智能体系统。
+                        臻一 / 莫臻轩，11年软件产品专家，AI编排师、人机协作培训师。主线服务中小企业岗位 AI 提效，同时以复杂 B2B 产品经验支撑企业级 AI 落地。
                     </p>
                     <div class="hero-meta" aria-label="个人定位">
-                        <span>11年软件产品专家</span>
-                        <span>AI编排师</span>
-                        <span>人机协作培训师</span>
+                        <span>岗位 AI 提效 SOP</span>
+                        <span>复杂 B2B 业务建模</span>
+                        <span>智能体工作流落地</span>
                     </div>
                     <div class="hero-actions">
-                        <a href="#projects" class="button">
-                            查看AI实战案例
+                        <a href="#diagnosis" class="button">
+                            做一次岗位 AI 诊断
                             <i class="fas fa-arrow-down" aria-hidden="true"></i>
                         </a>
-                        <a href="#framework" class="text-link">查看落地方法论 / Framework</a>
+                        <a href="#projects" class="text-link">查看 B2B AI 实战案例 / Cases</a>
                     </div>
                 </div>
 
-                <aside class="hero-visual" aria-label="核心可信指标">
-                    <span class="signal-label">Live Capability Map</span>
-                    <div class="radar-stage" aria-label="动态能力雷达图">
-                        <div class="radar" aria-hidden="true">
-                            <span class="radar-grid"></span>
-                            <span class="radar-axis"></span>
-                            <span class="radar-axis"></span>
-                            <span class="radar-axis"></span>
-                            <span class="radar-axis"></span>
-                            <span class="radar-axis"></span>
-                            <span class="radar-polygon"></span>
-                            <span class="radar-node one"></span>
-                            <span class="radar-node two"></span>
-                            <span class="radar-node three"></span>
-                            <span class="radar-node four"></span>
-                            <span class="radar-node five"></span>
-                        </div>
-                        <span class="radar-label top">AI ORCHESTRATION</span>
-                        <span class="radar-label right">B2B SYSTEMS</span>
-                        <span class="radar-label bottom">DELIVERY</span>
-                        <span class="radar-label left">TRAINING</span>
-                        <div class="signal-layer" aria-hidden="true">
-                            <span class="signal-line one"></span>
-                            <span class="signal-line two"></span>
-                            <span class="signal-line three"></span>
+                <aside class="hero-visual" aria-label="臻一双线定位">
+                    <span class="signal-label">Dual Track Positioning</span>
+                    <div class="identity-map">
+                        <article class="identity-card">
+                            <small>Main Track</small>
+                            <h3>臻一：中小企业岗位 AI 提效方案库</h3>
+                            <p>从客服、销售、运营、行政等普通岗位切入，把真实工作流程拆成提示词、知识库、工具和验收标准。</p>
+                            <span class="route-badge"><i class="fas fa-bolt"></i> 首页主线：可诊断、可模板化、可交付</span>
+                        </article>
+                        <article class="identity-card secondary">
+                            <small>Credibility Track</small>
+                            <h3>莫臻轩：复杂 B2B AI 产品落地架构师</h3>
+                            <p>用11年软件产品和复杂业务系统经验，为岗位 AI 提效提供业务建模、系统设计和交付治理底座。</p>
+                        </article>
+                        <div class="loop-map" aria-label="臻一业务闭环">
+                            <div class="loop-step"><small>01</small><strong>真实岗位问题</strong></div>
+                            <div class="loop-step"><small>02</small><strong>SPEC 拆解</strong></div>
+                            <div class="loop-step"><small>03</small><strong>SOP / 智能体</strong></div>
+                            <div class="loop-step"><small>04</small><strong>案例复盘回流</strong></div>
                         </div>
                     </div>
                     <div class="trust-grid">
@@ -1307,8 +1694,8 @@
                             <span>软件产品与复杂业务系统经验</span>
                         </div>
                         <div class="trust-item">
-                            <strong>5+</strong>
-                            <span>跨垂直行业的B2B数字化实践</span>
+                            <strong>SOP</strong>
+                            <span>把岗位流程沉淀为可复用样板</span>
                         </div>
                         <div class="trust-item">
                             <strong>天级</strong>
@@ -1324,57 +1711,105 @@
                 <div class="section-heading">
                     <div>
                         <div class="eyebrow">Capabilities</div>
-                        <h2>降低企业AI落地的不确定性</h2>
+                        <h2>把 AI 从工具尝鲜变成岗位改造</h2>
                     </div>
                     <p>
-                        不从单点工具出发，而是从业务结构、产品验证和落地治理三个层面，把复杂业务变成可执行的AI应用路线。
+                        首页主打臻一 IP：面向中小企业和普通岗位，先找最值得改造的工作流，再做 SOP、模板、智能体和验收标准。
                     </p>
                 </div>
 
                 <div class="capability-grid">
                     <article class="capability">
-                        <small>Business Modeling</small>
+                        <small>Job AI Enablement</small>
+                        <h3>岗位 AI 提效 SOP</h3>
+                        <p>从客服、销售、运营、市场、行政等岗位切入，把日常任务变成可复用的 AI 工作流。</p>
+                        <ul>
+                            <li>岗位任务拆解与优先级判断</li>
+                            <li>提示词、知识库、工具链组合</li>
+                            <li>交付前后对比与验收标准</li>
+                        </ul>
+                    </article>
+
+                    <article class="capability">
+                        <small>B2B Product Strategy</small>
                         <h3>复杂业务建模</h3>
-                        <p>将线下流程、角色关系、交易规则和履约链路抽象为清晰的数字产品结构。</p>
+                        <p>用产品经理视角拆解角色、流程、数据、规则和边界，让 AI 不停留在演示层。</p>
                         <ul>
                             <li>PMP &amp; 高级信管师双重认证</li>
                             <li>复杂系统顶层架构设计</li>
-                            <li>亿级流水业务支撑经验</li>
+                            <li>跨行业 B2B 数字化实践</li>
                         </ul>
                     </article>
 
                     <article class="capability">
-                        <small>AI Validation</small>
-                        <h3>AI应用验证</h3>
-                        <p>以可交互原型快速验证AI价值，让商业判断建立在真实使用场景上。</p>
+                        <small>AI Delivery System</small>
+                        <h3>智能体落地治理</h3>
+                        <p>把低代码、LLM、Dify、知识库和业务指标串成稳定交付，而不是一次性工具演示。</p>
                         <ul>
-                            <li>LLM与智能体流程编排</li>
-                            <li>低代码与Vibe Coding原型</li>
-                            <li>从0到1验证周期压缩</li>
-                        </ul>
-                    </article>
-
-                    <article class="capability">
-                        <small>Product Governance</small>
-                        <h3>产品落地治理</h3>
-                        <p>让AI应用不止停留在演示，而能进入组织流程、数据体系与持续迭代机制。</p>
-                        <ul>
-                            <li>全生命周期产品管理</li>
-                            <li>跨团队需求与交付协同</li>
-                            <li>业务指标驱动的迭代闭环</li>
+                            <li>LLM 与智能体流程编排</li>
+                            <li>低代码与 Vibe Coding 原型</li>
+                            <li>指标驱动的迭代闭环</li>
                         </ul>
                     </article>
                 </div>
 
                 <div class="proof-strip">
                     <article class="proof-card">
-                        <h3>深厚的B2B底座</h3>
-                        <p>11 年深耕企业数字化核心腹地，覆盖交易平台、工业互联网、MES、水务等复杂业务场景。</p>
+                        <h3>主线：臻一方案库</h3>
+                        <p>用内容、模板、工具和案例复盘，持续沉淀“中小企业岗位 AI 提效 SOP 样板包”。</p>
                     </article>
                     <article class="proof-card">
-                        <h3>敏捷AI引擎</h3>
-                        <p>利用 LLM、Dify、低代码和快速原型，把抽象想法转化为可演示、可讨论、可迭代的产品样机。</p>
+                        <h3>背书：B2B复杂系统</h3>
+                        <p>11 年深耕企业数字化核心腹地，覆盖交易平台、工业互联网、MES、水务等复杂业务场景。</p>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="diagnosis" class="section diagnosis">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <div class="eyebrow">Quick Diagnostic</div>
+                        <h2>先判断哪个岗位最值得 AI 化</h2>
+                    </div>
+                    <p>
+                        个人站不只展示能力，也提供一个入口：用几个高频场景快速判断，企业第一步应该从哪里改。
+                    </p>
+                </div>
+
+                <div class="diagnosis-panel">
+                    <div>
+                        <div class="eyebrow">Choose A Starting Point</div>
+                        <div class="diagnosis-grid" aria-label="岗位 AI 提效起点选择">
+                            <button class="diagnosis-choice active" type="button" data-result="service" aria-pressed="true">
+                                <small>Customer Service</small>
+                                <strong>客服问题多、回复慢</strong>
+                                <span>适合先做知识库、话术、工单分类和质检。</span>
+                            </button>
+                            <button class="diagnosis-choice" type="button" data-result="sales" aria-pressed="false">
+                                <small>Sales / Growth</small>
+                                <strong>销售线索乱、跟进散</strong>
+                                <span>适合先做线索清洗、评分、分配和跟进提醒。</span>
+                            </button>
+                            <button class="diagnosis-choice" type="button" data-result="ops" aria-pressed="false">
+                                <small>Operations</small>
+                                <strong>报表重复、流程靠人盯</strong>
+                                <span>适合先做查数助手、日报生成和异常预警。</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <aside class="diagnosis-result" aria-live="polite">
+                        <small id="diagnosisLabel">Recommended First Sample</small>
+                        <h3 id="diagnosisTitle">客服岗位 AI 提效样板包</h3>
+                        <p id="diagnosisText">从知识库整理、标准话术、意图识别和质检复盘开始，最容易形成前后对比，也最适合沉淀为可复用 SOP。</p>
+                        <ul id="diagnosisList">
+                            <li>先整理 20 个高频问题和标准答案</li>
+                            <li>再做客服助手、工单分类和质检表</li>
+                            <li>最后用响应时长、一次解决率、人工转接率验收</li>
+                        </ul>
+                    </aside>
                 </div>
             </div>
         </section>
@@ -1531,42 +1966,153 @@
             </div>
         </section>
 
+        <section id="labs" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <div class="eyebrow">Building Labs</div>
+                        <h2>正在做的项目</h2>
+                    </div>
+                    <p>
+                        这些项目展示的是持续实验中的能力栈：AI 视频、竞品情报、自媒体内容流量、内容工具和本地自动化。
+                    </p>
+                </div>
+
+                <div class="labs-grid">
+                    <article class="lab-card featured" data-href="yongyou-ai-video.html" role="link" tabindex="0" aria-label="查看永优良品 AI 生成视频详情">
+                        <span class="lab-orbit" aria-hidden="true"></span>
+                        <small>AI Video Production</small>
+                        <h3>永优良品 AI 生成视频</h3>
+                        <p>为一家内裤品牌企业制作 AI 生成视频，从卖点洞察、脚本、画面生成到成片输出，后续会沉淀复盘工作流和制作心得。</p>
+                        <ul>
+                            <li>方向：品牌短视频与产品卖点表达</li>
+                            <li>状态：已有成片，持续复盘流程</li>
+                            <li>价值：把 AI 生图、生视频和脚本编排串成可复用生产线</li>
+                        </ul>
+                        <div class="lab-meta">
+                            <span>Brand Video</span>
+                            <span>AI Workflow</span>
+                            <span class="lab-link">
+                                查看详情 <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <article class="lab-card" data-href="competitor-weekly.html" role="link" tabindex="0" aria-label="查看竞品周报详情">
+                        <span class="lab-orbit" aria-hidden="true"></span>
+                        <small>Competitive Intelligence</small>
+                        <h3>竞品周报</h3>
+                        <p>原先运行在 Coze 平台的竞品周报流程，现在转为本地部署，并用 Codex 贯穿搭建、调试和迭代。</p>
+                        <ul>
+                            <li>场景：优废环保竞品情报</li>
+                            <li>状态：本地部署跑通中</li>
+                            <li>路径：从平台工作流迁移到本地自动化</li>
+                        </ul>
+                        <div class="lab-meta">
+                            <span>Coze → Local</span>
+                            <span>Codex Built</span>
+                            <span class="lab-link">
+                                查看详情 <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <article class="lab-card" data-href="emotion-canteen.html" role="link" tabindex="0" aria-label="查看情绪食堂详情">
+                        <span class="lab-orbit" aria-hidden="true"></span>
+                        <small>Xiaohongshu Experiment</small>
+                        <h3>情绪食堂</h3>
+                        <p>小红书笔记项目，用 AI 生图验证内容流量和选题表达，观察情绪价值内容如何形成稳定发布机制。</p>
+                        <ul>
+                            <li>方向：小红书图文与流量验证</li>
+                            <li>状态：内容实验中</li>
+                            <li>方法：全程 AI 生图，复盘选题与互动表现</li>
+                        </ul>
+                        <div class="lab-meta">
+                            <span>AI Images</span>
+                            <span>Traffic Test</span>
+                            <span class="lab-link">
+                                查看详情 <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <article class="lab-card" data-href="wechat-article-formatter.html" role="link" tabindex="0" aria-label="查看公众号文章排版工具详情">
+                        <span class="lab-orbit" aria-hidden="true"></span>
+                        <small>Creator Tool</small>
+                        <h3>公众号文章排版工具</h3>
+                        <p>本地网站小工具，用来把自媒体文章快速整理成适合公众号发布的版式，减少反复手工排版。</p>
+                        <ul>
+                            <li>用途：公众号内容生产</li>
+                            <li>状态：本地工具</li>
+                            <li>价值：把写作到发布之间的格式处理自动化</li>
+                        </ul>
+                        <div class="lab-meta">
+                            <span>Local Web Tool</span>
+                            <span>WeChat Article</span>
+                            <span class="lab-link">
+                                查看详情 <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <article class="lab-card" data-href="image-grid-splitter.html" role="link" tabindex="0" aria-label="查看宫格图片切割工具详情">
+                        <span class="lab-orbit" aria-hidden="true"></span>
+                        <small>Creator Tool</small>
+                        <h3>宫格图片切割工具</h3>
+                        <p>本地网站小工具，用于把图片切成适合社媒发布的宫格图，服务于小红书、视频封面和内容素材制作。</p>
+                        <ul>
+                            <li>用途：自媒体视觉素材处理</li>
+                            <li>状态：本地工具</li>
+                            <li>价值：提高图文内容生产和分发效率</li>
+                        </ul>
+                        <div class="lab-meta">
+                            <span>Local Web Tool</span>
+                            <span>Image Grid</span>
+                            <span class="lab-link">
+                                查看详情 <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <section id="framework" class="section">
             <div class="container">
                 <div class="section-heading">
                     <div>
                         <div class="eyebrow">Framework</div>
-                        <h2>从复杂业务到AI应用</h2>
+                        <h2>臻一 AI 提效闭环</h2>
                     </div>
                     <p>
-                        将企业AI落地拆成四个连续动作：先看清业务，再快速验证，再编排智能体，最后进入规模化运营。
+                        用同一套闭环连接内容、模板、工具、交付和案例：每一次咨询与项目，都回流成可复用的岗位 AI 资产。
                     </p>
                 </div>
 
                 <div class="framework">
                     <article class="step">
                         <span>01</span>
-                        <small>Decode</small>
-                        <h3>业务解构</h3>
-                        <p>梳理角色、流程、数据、规则和风险边界，找到AI真正能嵌入的业务节点。</p>
+                        <small>Problem</small>
+                        <h3>真实岗位问题</h3>
+                        <p>从客服、销售、运营等一线任务里找高频、重复、有标准答案或明确结果的工作流。</p>
                     </article>
                     <article class="step">
                         <span>02</span>
-                        <small>Prototype</small>
-                        <h3>快速原型</h3>
-                        <p>用低成本可交互原型验证场景价值，让决策从想象进入真实体验。</p>
+                        <small>SPEC</small>
+                        <h3>结构化拆解</h3>
+                        <p>明确角色、输入、输出、边界、验收指标和不适合 AI 介入的部分，避免为了 AI 而 AI。</p>
                     </article>
                     <article class="step">
                         <span>03</span>
-                        <small>Orchestrate</small>
-                        <h3>智能体编排</h3>
-                        <p>围绕业务动作组织提示词、工具、知识库和工作流，形成可执行系统。</p>
+                        <small>Package</small>
+                        <h3>SOP / 智能体</h3>
+                        <p>把提示词、知识库、低代码流程、工具调用和岗位操作说明打包成可交付样板。</p>
                     </article>
                     <article class="step">
                         <span>04</span>
-                        <small>Scale</small>
-                        <h3>规模化落地</h3>
-                        <p>建立指标、权限、流程和迭代机制，让AI应用进入组织日常运转。</p>
+                        <small>Compound</small>
+                        <h3>复盘回流</h3>
+                        <p>将结果复盘成文章、图文、模板、产品说明和案例资产，持续扩大臻一方案库。</p>
                     </article>
                 </div>
             </div>
@@ -1580,7 +2126,7 @@
                     <div class="eyebrow">Contact</div>
                     <h2>如果你正在把复杂业务转化为可落地的AI产品，我们可以聊聊。</h2>
                     <p>
-                        适合交流的方向包括：B2B复杂业务数字化、AI应用从0到1验证、企业智能体工作流、产品战略与落地路径。
+                        适合交流的方向包括：中小企业岗位 AI 提效、客服/销售/运营 SOP 样板包、B2B复杂业务数字化、企业智能体工作流。
                     </p>
                     <div class="contact-items">
                         <div class="contact-item"><i class="fas fa-envelope"></i> mozhenxuan@163.com</div>
@@ -1642,6 +2188,166 @@
         let imagePosition = { x: 0, y: 0 };
         let isDragging = false;
         let dragStart = { x: 0, y: 0 };
+
+        const diagnosisCopy = {
+            service: {
+                label: 'Recommended First Sample',
+                title: '客服岗位 AI 提效样板包',
+                text: '从知识库整理、标准话术、意图识别和质检复盘开始，最容易形成前后对比，也最适合沉淀为可复用 SOP。',
+                points: [
+                    '先整理 20 个高频问题和标准答案',
+                    '再做客服助手、工单分类和质检表',
+                    '最后用响应时长、一次解决率、人工转接率验收'
+                ]
+            },
+            sales: {
+                label: 'Recommended Growth Sample',
+                title: '销售线索 AI 评分与跟进流',
+                text: '当线索来源分散、销售优先级靠经验判断时，先把线索清洗、评分、分配和跟进提醒产品化。',
+                points: [
+                    '统一线索字段和数据来源',
+                    '用 LLM 做意图识别、质量评分和摘要',
+                    '用转化率、跟进速度、有效线索占比验收'
+                ]
+            },
+            ops: {
+                label: 'Recommended Ops Sample',
+                title: '运营报表与异常预警助手',
+                text: '当团队每天重复查数、做表和盯异常时，先把固定报表、自然语言查数和预警规则变成稳定工作流。',
+                points: [
+                    '梳理日报、周报和关键指标口径',
+                    '搭建查数助手、自动摘要和异常提醒',
+                    '用制表耗时、漏报率、响应时效验收'
+                ]
+            }
+        };
+
+        function initDiagnosis() {
+            const choices = document.querySelectorAll('.diagnosis-choice');
+            const label = document.getElementById('diagnosisLabel');
+            const title = document.getElementById('diagnosisTitle');
+            const text = document.getElementById('diagnosisText');
+            const list = document.getElementById('diagnosisList');
+            const resultPanel = document.querySelector('.diagnosis-result');
+
+            choices.forEach((choice) => {
+                choice.addEventListener('click', () => {
+                    const result = diagnosisCopy[choice.dataset.result];
+                    if (!result) return;
+
+                    choices.forEach((item) => {
+                        item.classList.remove('active');
+                        item.setAttribute('aria-pressed', 'false');
+                    });
+                    choice.classList.add('active');
+                    choice.setAttribute('aria-pressed', 'true');
+                    label.textContent = result.label;
+                    title.textContent = result.title;
+                    text.textContent = result.text;
+                    list.innerHTML = result.points.map((point) => `<li>${point}</li>`).join('');
+                    resultPanel.style.animation = 'none';
+                    resultPanel.offsetHeight;
+                    resultPanel.style.animation = 'resultSwap 0.42s ease both';
+                });
+            });
+        }
+
+        function initRevealMotion() {
+            const revealTargets = document.querySelectorAll(
+                '.section-heading, .capability, .proof-card, .diagnosis-panel, .case-strip, .lab-card, .step, .contact-panel'
+            );
+
+            revealTargets.forEach((target, index) => {
+                target.classList.add('reveal');
+                target.style.setProperty('--reveal-delay', `${Math.min(index % 6, 5) * 70}ms`);
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+
+            revealTargets.forEach((target) => observer.observe(target));
+
+            const textTargets = document.querySelectorAll(
+                '.section-heading h2, .section-heading p, .hero-lede, .capability h3, .capability p, .capability li, .proof-card h3, .proof-card p, .diagnosis-choice strong, .diagnosis-choice span, .case-title-row h3, .case-columns p, .lab-card h3, .lab-card p, .lab-card li, .step h3, .step p, .contact-panel h2, .contact-panel p'
+            );
+
+            textTargets.forEach((target, index) => {
+                target.classList.add('text-reveal');
+                target.style.setProperty('--text-delay', `${Math.min(index % 8, 7) * 24}ms`);
+            });
+
+            const textObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        textObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.22, rootMargin: '0px 0px -6% 0px' });
+
+            textTargets.forEach((target) => textObserver.observe(target));
+        }
+
+        function initTiltMotion() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            if (window.matchMedia('(pointer: coarse)').matches) return;
+
+            const cards = document.querySelectorAll(
+                '.hero-visual, .identity-card, .capability, .diagnosis-choice, .case-strip, .lab-card, .step'
+            );
+
+            cards.forEach((card) => {
+                card.classList.add('motion-card');
+                card.addEventListener('pointermove', (event) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = (event.clientX - rect.left) / rect.width - 0.5;
+                    const y = (event.clientY - rect.top) / rect.height - 0.5;
+                    card.style.setProperty('--tilt-x', `${(-y * 9).toFixed(2)}deg`);
+                    card.style.setProperty('--tilt-y', `${(x * 9).toFixed(2)}deg`);
+                });
+                card.addEventListener('pointerleave', () => {
+                    card.style.setProperty('--tilt-x', '0deg');
+                    card.style.setProperty('--tilt-y', '0deg');
+                });
+            });
+        }
+
+        function initHighEnergyMotion() {
+            const root = document.documentElement;
+
+            const updateProgress = () => {
+                const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+                root.style.setProperty('--scroll-progress', progress.toFixed(4));
+            };
+
+            updateProgress();
+            window.addEventListener('scroll', updateProgress, { passive: true });
+            window.addEventListener('resize', updateProgress);
+        }
+
+        function initLabCardLinks() {
+            const cards = document.querySelectorAll('.lab-card[data-href]');
+
+            cards.forEach((card) => {
+                const href = card.dataset.href;
+                card.addEventListener('click', () => {
+                    window.location.href = href;
+                });
+                card.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        window.location.href = href;
+                    }
+                });
+            });
+        }
 
         function startAutoPlay() {
             const carousels = document.querySelectorAll('.carousel-container');
@@ -1793,7 +2499,11 @@
         });
 
         document.addEventListener('DOMContentLoaded', function() {
-            startAutoPlay();
+            initDiagnosis();
+            initRevealMotion();
+            initTiltMotion();
+            initHighEnergyMotion();
+            initLabCardLinks();
         });
     </script>
 </body>
