@@ -508,6 +508,23 @@ h2 {
     color: var(--muted);
 }
 
+.footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 24px;
+    justify-content: space-between;
+}
+
+.footer a {
+    color: var(--muted);
+    transition: color 0.2s ease;
+}
+
+.footer a:hover,
+.footer a:focus-visible {
+    color: var(--warm-2);
+}
+
 .modal {
     position: fixed;
     inset: 0;

@@ -344,6 +344,29 @@ h2 {
     background: linear-gradient(135deg, #fff8ec, var(--warm));
 }
 
+.footer {
+    padding: 54px 0 72px;
+    border-top: 1px solid rgba(215, 247, 255, 0.1);
+    color: var(--muted);
+}
+
+.footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 24px;
+    justify-content: space-between;
+}
+
+.footer a {
+    color: var(--muted);
+    transition: color 0.2s ease;
+}
+
+.footer a:hover,
+.footer a:focus-visible {
+    color: var(--warm-2);
+}
+
 .reveal {
     opacity: 0;
     transform: translateY(24px);
