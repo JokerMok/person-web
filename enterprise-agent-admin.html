@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企业智能体管理后台 | 臻一 / JokerMok</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="case-detail.css">
+</head>
+<body>
+    <div class="site-bg"></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <nav class="nav">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html#hero" aria-label="回到首页">
+                <strong>臻一 / <em>JokerMok</em></strong>
+                <span>AI SOP LAB</span>
+            </a>
+            <div class="nav-links" aria-label="主导航">
+                <a href="index.html#hero">首页</a>
+                <a href="index.html#value">能力</a>
+                <a href="index.html#projects">案例</a>
+                <a href="index.html#labs">项目</a>
+                <a href="index.html#footer">联系</a>
+            </div>
+        </div>
+    </nav>
+
+    <aside class="case-nav" aria-label="案例切换">
+        <a href="index.html#projects" title="返回案例"><i class="fas fa-arrow-left"></i></a>
+        <a class="active" href="enterprise-agent-admin.html" title="企业智能体管理后台"><i class="fas fa-robot"></i></a>
+        <a href="industrial-vision-scope.html" title="工业视觉监控"><i class="fas fa-eye"></i></a>
+        <a href="smart-terminal-face-auth.html" title="智能终端授权"><i class="fas fa-id-card"></i></a>
+    </aside>
+
+    <nav class="mobile-case-nav" aria-label="移动端案例切换">
+        <a href="index.html#projects">返回案例</a>
+        <a class="active" href="enterprise-agent-admin.html">智能体后台</a>
+        <a href="industrial-vision-scope.html">视觉监控</a>
+        <a href="smart-terminal-face-auth.html">终端授权</a>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-grid">
+            <div>
+                <div class="eyebrow">Enterprise AI Case</div>
+                <h1>企业智能体管理后台</h1>
+                <p class="lede">把分散的智能体、知识库、调用日志和系统配置收敛到统一后台，让企业 AI 应用从“能跑”进入“可管理、可评审、可迭代”。</p>
+                <div class="meta-row">
+                    <span>Agent Console</span>
+                    <span>Knowledge Base</span>
+                    <span>PRD</span>
+                    <span>MVP</span>
+                </div>
+            </div>
+            <div class="hero-panel">
+                <strong>我的角色</strong>
+                <p>负责后台入口、功能模块、页面原型、管理流程和验收口径的梳理，把业务需求转成研发可评审的产品文档。</p>
+            </div>
+        </div>
+        <div class="container metrics">
+            <div class="metric"><strong>6+</strong><span>核心管理模块</span></div>
+            <div class="metric"><strong>MVP</strong><span>后台最小闭环</span></div>
+            <div class="metric"><strong>PRD</strong><span>评审与交付资产</span></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <div class="section-kicker">Problem Framing</div>
+                        <h2>智能体不是配置完就结束</h2>
+                    </div>
+                    <p>企业内部使用智能体后，很快会出现版本、权限、知识库、调用记录和效果复盘的管理问题。后台的价值是让这些能力进入可持续运营状态。</p>
+                </div>
+                <div class="grid-3">
+                    <article class="card"><small>Fragmented</small><h3>配置分散</h3><p>智能体、知识库、日志和系统设置缺少统一入口，后续维护成本高。</p></article>
+                    <article class="card"><small>Review</small><h3>评审口径不足</h3><p>只讲功能点很难推动研发，需要页面、权限、字段、状态和异常口径一起明确。</p></article>
+                    <article class="card"><small>Operation</small><h3>缺少运营闭环</h3><p>企业智能体需要持续观察调用、命中、失败和知识更新，而不是一次性交付。</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <div class="section-kicker">Product Structure</div>
+                        <h2>后台能力拆解</h2>
+                    </div>
+                    <p>先定义可管理对象，再定义页面入口和操作流程，最后补齐日志、权限和验收标准。</p>
+                </div>
+                <div class="grid-3">
+                    <article class="card"><small>01</small><h3>智能体管理</h3><p>配置智能体名称、角色、能力边界、启停状态、版本说明和适用场景。</p></article>
+                    <article class="card"><small>02</small><h3>知识库管理</h3><p>管理知识来源、更新记录、命中规则和失效处理，降低回答漂移风险。</p></article>
+                    <article class="card"><small>03</small><h3>调用日志</h3><p>记录用户问题、命中结果、失败原因和处理状态，为优化提供依据。</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <div class="section-kicker">Execution Path</div>
+                        <h2>交付路径</h2>
+                    </div>
+                    <p>这类项目的重点是把“后台该有哪些功能”变成“研发能照着做、业务能照着验”的文档。</p>
+                </div>
+                <div class="timeline">
+                    <article class="step"><span>01</span><h3>定义后台边界</h3><p>先区分管理后台、业务前台和智能体运行时，避免范围混乱。</p></article>
+                    <article class="step"><span>02</span><h3>拆解模块与字段</h3><p>梳理导航、列表、详情、状态、权限和日志字段。</p></article>
+                    <article class="step"><span>03</span><h3>形成 PRD</h3><p>把页面原型、交互规则、异常处理和验收口径写成产品文档。</p></article>
+                    <article class="step"><span>04</span><h3>进入评审迭代</h3><p>围绕 MVP 范围评审，后续再逐步补齐分析和运营能力。</p></article>
+                </div>
+                <div class="button-row">
+                    <a class="button primary" href="index.html#projects"><i class="fas fa-arrow-left"></i> 返回案例</a>
+                    <a class="button" href="industrial-vision-scope.html">下一个案例 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <div class="section-kicker">Reusable Insight</div>
+                        <h2>可复用经验</h2>
+                    </div>
+                    <p>企业 AI 后台的第一版不要追求大而全，先把可管理对象和评审口径做扎实。</p>
+                </div>
+                <div class="grid-2">
+                    <article class="card">
+                        <small>Method</small>
+                        <h3>先把智能体当成企业资产管理</h3>
+                        <ul>
+                            <li>每个智能体都要有边界、版本、知识来源和责任状态。</li>
+                            <li>每次失败都要能回到日志和知识库更新。</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <small>Next Cases</small>
+                        <h3>继续查看</h3>
+                        <div class="next-grid">
+                            <a class="next-card" href="industrial-vision-scope.html"><small>Industrial AI</small><strong>工业视觉监控需求与验收设计</strong></a>
+                            <a class="next-card" href="smart-terminal-face-auth.html"><small>Terminal UX</small><strong>智能终端人脸授权与语音提示流程</strong></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <span>© 2024 莫臻轩. AI SOP Lab.</span>
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">粤ICP备2026003166号</a>
+        </div>
+    </footer>
+
+    <script src="case-detail.js"></script>
+</body>
+</html>

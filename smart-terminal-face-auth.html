@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能终端人脸授权与语音提示流程 | 臻一 / JokerMok</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="case-detail.css">
+</head>
+<body>
+    <div class="site-bg"></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <nav class="nav">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html#hero" aria-label="回到首页">
+                <strong>臻一 / <em>JokerMok</em></strong>
+                <span>AI SOP LAB</span>
+            </a>
+            <div class="nav-links" aria-label="主导航">
+                <a href="index.html#hero">首页</a>
+                <a href="index.html#value">能力</a>
+                <a href="index.html#projects">案例</a>
+                <a href="index.html#labs">项目</a>
+                <a href="index.html#footer">联系</a>
+            </div>
+        </div>
+    </nav>
+
+    <aside class="case-nav" aria-label="案例切换">
+        <a href="index.html#projects" title="返回案例"><i class="fas fa-arrow-left"></i></a>
+        <a href="enterprise-agent-admin.html" title="企业智能体管理后台"><i class="fas fa-robot"></i></a>
+        <a href="industrial-vision-scope.html" title="工业视觉监控"><i class="fas fa-eye"></i></a>
+        <a class="active" href="smart-terminal-face-auth.html" title="智能终端授权"><i class="fas fa-id-card"></i></a>
+    </aside>
+
+    <nav class="mobile-case-nav" aria-label="移动端案例切换">
+        <a href="index.html#projects">返回案例</a>
+        <a href="enterprise-agent-admin.html">智能体后台</a>
+        <a href="industrial-vision-scope.html">视觉监控</a>
+        <a class="active" href="smart-terminal-face-auth.html">终端授权</a>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-grid">
+            <div>
+                <div class="eyebrow">Terminal UX Case</div>
+                <h1>智能终端人脸授权与语音提示流程</h1>
+                <p class="lede">围绕现场终端的身份授权、离线使用、操作日志和语音提示，设计一套从后台配置到终端反馈的完整产品流程。</p>
+                <div class="meta-row">
+                    <span>Face Auth</span>
+                    <span>Offline Fallback</span>
+                    <span>Voice Prompt</span>
+                    <span>PRD</span>
+                </div>
+            </div>
+            <div class="hero-panel">
+                <strong>我的角色</strong>
+                <p>负责梳理人员授权、终端同步、离线策略、异常提示和操作记录，让现场流程既能跑通，也能被后台追踪。</p>
+            </div>
+        </div>
+        <div class="container metrics">
+            <div class="metric"><strong>4</strong><span>核心流程模块</span></div>
+            <div class="metric"><strong>Offline</strong><span>离线授权降级</span></div>
+            <div class="metric"><strong>UX</strong><span>终端反馈口径</span></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <div class="section-kicker">Problem Framing</div>
+                        <h2>现场终端最怕“规则不一致”</h2>
+                    </div>
+                    <p>后台已授权、终端未同步；网络离线、无法判断权限；操作失败、没有明确提示。这些都会让现场使用者失去信任。</p>
+                </div>
+                <div class="grid-3">
+                    <article class="card"><small>Auth</small><h3>授权链路长</h3><p>人员、设备、权限、有效期和人脸模板都需要被统一管理。</p></article>
+                    <article class="card"><small>Offline</small><h3>离线场景复杂</h3><p>终端断网时要决定能否本地识别、如何缓存、何时同步日志。</p></article>
+                    <article class="card"><small>Prompt</small><h3>反馈不明确</h3><p>成功、失败、未授权、离线和设备异常都需要清晰语音提示。</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <div class="section-kicker">Flow Design</div>
+                        <h2>从后台配置到终端反馈</h2>
+                    </div>
+                    <p>设计重点不是单一识别功能，而是后台、终端和现场人员之间的一致体验。</p>
+                </div>
+                <div class="grid-3">
+                    <article class="card"><small>01</small><h3>后台授权</h3><p>配置人员、设备范围、有效期、人脸模板状态和启停规则。</p></article>
+                    <article class="card"><small>02</small><h3>终端同步</h3><p>终端获取授权名单、本地缓存、版本号和同步失败处理。</p></article>
+                    <article class="card"><small>03</small><h3>语音提示</h3><p>为识别成功、未授权、离线、模板缺失和设备异常定义提示口径。</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <div class="section-kicker">Execution Path</div>
+                        <h2>产品文档结构</h2>
+                    </div>
+                    <p>把复杂现场逻辑拆成状态机和异常分支，研发评审时才不会遗漏边界。</p>
+                </div>
+                <div class="timeline">
+                    <article class="step"><span>01</span><h3>定义角色和设备</h3><p>明确后台管理员、现场人员、终端设备和系统服务的职责。</p></article>
+                    <article class="step"><span>02</span><h3>梳理授权状态</h3><p>覆盖未录入、待同步、已授权、过期、停用和异常状态。</p></article>
+                    <article class="step"><span>03</span><h3>补齐离线规则</h3><p>定义离线可用范围、缓存时长、日志回传和风险边界。</p></article>
+                    <article class="step"><span>04</span><h3>统一提示文案</h3><p>让终端语音、页面提示和后台日志表达同一套规则。</p></article>
+                </div>
+                <div class="button-row">
+                    <a class="button primary" href="index.html#projects"><i class="fas fa-arrow-left"></i> 返回案例</a>
+                    <a class="button" href="enterprise-agent-admin.html">查看智能体后台 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <div class="section-kicker">Reusable Insight</div>
+                        <h2>可复用经验</h2>
+                    </div>
+                    <p>终端类产品要优先设计异常场景。正常流程通常简单，现场问题往往出在边界。</p>
+                </div>
+                <div class="grid-2">
+                    <article class="card">
+                        <small>Method</small>
+                        <h3>把终端体验写成状态机</h3>
+                        <ul>
+                            <li>每个授权状态都要有页面、日志和语音提示。</li>
+                            <li>离线规则必须明确可用边界和同步恢复方式。</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <small>Next Cases</small>
+                        <h3>继续查看</h3>
+                        <div class="next-grid">
+                            <a class="next-card" href="enterprise-agent-admin.html"><small>Enterprise AI</small><strong>企业智能体管理后台</strong></a>
+                            <a class="next-card" href="industrial-vision-scope.html"><small>Industrial AI</small><strong>工业视觉监控需求与验收设计</strong></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <span>© 2024 莫臻轩. AI SOP Lab.</span>
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">粤ICP备2026003166号</a>
+        </div>
+    </footer>
+
+    <script src="case-detail.js"></script>
+</body>
+</html>

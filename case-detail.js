@@ -29,6 +29,7 @@ function setModalImage() {
     const caption = document.getElementById('modalCaption');
     const current = modalImages[modalIndex];
 
+    if (!image || !caption || !current) return;
     image.src = current.src;
     image.alt = current.alt || '案例图片';
     caption.textContent = current.caption || '';
@@ -49,13 +50,17 @@ function openModalFromButton(button) {
     });
 
     modalIndex = Math.max(0, images.indexOf(button));
-    document.getElementById('imageModal').classList.add('active');
+    const modal = document.getElementById('imageModal');
+    if (!modal) return;
+    modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     setModalImage();
 }
 
 function closeModal() {
-    document.getElementById('imageModal').classList.remove('active');
+    const modal = document.getElementById('imageModal');
+    if (!modal) return;
+    modal.classList.remove('active');
     document.body.style.overflow = '';
 }
 

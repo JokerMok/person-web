@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工业视觉监控需求与验收设计 | 臻一 / JokerMok</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="case-detail.css">
+</head>
+<body>
+    <div class="site-bg"></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <nav class="nav">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html#hero" aria-label="回到首页">
+                <strong>臻一 / <em>JokerMok</em></strong>
+                <span>AI SOP LAB</span>
+            </a>
+            <div class="nav-links" aria-label="主导航">
+                <a href="index.html#hero">首页</a>
+                <a href="index.html#value">能力</a>
+                <a href="index.html#projects">案例</a>
+                <a href="index.html#labs">项目</a>
+                <a href="index.html#footer">联系</a>
+            </div>
+        </div>
+    </nav>
+
+    <aside class="case-nav" aria-label="案例切换">
+        <a href="index.html#projects" title="返回案例"><i class="fas fa-arrow-left"></i></a>
+        <a href="enterprise-agent-admin.html" title="企业智能体管理后台"><i class="fas fa-robot"></i></a>
+        <a class="active" href="industrial-vision-scope.html" title="工业视觉监控"><i class="fas fa-eye"></i></a>
+        <a href="smart-terminal-face-auth.html" title="智能终端授权"><i class="fas fa-id-card"></i></a>
+    </aside>
+
+    <nav class="mobile-case-nav" aria-label="移动端案例切换">
+        <a href="index.html#projects">返回案例</a>
+        <a href="enterprise-agent-admin.html">智能体后台</a>
+        <a class="active" href="industrial-vision-scope.html">视觉监控</a>
+        <a href="smart-terminal-face-auth.html">终端授权</a>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-grid">
+            <div>
+                <div class="eyebrow">Industrial AI Case</div>
+                <h1>工业视觉监控需求与验收设计</h1>
+                <p class="lede">把“AI 视觉能不能做”拆成第一阶段可落地的场景、算法边界、平台联调和 PoC 验收标准，降低从想法到采购评审的沟通成本。</p>
+                <div class="meta-row">
+                    <span>Computer Vision</span>
+                    <span>Scope Design</span>
+                    <span>PoC</span>
+                    <span>Acceptance</span>
+                </div>
+            </div>
+            <div class="hero-panel">
+                <strong>我的角色</strong>
+                <p>负责需求边界、功能清单、验收口径和项目分阶段路径设计，把技术能力翻译成业务、研发和外部团队都能对齐的文档。</p>
+            </div>
+        </div>
+        <div class="container metrics">
+            <div class="metric"><strong>6</strong><span>首阶段能力清单</span></div>
+            <div class="metric"><strong>PoC</strong><span>可验证验收口径</span></div>
+            <div class="metric"><strong>Scope</strong><span>算法与平台边界</span></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <div class="section-kicker">Problem Framing</div>
+                        <h2>算法项目最容易输在边界不清</h2>
+                    </div>
+                    <p>工业视觉不是列几个识别能力就能启动。摄像头位置、样本质量、误报处理、平台数据回写和验收方式都会影响真实可用性。</p>
+                </div>
+                <div class="grid-3">
+                    <article class="card"><small>Scope</small><h3>范围容易膨胀</h3><p>从安全、作业、库存到人员行为，所有场景都想做，第一阶段反而无法启动。</p></article>
+                    <article class="card"><small>Boundary</small><h3>算法边界不清</h3><p>识别目标、准确率、误报漏报、样本条件和异常兜底没有统一口径。</p></article>
+                    <article class="card"><small>Integration</small><h3>平台联调缺位</h3><p>识别结果需要回到业务台账、工单或告警系统，否则只能停留在演示。</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <div class="section-kicker">Design Output</div>
+                        <h2>把愿望清单压成验收清单</h2>
+                    </div>
+                    <p>核心动作是收敛第一阶段：先定义最值得做、最容易验收、最能证明价值的视觉能力。</p>
+                </div>
+                <div class="grid-3">
+                    <article class="card"><small>01</small><h3>场景拆解</h3><p>按作业环节拆分识别对象、触发条件、异常动作和业务价值。</p></article>
+                    <article class="card"><small>02</small><h3>数据要求</h3><p>明确样本、摄像头、光照、遮挡、告警阈值和误报处理方式。</p></article>
+                    <article class="card"><small>03</small><h3>验收标准</h3><p>把 PoC 评审变成可检查清单，避免只看演示效果。</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <div class="section-kicker">Execution Path</div>
+                        <h2>推进路径</h2>
+                    </div>
+                    <p>先用小范围样本验证技术边界，再决定是否扩大到更多作业场景。</p>
+                </div>
+                <div class="timeline">
+                    <article class="step"><span>01</span><h3>业务场景排序</h3><p>按价值、难度、数据可得性和验收清晰度排序。</p></article>
+                    <article class="step"><span>02</span><h3>算法能力定义</h3><p>明确每项识别能力的输入、输出、置信度和失败处理。</p></article>
+                    <article class="step"><span>03</span><h3>平台联调设计</h3><p>定义告警、台账、日志和业务状态的回写方式。</p></article>
+                    <article class="step"><span>04</span><h3>PoC 验收</h3><p>用样本、指标和现场约束判断是否进入下一阶段。</p></article>
+                </div>
+                <div class="button-row">
+                    <a class="button primary" href="index.html#projects"><i class="fas fa-arrow-left"></i> 返回案例</a>
+                    <a class="button" href="smart-terminal-face-auth.html">下一个案例 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <div class="section-kicker">Reusable Insight</div>
+                        <h2>可复用经验</h2>
+                    </div>
+                    <p>AI 项目启动前，先问“怎么验收”，通常比先问“能不能做”更有效。</p>
+                </div>
+                <div class="grid-2">
+                    <article class="card">
+                        <small>Method</small>
+                        <h3>每个算法能力都要绑定业务动作</h3>
+                        <ul>
+                            <li>识别结果要回到告警、台账、工单或人工复核。</li>
+                            <li>验收要覆盖正常样本、异常样本和失败兜底。</li>
+                        </ul>
+                    </article>
+                    <article class="card">
+                        <small>Next Cases</small>
+                        <h3>继续查看</h3>
+                        <div class="next-grid">
+                            <a class="next-card" href="smart-terminal-face-auth.html"><small>Terminal UX</small><strong>智能终端人脸授权与语音提示流程</strong></a>
+                            <a class="next-card" href="enterprise-agent-admin.html"><small>Enterprise AI</small><strong>企业智能体管理后台</strong></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <span>© 2024 莫臻轩. AI SOP Lab.</span>
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">粤ICP备2026003166号</a>
+        </div>
+    </footer>
+
+    <script src="case-detail.js"></script>
+</body>
+</html>

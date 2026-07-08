@@ -1115,6 +1115,87 @@
             background: #07111c;
         }
 
+        .case-schematic {
+            position: relative;
+            display: grid;
+            height: 100%;
+            min-height: 310px;
+            align-content: center;
+            gap: 16px;
+            padding: 30px;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255, 224, 163, 0.14), transparent 26%),
+                radial-gradient(circle at 80% 74%, rgba(122, 215, 181, 0.12), transparent 30%),
+                linear-gradient(135deg, rgba(215, 247, 255, 0.06), rgba(5, 11, 18, 0.9));
+        }
+
+        .case-schematic::before {
+            content: "";
+            position: absolute;
+            inset: 24px;
+            border: 1px solid rgba(215, 247, 255, 0.12);
+            background:
+                linear-gradient(rgba(215, 247, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(215, 247, 255, 0.05) 1px, transparent 1px);
+            background-size: 38px 38px;
+            opacity: 0.55;
+        }
+
+        .schematic-node {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            gap: 5px;
+            border: 1px solid rgba(215, 247, 255, 0.16);
+            padding: 14px;
+            background: rgba(5, 11, 18, 0.68);
+            box-shadow: 0 18px 46px rgba(0, 0, 0, 0.18);
+        }
+
+        .schematic-node strong {
+            color: var(--text);
+            font-size: 0.96rem;
+            line-height: 1.35;
+        }
+
+        .schematic-node span {
+            color: var(--muted);
+            font-size: 0.75rem;
+            line-height: 1.55;
+        }
+
+        .schematic-node.accent {
+            border-color: rgba(255, 224, 163, 0.34);
+            background: rgba(255, 224, 163, 0.08);
+        }
+
+        .schematic-node.mint {
+            border-color: rgba(122, 215, 181, 0.34);
+        }
+
+        .schematic-arrow {
+            position: relative;
+            z-index: 1;
+            width: 2px;
+            height: 26px;
+            margin-left: 24px;
+            background: linear-gradient(var(--warm), var(--mint));
+            box-shadow: 0 0 18px rgba(122, 215, 181, 0.32);
+        }
+
+        .schematic-arrow::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -4px;
+            width: 9px;
+            height: 9px;
+            border-right: 2px solid var(--mint);
+            border-bottom: 2px solid var(--mint);
+            transform: translateX(-50%) rotate(45deg);
+        }
+
         .carousel-container {
             position: relative;
             overflow: hidden;
@@ -1832,7 +1913,7 @@
                         <h2>B端AI实战案例</h2>
                     </div>
                     <p>
-                        案例不只是功能展示，而是从业务问题、产品策略到可量化结果的证据链。
+                        案例不只是功能展示，而是从业务问题、产品策略到可交付结果的证据链。近期企业项目已做脱敏处理，只呈现方法、结构和交付能力。
                     </p>
                 </div>
 
@@ -1972,6 +2053,117 @@
                             </div>
                         </div>
                     </article>
+
+                    <article class="case-strip">
+                        <a href="enterprise-agent-admin.html" class="case-link">
+                            <div class="case-tags">
+                                <span>#Agent-Console</span>
+                                <span>#Workflow</span>
+                                <span>#Enterprise-AI</span>
+                            </div>
+                            <div class="case-title-row">
+                                <h3>企业智能体管理后台</h3>
+                                <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            </div>
+                            <div class="case-columns">
+                                <div>
+                                    <small>Problem</small>
+                                    <p>多智能体、知识库、调用日志和系统配置分散，缺少统一评审和交付入口。</p>
+                                </div>
+                                <div>
+                                    <small>Solution</small>
+                                    <p>梳理后台导航、智能体管理、知识库、日志、权限和验收口径，形成 MVP PRD。</p>
+                                </div>
+                                <div>
+                                    <small>Outcome</small>
+                                    <p class="case-result">从原型到 PRD 的管理后台闭环</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="case-visual" aria-hidden="true">
+                            <div class="case-schematic">
+                                <div class="schematic-node accent"><strong>Admin Entry</strong><span>后台入口 / 权限 / 导航</span></div>
+                                <div class="schematic-arrow"></div>
+                                <div class="schematic-node"><strong>Agent Operations</strong><span>智能体配置 / 知识库 / 日志</span></div>
+                                <div class="schematic-arrow"></div>
+                                <div class="schematic-node mint"><strong>Review Assets</strong><span>PRD / 原型 / 验收清单</span></div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="case-strip">
+                        <a href="industrial-vision-scope.html" class="case-link">
+                            <div class="case-tags">
+                                <span>#Computer-Vision</span>
+                                <span>#PRD</span>
+                                <span>#Acceptance</span>
+                            </div>
+                            <div class="case-title-row">
+                                <h3>工业视觉监控需求与验收设计</h3>
+                                <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            </div>
+                            <div class="case-columns">
+                                <div>
+                                    <small>Problem</small>
+                                    <p>视觉算法项目容易范围扩散，算法边界、平台联调和验收口径很难一次说清。</p>
+                                </div>
+                                <div>
+                                    <small>Solution</small>
+                                    <p>收敛第一阶段场景，拆成功能清单、数据边界、联调节点和 PoC 验收标准。</p>
+                                </div>
+                                <div>
+                                    <small>Outcome</small>
+                                    <p class="case-result">把算法想法压成可评审清单</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="case-visual" aria-hidden="true">
+                            <div class="case-schematic">
+                                <div class="schematic-node"><strong>Scene Scope</strong><span>作业场景 / 风险动作 / 触发条件</span></div>
+                                <div class="schematic-arrow"></div>
+                                <div class="schematic-node accent"><strong>Algorithm Boundary</strong><span>识别能力 / 误报处理 / 数据要求</span></div>
+                                <div class="schematic-arrow"></div>
+                                <div class="schematic-node mint"><strong>PoC Acceptance</strong><span>联调路径 / 指标 / 验收样本</span></div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="case-strip">
+                        <a href="smart-terminal-face-auth.html" class="case-link">
+                            <div class="case-tags">
+                                <span>#Terminal-UX</span>
+                                <span>#Authorization</span>
+                                <span>#Offline</span>
+                            </div>
+                            <div class="case-title-row">
+                                <h3>智能终端人脸授权与语音提示流程</h3>
+                                <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            </div>
+                            <div class="case-columns">
+                                <div>
+                                    <small>Problem</small>
+                                    <p>终端授权、人脸模板、本地离线和语音提示规则容易割裂，影响现场操作体验。</p>
+                                </div>
+                                <div>
+                                    <small>Solution</small>
+                                    <p>设计人脸配置入口、授权同步、离线降级、操作日志和终端语音提示规则。</p>
+                                </div>
+                                <div>
+                                    <small>Outcome</small>
+                                    <p class="case-result">从页面入口到异常降级的 PRD 口径</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="case-visual" aria-hidden="true">
+                            <div class="case-schematic">
+                                <div class="schematic-node accent"><strong>Face Config</strong><span>人员 / 模板 / 授权范围</span></div>
+                                <div class="schematic-arrow"></div>
+                                <div class="schematic-node"><strong>Terminal Sync</strong><span>在线同步 / 本地缓存 / 日志</span></div>
+                                <div class="schematic-arrow"></div>
+                                <div class="schematic-node mint"><strong>Voice Feedback</strong><span>成功 / 异常 / 离线提示</span></div>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -1984,7 +2176,7 @@
                         <h2>正在做的项目</h2>
                     </div>
                     <p>
-                        这些项目展示的是持续实验中的能力栈：AI 视频、竞品情报、自媒体内容流量、内容工具和本地自动化。
+                        这些项目展示的是持续实验中的能力栈：AI 视频、竞品情报、小程序 Demo、自媒体内容流量、内容工具和本地自动化。
                     </p>
                 </div>
 
@@ -2014,13 +2206,32 @@
                         <h3>竞品周报</h3>
                         <p>原先运行在 Coze 平台的竞品周报流程，现在转为本地部署，并用 Codex 贯穿搭建、调试和迭代。</p>
                         <ul>
-                            <li>场景：优废环保竞品情报</li>
+                            <li>场景：环保行业竞品情报</li>
                             <li>状态：本地部署跑通中</li>
                             <li>路径：从平台工作流迁移到本地自动化</li>
                         </ul>
                         <div class="lab-meta">
                             <span>Coze → Local</span>
                             <span>Codex Built</span>
+                            <span class="lab-link">
+                                查看详情 <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </article>
+
+                    <article class="lab-card" data-href="voice-card-reader.html" role="link" tabindex="0" aria-label="查看识字伴读小程序详情">
+                        <span class="lab-orbit" aria-hidden="true"></span>
+                        <small>Mini Program Demo</small>
+                        <h3>识字伴读小程序</h3>
+                        <p>面向亲子识字和伴读场景的小程序 Demo，用轻量互动把识字卡片、语音引导和学习节奏串起来。</p>
+                        <ul>
+                            <li>方向：儿童识字与亲子伴读</li>
+                            <li>状态：Demo 已完成并公开提交</li>
+                            <li>价值：把教育场景拆成可演示、可复盘的小产品</li>
+                        </ul>
+                        <div class="lab-meta">
+                            <span>Mini Program</span>
+                            <span>Education Demo</span>
                             <span class="lab-link">
                                 查看详情 <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
                             </span>
