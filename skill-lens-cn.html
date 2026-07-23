@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillLens 中文技能图鉴 | 臻一 JokerMok</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="lab-detail.css">
+</head>
+<body>
+    <div class="site-bg" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <nav class="nav">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html#labs">
+                <strong>臻一 JokerMok</strong>
+                <span>AI SOP Lab</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#hero">首页</a>
+                <a href="index.html#labs">Labs</a>
+                <a href="index.html#projects">案例</a>
+                <a href="index.html#footer">联系</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <div class="eyebrow">macOS Local App</div>
+                    <h1>SkillLens 中文技能图鉴</h1>
+                    <p class="lede">一款面向中文用户的 macOS 本地应用，用清晰的中文说明 Codex 已安装的 Skill，并把搜索、筛选、健康检查和调用示例放进同一个界面。</p>
+                    <div class="meta-row">
+                        <span>SwiftUI</span>
+                        <span>Local First</span>
+                        <span>1.0.0 已验收</span>
+                    </div>
+                </div>
+                <aside class="hero-panel">
+                    <strong>项目状态</strong>
+                    <p>应用、验证程序和 DMG 安装包已完成，本地交付通过。当前版本默认只读，不执行 Skill 脚本，也不修改原始文件。</p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <div class="eyebrow">Project Context</div>
+                        <h2>先解决“看不懂、找不到”</h2>
+                    </div>
+                    <p>Skill 数量增加后，真正的成本不是安装，而是不知道每个 Skill 解决什么问题、什么时候该调用。</p>
+                </div>
+                <div class="grid-3">
+                    <article class="card"><small>Problem</small><h3>技能分散且说明偏技术</h3><p>用户 Skill、项目 Skill 和插件 Skill 来自不同目录，英文说明和复杂结构增加了发现成本。</p></article>
+                    <article class="card"><small>Solution</small><h3>本地扫描与中文解读</h3><p>统一扫描技能目录，补充中文用途、调用示例、依赖和健康状态，并支持全文搜索。</p></article>
+                    <article class="card"><small>Boundary</small><h3>只读优先</h3><p>首次扫描只建立本地索引；只有用户主动确认后，才会把当前 Skill 文本发送给所选模型。</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <div class="eyebrow">Delivery</div>
+                        <h2>从目录扫描做到可安装应用</h2>
+                    </div>
+                    <p>项目不是界面原型，交付范围包含解析、搜索、生成、隐私边界、验证程序和安装包。</p>
+                </div>
+                <div class="timeline">
+                    <article class="step"><span>01</span><h3>统一扫描</h3><p>识别用户、Codex、插件和自定义目录，解析 Skill 及附带资源。</p></article>
+                    <article class="step"><span>02</span><h3>中文检索</h3><p>支持中文关键词搜索英文 Skill，并按分类、来源和健康状态筛选。</p></article>
+                    <article class="step"><span>03</span><h3>本机生成</h3><p>接入本机 Codex 或兼容 API，生成结构化中文用法并按内容哈希缓存。</p></article>
+                    <article class="step"><span>04</span><h3>打包验收</h3><p>完成 Debug、Release、独立验证程序、签名结构和 DMG 完整性检查。</p></article>
+                </div>
+                <div class="button-row">
+                    <a class="button primary" href="index.html#labs">返回 Labs</a>
+                    <a class="button" href="ai-hairstyle-studio.html">下一个项目：发型镜</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <span>© 2024 莫臻轩. AI SOP Lab.</span>
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">粤ICP备2026003166号</a>
+        </div>
+    </footer>
+
+    <script src="lab-detail.js"></script>
+</body>
+</html>
