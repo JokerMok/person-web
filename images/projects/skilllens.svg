@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">SkillLens 中文技能图鉴界面示意</title>
+  <desc id="desc">展示本地 Skills 扫描、搜索、中文用途说明、调用方法和健康状态。</desc>
+  <rect width="1600" height="900" fill="#d9d6cb"/>
+  <rect x="62" y="50" width="1476" height="802" rx="24" fill="#f8f7f2" stroke="#151515" stroke-width="2"/>
+  <rect x="62" y="50" width="1476" height="72" rx="24" fill="#eceae3"/>
+  <circle cx="104" cy="86" r="10" fill="#d84a35"/><circle cx="138" cy="86" r="10" fill="#d6a735"/><circle cx="172" cy="86" r="10" fill="#5fa56d"/>
+  <text x="228" y="96" fill="#151515" font-family="PingFang SC, sans-serif" font-size="26" font-weight="750">SkillLens 中文技能图鉴</text>
+  <rect x="96" y="155" width="330" height="654" rx="14" fill="#151515"/>
+  <text x="130" y="209" fill="#9eb8ff" font-family="PingFang SC, sans-serif" font-size="17" font-weight="700">本机已安装</text>
+  <text x="130" y="262" fill="#fff" font-family="PingFang SC, sans-serif" font-size="38" font-weight="800">186 Skills</text>
+  <rect x="126" y="300" width="270" height="52" rx="9" fill="#2b2b2b" stroke="#5d5d5d"/>
+  <text x="153" y="333" fill="#a8a8a5" font-family="PingFang SC, sans-serif" font-size="18">搜索名称或用途</text>
+  <g font-family="PingFang SC, sans-serif" font-size="20">
+    <rect x="120" y="391" width="282" height="58" rx="8" fill="#2558d9"/><text x="150" y="428" fill="#fff">全部 Skills</text>
+    <text x="150" y="506" fill="#d8d8d3">内容创作</text>
+    <text x="150" y="570" fill="#d8d8d3">产品与设计</text>
+    <text x="150" y="634" fill="#d8d8d3">开发与自动化</text>
+    <text x="150" y="698" fill="#d8d8d3">数据与文档</text>
+  </g>
+  <text x="468" y="181" fill="#686761" font-family="PingFang SC, sans-serif" font-size="17">中文用途说明</text>
+  <text x="468" y="227" fill="#151515" font-family="PingFang SC, sans-serif" font-size="34" font-weight="800">这个 Skill 能做什么？</text>
+  <rect x="468" y="268" width="1018" height="170" rx="12" fill="#fff" stroke="#c8c5bb"/>
+  <text x="504" y="314" fill="#2558d9" font-family="PingFang SC, sans-serif" font-size="18" font-weight="700">UI / UX PRO MAX</text>
+  <text x="504" y="358" fill="#151515" font-family="PingFang SC, sans-serif" font-size="26" font-weight="750">界面设计与体验审查</text>
+  <text x="504" y="400" fill="#686761" font-family="PingFang SC, sans-serif" font-size="19">适合在设计网站、优化页面结构、检查交互与可访问性时使用。</text>
+  <rect x="468" y="473" width="638" height="284" rx="12" fill="#fff" stroke="#c8c5bb"/>
+  <text x="504" y="520" fill="#151515" font-family="PingFang SC, sans-serif" font-size="22" font-weight="750">怎么调用</text>
+  <rect x="504" y="550" width="566" height="68" rx="8" fill="#eceae3"/>
+  <text x="530" y="593" fill="#151515" font-family="SFMono-Regular, Menlo, monospace" font-size="19">$ui-ux-pro-max 复核这个页面</text>
+  <text x="504" y="664" fill="#686761" font-family="PingFang SC, sans-serif" font-size="18">来源：用户 Skills</text>
+  <text x="504" y="704" fill="#686761" font-family="PingFang SC, sans-serif" font-size="18">路径与依赖均在本地读取</text>
+  <rect x="1138" y="473" width="348" height="284" rx="12" fill="#e7ecfb" stroke="#2558d9"/>
+  <text x="1174" y="520" fill="#2558d9" font-family="PingFang SC, sans-serif" font-size="18" font-weight="700">健康状态</text>
+  <text x="1174" y="584" fill="#151515" font-family="PingFang SC, sans-serif" font-size="42" font-weight="800">正常</text>
+  <text x="1174" y="634" fill="#686761" font-family="PingFang SC, sans-serif" font-size="18">说明完整</text>
+  <text x="1174" y="674" fill="#686761" font-family="PingFang SC, sans-serif" font-size="18">依赖可用</text>
+  <text x="1174" y="714" fill="#686761" font-family="PingFang SC, sans-serif" font-size="18">默认只读</text>
+</svg>

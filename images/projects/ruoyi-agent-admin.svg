@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">基于 RuoYi-AI 的企业智能体管理后台脱敏示意</title>
+  <desc id="desc">展示智能体配置、知识库、调用日志和用户反馈的统一管理界面。</desc>
+  <rect width="1600" height="900" fill="#edf1f5"/>
+  <rect x="45" y="42" width="1510" height="816" rx="18" fill="#fff" stroke="#1d2b3b" stroke-width="2"/>
+  <rect x="45" y="42" width="270" height="816" rx="18" fill="#17233c"/>
+  <rect x="315" y="42" width="1240" height="78" rx="18" fill="#fff"/>
+  <text x="92" y="96" fill="#fff" font-family="PingFang SC, sans-serif" font-size="28" font-weight="750">RuoYi-AI</text>
+  <text x="348" y="91" fill="#17233c" font-family="PingFang SC, sans-serif" font-size="24" font-weight="700">企业智能体管理后台</text>
+  <g font-family="PingFang SC, sans-serif" font-size="21">
+    <rect x="68" y="151" width="224" height="56" rx="8" fill="#2558d9"/>
+    <text x="96" y="187" fill="#fff">智能体管理</text>
+    <text x="96" y="261" fill="#b9c5d8">知识库</text>
+    <text x="96" y="329" fill="#b9c5d8">调用日志</text>
+    <text x="96" y="397" fill="#b9c5d8">对话反馈</text>
+    <text x="96" y="465" fill="#b9c5d8">用户与权限</text>
+  </g>
+  <rect x="350" y="157" width="1168" height="128" rx="12" fill="#f5f7fb"/>
+  <text x="382" y="199" fill="#637083" font-family="PingFang SC, sans-serif" font-size="18">运行概览</text>
+  <g font-family="PingFang SC, sans-serif">
+    <text x="382" y="253" fill="#17233c" font-size="34" font-weight="750">12</text>
+    <text x="460" y="248" fill="#637083" font-size="18">智能体</text>
+    <text x="662" y="253" fill="#17233c" font-size="34" font-weight="750">98.4%</text>
+    <text x="792" y="248" fill="#637083" font-size="18">调用成功率</text>
+    <text x="1042" y="253" fill="#17233c" font-size="34" font-weight="750">36</text>
+    <text x="1118" y="248" fill="#637083" font-size="18">待处理反馈</text>
+  </g>
+  <text x="350" y="342" fill="#17233c" font-family="PingFang SC, sans-serif" font-size="24" font-weight="700">智能体配置</text>
+  <rect x="350" y="372" width="1168" height="414" rx="12" fill="#fff" stroke="#cbd3dd"/>
+  <rect x="350" y="372" width="1168" height="62" rx="12" fill="#f5f7fb"/>
+  <g fill="#637083" font-family="PingFang SC, sans-serif" font-size="17" font-weight="600">
+    <text x="382" y="411">名称</text><text x="650" y="411">知识来源</text><text x="904" y="411">版本</text><text x="1080" y="411">状态</text><text x="1324" y="411">操作</text>
+  </g>
+  <g font-family="PingFang SC, sans-serif" font-size="18">
+    <g fill="#17233c">
+      <text x="382" y="493">销售知识助手</text><text x="650" y="493">企业知识库</text><text x="904" y="493">v1.6</text><text x="1324" y="493" fill="#2558d9">配置</text>
+      <text x="382" y="579">异常诊断助手</text><text x="650" y="579">业务规则库</text><text x="904" y="579">v1.3</text><text x="1324" y="579" fill="#2558d9">配置</text>
+      <text x="382" y="665">政策审核助手</text><text x="650" y="665">政策来源库</text><text x="904" y="665">v1.1</text><text x="1324" y="665" fill="#2558d9">配置</text>
+      <text x="382" y="751">参数校验助手</text><text x="650" y="751">产品参数库</text><text x="904" y="751">v1.2</text><text x="1324" y="751" fill="#2558d9">配置</text>
+    </g>
+    <g fill="#25864a">
+      <text x="1080" y="493">● 运行中</text><text x="1080" y="579">● 运行中</text><text x="1080" y="665">● 运行中</text>
+    </g>
+    <text x="1080" y="751" fill="#a26a09">● 待发布</text>
+  </g>
+  <g stroke="#e0e5eb"><line x1="350" y1="520" x2="1518" y2="520"/><line x1="350" y1="606" x2="1518" y2="606"/><line x1="350" y1="692" x2="1518" y2="692"/></g>
+</svg>
