@@ -4,15 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="莫臻轩，B 端 AI 产品经理与独立 AI 产品实验室主理人。">
+  <meta name="theme-color" content="#08090b">
   <title>臻一 / 莫臻轩 | B 端 AI 产品经理</title>
   <link rel="stylesheet" href="site.css">
 </head>
-<body>
+<body data-page="home">
   <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="page-atmosphere" aria-hidden="true"><i></i><i></i><i></i></div>
+
   <nav class="site-nav" aria-label="Main navigation">
     <div class="container nav-inner">
-      <a class="brand" href="#top">
-        <span>臻一 / Zhenyi</span>
+      <a class="brand" href="#top" aria-label="臻一首页">
+        <span class="brand-mark">Z</span>
+        <span class="brand-name">臻一 / Zhenyi</span>
         <small>AI Product Lab</small>
       </a>
       <div class="nav-links">
@@ -31,25 +35,45 @@
 
   <main id="top">
     <section class="hero">
-      <div class="container">
-        <div class="hero-grid">
-          <div>
-            <span class="kicker" data-copy="heroKicker">臻一人工智能实验室</span>
+      <div class="container hero-shell">
+        <div class="hero-intro">
+          <span class="kicker" data-copy="heroKicker">臻一人工智能实验室</span>
+          <div class="hero-edition" aria-hidden="true">AI / PM<br>2026</div>
+        </div>
+
+        <div class="hero-composition">
+          <div class="hero-copy-block">
             <h1>
               <span data-copy="heroTitleA">持续做真实产品的</span>
               <span data-copy="heroTitleB">AI 实验室主理人</span>
             </h1>
             <p class="hero-copy" data-copy="heroCopy">
-              我是莫臻轩，一名 B 端 AI 产品经理。过去 11 年一直在做软件产品，现在把更多时间放在真实业务里的 AI 产品，以及可以亲手体验的产品实验上。
+              我是莫臻轩，一名 B 端 AI 产品经理。做了 11 年软件产品，现在更愿意把时间花在真实业务里：把一个说不清的问题，做成团队能用的 AI 产品。
             </p>
             <div class="hero-actions">
               <a class="button primary" href="#enterprise" data-copy="heroPrimary">查看项目</a>
               <a class="button" href="#contact" data-copy="heroSecondary">联系合作</a>
             </div>
           </div>
+
+          <div class="hero-gallery" aria-label="Selected project previews">
+            <a class="hero-frame frame-main" href="project.html?id=assistant" aria-label="企业 AI 助手产品线">
+              <img src="images/projects/enterprise-ai-assistant-real.jpg" alt="企业 AI 助手真实交互原型" width="1440" height="960">
+              <span>01 / Enterprise AI</span>
+            </a>
+            <a class="hero-frame frame-side" href="project.html?id=skilllens" aria-label="SkillLens">
+              <img src="images/projects/skilllens-app.webp" alt="SkillLens 中文技能管理器 macOS 实机截图" width="1800" height="1206">
+              <span>02 / Product Lab</span>
+            </a>
+            <a class="hero-frame frame-back" href="project.html?id=disorder" aria-label="神序崩坏">
+              <img src="images/projects/disorder-home.webp" alt="神位失序游戏主城实机截图" width="1920" height="1080">
+              <span>03 / Game</span>
+            </a>
+          </div>
+
           <aside class="hero-note">
             <strong data-copy="heroNoteTitle">当前身份</strong>
-            <p data-copy="heroNoteText">B 端 AI 产品经理，同时运营一间持续做真实产品的个人实验室。</p>
+            <p data-copy="heroNoteText">我现在做两件事：在业务里做 AI 产品，也自己把想法做到能运行。</p>
           </aside>
         </div>
 
@@ -70,63 +94,65 @@
       </div>
     </section>
 
-    <section id="enterprise" class="section">
+    <section id="enterprise" class="section enterprise-section">
       <div class="container">
-        <header class="section-head">
+        <header class="section-head section-head-sticky">
           <span class="section-index">01 / WORK</span>
-          <h2 data-copy="enterpriseTitle">企业 AI 实践</h2>
-          <p data-copy="enterpriseText">选取可公开的项目内容，重点放在问题怎么拆、产品怎么设计，以及最后交付了什么。</p>
+          <div>
+            <h2 data-copy="enterpriseTitle">企业 AI 实践</h2>
+            <p data-copy="enterpriseText">这里放的是我真正参与过的企业项目：先把问题捋清楚，再把产品做出来，最后留下能评审、能验收的东西。</p>
+          </div>
         </header>
-        <div id="enterpriseProjects" class="project-grid"></div>
+        <div id="enterpriseProjects" class="case-stack"></div>
       </div>
     </section>
 
-    <section id="lab" class="section">
+    <section id="lab" class="section lab-section">
       <div class="container">
-        <header class="section-head">
+        <header class="section-head lab-head">
           <span class="section-index">02 / LAB</span>
           <h2 data-copy="labTitle">AI Lab 精选</h2>
-          <p data-copy="labText">从本地工具、消费产品到两款游戏。项目都已经做出可运行版本。</p>
+          <p data-copy="labText">有些来自工作，有些只是我想验证的想法。共同点是：我会把它们做到能运行。</p>
         </header>
-        <div id="labProjects" class="project-grid"></div>
+        <div id="labProjects" class="lab-gallery"></div>
       </div>
     </section>
 
-    <section id="method" class="section">
-      <div class="container">
-        <header class="section-head">
+    <section id="method" class="section method-section">
+      <div class="container method-layout">
+        <header class="section-head method-head">
           <span class="section-index">03 / METHOD</span>
           <h2 data-copy="methodTitle">我的方法论</h2>
-          <p data-copy="methodText">我先判断问题、证据和交付边界，再决定是否需要 AI。</p>
+          <p data-copy="methodText">我不先问“要不要上 AI”，先问问题卡在哪、手里有什么证据、谁来接住结果。</p>
         </header>
         <div class="method-grid">
           <article class="method-step">
             <span>01</span>
-            <h3 data-copy="method1Title">先把问题说清楚</h3>
-            <p data-copy="method1Text">明确谁在什么场景里遇到问题，为什么现在的做法不够用。</p>
+            <h3 data-copy="method1Title">先把问题讲明白</h3>
+            <p data-copy="method1Text">谁在什么时候卡住了？现在的办法为什么不够用？</p>
           </article>
           <article class="method-step">
             <span>02</span>
-            <h3 data-copy="method2Title">建立产品边界</h3>
-            <p data-copy="method2Text">分清 AI、规则、数据和人工分别负责什么。</p>
+            <h3 data-copy="method2Title">把边界画出来</h3>
+            <p data-copy="method2Text">哪些交给 AI，哪些交给规则、数据和人，先分开。</p>
           </article>
           <article class="method-step">
             <span>03</span>
-            <h3 data-copy="method3Title">尽快做出 Demo</h3>
-            <p data-copy="method3Text">用真实页面和真实流程验证，不靠概念稿猜。</p>
+            <h3 data-copy="method3Title">先做一个能用的版本</h3>
+            <p data-copy="method3Text">真实页面、真实流程，跑一遍就知道哪里不对。</p>
           </article>
           <article class="method-step">
             <span>04</span>
-            <h3 data-copy="method4Title">用证据验收</h3>
-            <p data-copy="method4Text">检查结果、异常和失败路径，再决定是否继续投入。</p>
+            <h3 data-copy="method4Title">拿证据做决定</h3>
+            <p data-copy="method4Text">结果、异常、失败路径都看过，再决定要不要继续投。</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="archive" class="section">
+    <section id="archive" class="section archive-section">
       <div class="container">
-        <header class="section-head">
+        <header class="section-head archive-head">
           <span class="section-index">04 / NOTES</span>
           <h2 data-copy="archiveTitle">更多项目案例</h2>
         </header>
@@ -138,13 +164,15 @@
   <footer id="contact" class="section contact">
     <div class="container">
       <div class="contact-grid">
-        <div>
-          <h2 data-copy="contactTitle">如果你也在做一件难而具体的事，我们可以聊聊。</h2>
-          <p data-copy="contactText">可以聊企业 AI 项目、产品合作，也欢迎其他合作机会。</p>
-          <a class="button" href="mailto:mozhenxuan@163.com" data-copy="contactButton">发送邮件</a>
+        <div class="contact-copy">
+          <span class="section-index">05 / CONTACT</span>
+          <h2 data-copy="contactTitle">如果你手上也有一个难而具体的问题，来聊聊。</h2>
+          <p data-copy="contactText">可以聊企业 AI 项目、产品合作，或者一个还没想清楚、但值得一起拆开的想法。</p>
+          <a class="button primary" href="mailto:mozhenxuan@163.com" data-copy="contactButton">发送邮件</a>
         </div>
         <div class="qr">
-          <img src="images/wechat-qr-code.jpg" alt="WeChat QR code" width="216" height="216">
+          <span>WECHAT / 微信</span>
+          <img src="images/wechat-qr-code.jpg" alt="微信二维码" width="216" height="216">
         </div>
       </div>
       <div class="footer">

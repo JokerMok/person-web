@@ -8,14 +8,14 @@ const SITE_COPY = {
   heroTitleA: { zh: "持续做真实产品的", en: "BUILDING REAL" },
   heroTitleB: { zh: "AI 实验室主理人", en: "AI PRODUCTS" },
   heroCopy: {
-    zh: "我是莫臻轩，一名 B 端 AI 产品经理。过去 11 年一直在做软件产品，现在把更多时间放在真实业务里的 AI 产品，以及可以亲手体验的产品实验上。",
+    zh: "我是莫臻轩，一名 B 端 AI 产品经理。做了 11 年软件产品，现在更愿意把时间花在真实业务里：把一个说不清的问题，做成团队能用的 AI 产品。",
     en: "I’m Zhenxuan Mo, a B2B AI product manager with 11 years in software products. I now focus on AI products grounded in real business and product experiments people can actually try."
   },
   heroPrimary: { zh: "查看项目", en: "View projects" },
   heroSecondary: { zh: "联系合作", en: "Work with me" },
   heroNoteTitle: { zh: "当前身份", en: "CURRENT ROLE" },
   heroNoteText: {
-    zh: "B 端 AI 产品经理，同时运营一间持续做真实产品的个人实验室。",
+    zh: "我现在做两件事：在业务里做 AI 产品，也自己把想法做到能运行。",
     en: "B2B AI product manager running an independent lab that continuously ships real products."
   },
   proofExperience: { zh: "11 年产品经验", en: "11 years in product" },
@@ -25,23 +25,23 @@ const SITE_COPY = {
   proofLab: { zh: "真实产品实验室", en: "Real product lab" },
   proofLabText: { zh: "每个精选项目都有 Demo、原型或可核对的交付物。", en: "Every selected project has a demo, prototype, or verifiable artifact." },
   enterpriseTitle: { zh: "企业 AI 实践", en: "Enterprise AI Work" },
-  enterpriseText: { zh: "选取可公开的项目内容，重点放在问题怎么拆、产品怎么设计，以及最后交付了什么。", en: "These cases use material suitable for public viewing, with a focus on problem framing, product decisions, and concrete deliverables." },
+  enterpriseText: { zh: "这里放的是我真正参与过的企业项目：先把问题捋清楚，再把产品做出来，最后留下能评审、能验收的东西。", en: "These are enterprise projects I actually worked on: frame the problem, build the product, and leave behind something teams can review and accept." },
   labTitle: { zh: "AI Lab 精选", en: "Selected Lab Work" },
-  labText: { zh: "从本地工具、消费产品到两款游戏。项目都已经做出可运行版本。", en: "Local tools, consumer products, and two games. Every project has a working build." },
+  labText: { zh: "有些来自工作，有些只是我想验证的想法。共同点是：我会把它们做到能运行。", en: "Some started at work, some started as questions I wanted to test. The common thread is that I build them into something runnable." },
   methodTitle: { zh: "我的方法论", en: "My Methodology" },
-  methodText: { zh: "我先判断问题、证据和交付边界，再决定是否需要 AI。", en: "I start with the problem, evidence, and delivery boundary, then decide whether AI belongs in the solution." },
+  methodText: { zh: "我不先问“要不要上 AI”，先问问题卡在哪、手里有什么证据、谁来接住结果。", en: "I do not start with “should we use AI?” I start with where the work gets stuck, what evidence exists, and who owns the outcome." },
   archiveTitle: { zh: "更多项目案例", en: "More Project Cases" },
-  contactTitle: { zh: "如果你也在做一件难而具体的事，我们可以聊聊。", en: "If you’re building something difficult and concrete, let’s talk." },
-  contactText: { zh: "可以聊企业 AI 项目、产品合作，也欢迎其他合作机会。", en: "I’m open to enterprise AI projects, product partnerships, and other forms of collaboration." },
+  contactTitle: { zh: "如果你手上也有一个难而具体的问题，来聊聊。", en: "If you have a difficult, concrete problem in front of you, let’s talk." },
+  contactText: { zh: "可以聊企业 AI 项目、产品合作，或者一个还没想清楚、但值得一起拆开的想法。", en: "I’m open to enterprise AI projects, product partnerships, or an idea that is not fully formed yet but worth unpacking together." },
   contactButton: { zh: "发送邮件", en: "Send email" },
-  method1Title: { zh: "先把问题说清楚", en: "Frame the problem" },
-  method1Text: { zh: "明确谁在什么场景里遇到问题，为什么现在的做法不够用。", en: "Define who has the problem, in what context, and why the current approach fails." },
-  method2Title: { zh: "建立产品边界", en: "Set product boundaries" },
-  method2Text: { zh: "分清 AI、规则、数据和人工分别负责什么。", en: "Decide what belongs to AI, rules, data, and human review." },
-  method3Title: { zh: "尽快做出 Demo", en: "Build the demo early" },
-  method3Text: { zh: "用真实页面和真实流程验证，不靠概念稿猜。", en: "Validate with real screens and flows instead of concept slides." },
-  method4Title: { zh: "用证据验收", en: "Review with evidence" },
-  method4Text: { zh: "检查结果、异常和失败路径，再决定是否继续投入。", en: "Review outcomes, exceptions, and failure paths before investing further." }
+  method1Title: { zh: "先把问题讲明白", en: "Frame the problem" },
+  method1Text: { zh: "谁在什么时候卡住了？现在的办法为什么不够用？", en: "Who gets stuck, when does it happen, and why is the current way not enough?" },
+  method2Title: { zh: "把边界画出来", en: "Set the boundaries" },
+  method2Text: { zh: "哪些交给 AI，哪些交给规则、数据和人，先分开。", en: "Separate what belongs to AI, rules, data, and people." },
+  method3Title: { zh: "先做一个能用的版本", en: "Build a usable version" },
+  method3Text: { zh: "真实页面、真实流程，跑一遍就知道哪里不对。", en: "Run a real page through a real flow and the weak spots show up." },
+  method4Title: { zh: "拿证据做决定", en: "Decide with evidence" },
+  method4Text: { zh: "结果、异常、失败路径都看过，再决定要不要继续投。", en: "Look at outcomes, exceptions, and failure paths before investing more." }
 };
 
 const groups = {
@@ -71,23 +71,50 @@ function applyCopy(lang) {
   });
 }
 
-function projectCard(id, index, lang, featured = false) {
+function projectMedia(project, id, lang, loading = "lazy") {
+  if (!project.image) {
+    return `<div class="project-placeholder" aria-hidden="true"><span>${localized(project.type, lang)}</span></div>`;
+  }
+  return `
+    <figure class="project-media">
+      <img src="${project.image}" alt="${localized(project.imageAlt, lang)}" loading="${loading}" decoding="async" style="view-transition-name: project-${id}">
+      <figcaption>${localized(project.mediaLabel, lang)}</figcaption>
+    </figure>`;
+}
+
+function enterpriseCard(id, index, lang) {
   const project = window.PROJECTS[id];
   const name = localized(project.name, lang);
   return `
-    <a class="project-card${featured ? " featured" : ""}" href="project.html?id=${id}" aria-label="${name}">
-      <div class="card-top">
-        <span class="card-index">${String(index).padStart(2, "0")}</span>
-        <span class="project-status">${localized(project.status, lang)}</span>
+    <a class="case-card case-card-${index}" href="project.html?id=${id}" aria-label="${name}" style="--order:${index}">
+      <div class="case-media-wrap">
+        ${projectMedia(project, id, lang, index === 1 ? "eager" : "lazy")}
       </div>
-      ${project.image ? `
-        <figure class="project-media">
-          <img src="${project.image}" alt="${localized(project.imageAlt, lang)}" loading="lazy" decoding="async">
-          <figcaption>${localized(project.mediaLabel, lang)}</figcaption>
-        </figure>` : ""}
-      <h3>${name}</h3>
-      <p class="card-copy">${localized(project.short, lang)}</p>
-      <span class="card-arrow" aria-hidden="true">↗</span>
+      <div class="case-copy">
+        <div class="case-meta">
+          <span class="card-index">0${index}</span>
+          <span>${localized(project.type, lang)}</span>
+          <span class="project-status">${localized(project.status, lang)}</span>
+        </div>
+        <h3>${name}</h3>
+        <p>${localized(project.short, lang)}</p>
+        <span class="case-link"><i aria-hidden="true">↗</i>${lang === "zh" ? "查看完整案例" : "View case study"}</span>
+      </div>
+    </a>`;
+}
+
+function labCard(id, index, lang) {
+  const project = window.PROJECTS[id];
+  const name = localized(project.name, lang);
+  return `
+    <a class="lab-card lab-card-${index}" href="project.html?id=${id}" aria-label="${name}" style="--order:${index}">
+      ${projectMedia(project, id, lang)}
+      <div class="lab-card-copy">
+        <div><span class="card-index">0${index}</span><span class="project-status">${localized(project.status, lang)}</span></div>
+        <h3>${name}</h3>
+        <p>${localized(project.short, lang)}</p>
+      </div>
+      <span class="lab-arrow" aria-hidden="true">↗</span>
     </a>`;
 }
 
@@ -97,12 +124,12 @@ function renderProjects(lang) {
   const archive = document.querySelector("#archiveProjects");
   if (enterprise) {
     enterprise.innerHTML = groups.enterprise
-      .map((id, i) => projectCard(id, i + 1, lang, i === 0))
+      .map((id, i) => enterpriseCard(id, i + 1, lang))
       .join("");
   }
   if (lab) {
     lab.innerHTML = groups.lab
-      .map((id, i) => projectCard(id, i + 1, lang, i === 3))
+      .map((id, i) => labCard(id, i + 1, lang))
       .join("");
   }
   if (archive) {
@@ -111,9 +138,10 @@ function renderProjects(lang) {
       return `
         <a class="archive-item" href="project.html?id=${id}">
           <span class="card-index">${String(i + 1).padStart(2, "0")}</span>
+          <span class="archive-type">${localized(project.type, lang)}</span>
           <strong>${localized(project.name, lang)}</strong>
           <p>${localized(project.short, lang)}</p>
-          <span aria-hidden="true">↗</span>
+          <i aria-hidden="true">↗</i>
         </a>`;
     }).join("");
   }
@@ -131,7 +159,8 @@ const motionState = {
   observer: null,
   reduced: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   finePointer: window.matchMedia("(hover: hover) and (pointer: fine)").matches,
-  frame: 0
+  frame: 0,
+  scrollFrame: 0
 };
 
 function animateCount(node) {
@@ -156,7 +185,8 @@ function observeMotionElements() {
   if (motionState.reduced || !motionState.observer) return;
   const selectors = [
     ".section-head",
-    ".project-card",
+    ".case-card",
+    ".lab-card",
     ".method-step",
     ".archive-item",
     ".contact-grid",
@@ -166,34 +196,32 @@ function observeMotionElements() {
     ".module"
   ].join(",");
 
-  document.querySelectorAll(selectors).forEach((node, index) => {
+  document.querySelectorAll(selectors).forEach((node) => {
     if (node.dataset.motionBound === "true") return;
     node.dataset.motionBound = "true";
     node.classList.add("reveal-item");
-    node.style.setProperty("--reveal-delay", `${Math.min(index % 5, 4) * 54}ms`);
+    node.style.setProperty("--reveal-delay", `${Math.min(Number(node.style.getPropertyValue("--order")) || 0, 5) * 55}ms`);
     motionState.observer.observe(node);
   });
 }
 
-function bindCardMotion() {
+function bindDepthMotion() {
   if (!motionState.finePointer || motionState.reduced) return;
-  document.querySelectorAll(".project-card").forEach((card) => {
+  document.querySelectorAll(".case-card, .lab-card, .hero-frame").forEach((card) => {
     if (card.dataset.pointerBound === "true") return;
     card.dataset.pointerBound = "true";
     card.addEventListener("pointermove", (event) => {
-      card.classList.add("is-interacting");
       const rect = card.getBoundingClientRect();
       const x = event.clientX - rect.left;
       const y = event.clientY - rect.top;
-      const rx = ((y / rect.height) - 0.5) * -5;
-      const ry = ((x / rect.width) - 0.5) * 6;
+      const rx = ((y / rect.height) - 0.5) * -2.6;
+      const ry = ((x / rect.width) - 0.5) * 3.2;
       card.style.setProperty("--pointer-x", `${x}px`);
       card.style.setProperty("--pointer-y", `${y}px`);
       card.style.setProperty("--tilt-x", `${rx.toFixed(2)}deg`);
       card.style.setProperty("--tilt-y", `${ry.toFixed(2)}deg`);
     });
     card.addEventListener("pointerleave", () => {
-      card.classList.remove("is-interacting");
       card.style.setProperty("--tilt-x", "0deg");
       card.style.setProperty("--tilt-y", "0deg");
     });
@@ -217,31 +245,25 @@ function bindMagneticButtons() {
   });
 }
 
-function bindPageTransitions() {
-  document.querySelectorAll('a[href]').forEach((link) => {
-    if (link.dataset.transitionBound === "true") return;
-    const href = link.getAttribute("href");
-    if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("http")) return;
-    link.dataset.transitionBound = "true";
-    link.addEventListener("click", (event) => {
-      if (motionState.reduced || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-      event.preventDefault();
-      document.documentElement.classList.add("page-leaving");
-      sessionStorage.setItem("zhenyi-page-transition", "1");
-      window.setTimeout(() => {
-        window.location.href = link.href;
-      }, 320);
-    });
-  });
-}
-
 function refreshMotion() {
   window.requestAnimationFrame(() => {
     observeMotionElements();
-    bindCardMotion();
+    bindDepthMotion();
     bindMagneticButtons();
-    bindPageTransitions();
   });
+}
+
+function updateScene() {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+  const heroProgress = Math.min(window.scrollY / Math.max(window.innerHeight, 1), 1.25);
+  document.documentElement.style.setProperty("--scroll-progress", progress);
+  document.documentElement.style.setProperty("--hero-scroll", heroProgress.toFixed(4));
+}
+
+function requestSceneUpdate() {
+  cancelAnimationFrame(motionState.scrollFrame);
+  motionState.scrollFrame = requestAnimationFrame(updateScene);
 }
 
 function initMotion() {
@@ -265,30 +287,14 @@ function initMotion() {
   const proofRow = document.querySelector(".proof-row");
   if (proofRow) motionState.observer.observe(proofRow);
 
-  const transition = document.createElement("div");
-  transition.className = "page-transition";
-  transition.setAttribute("aria-hidden", "true");
-  transition.innerHTML = "<span></span><span></span><span></span>";
-  document.body.appendChild(transition);
-  if (sessionStorage.getItem("zhenyi-page-transition") === "1") {
-    sessionStorage.removeItem("zhenyi-page-transition");
-    document.documentElement.classList.add("page-entering");
-    window.setTimeout(() => document.documentElement.classList.remove("page-entering"), 620);
-  }
-
   if (motionState.finePointer) {
-    const signal = document.createElement("div");
-    signal.className = "signal-cursor";
-    signal.setAttribute("aria-hidden", "true");
-    document.body.appendChild(signal);
-
     window.addEventListener("pointermove", (event) => {
       cancelAnimationFrame(motionState.frame);
       motionState.frame = requestAnimationFrame(() => {
-        signal.style.setProperty("--cursor-x", `${event.clientX}px`);
-        signal.style.setProperty("--cursor-y", `${event.clientY}px`);
-        document.documentElement.style.setProperty("--scene-x", `${(event.clientX / window.innerWidth - 0.5) * 18}px`);
-        document.documentElement.style.setProperty("--scene-y", `${(event.clientY / window.innerHeight - 0.5) * 14}px`);
+        document.documentElement.style.setProperty("--cursor-x", `${event.clientX}px`);
+        document.documentElement.style.setProperty("--cursor-y", `${event.clientY}px`);
+        document.documentElement.style.setProperty("--scene-x", `${(event.clientX / window.innerWidth - 0.5) * 12}px`);
+        document.documentElement.style.setProperty("--scene-y", `${(event.clientY / window.innerHeight - 0.5) * 10}px`);
       });
     }, { passive: true });
   }
@@ -299,17 +305,16 @@ function initMotion() {
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-lang-button]").forEach((button) => {
-    button.addEventListener("click", () => setLanguage(button.dataset.langButton));
+    button.addEventListener("click", () => {
+      const update = () => setLanguage(button.dataset.langButton);
+      if (!motionState.reduced && document.startViewTransition) document.startViewTransition(update);
+      else update();
+    });
   });
   setLanguage(currentLanguage());
-
-  const updateScrollProgress = () => {
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
-    document.documentElement.style.setProperty("--scroll-progress", progress);
-  };
-  updateScrollProgress();
-  window.addEventListener("scroll", updateScrollProgress, { passive: true });
+  updateScene();
+  window.addEventListener("scroll", requestSceneUpdate, { passive: true });
+  window.addEventListener("resize", requestSceneUpdate, { passive: true });
   initMotion();
 });
 

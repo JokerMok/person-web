@@ -8,15 +8,38 @@ window.PROJECTS = {
       en: "Xiaoyou Assistant 1.3 interactive support prototype showing issue recognition, SOP matching, response guidance, and case outcomes"
     },
     mediaLabel: { zh: "真实交互原型", en: "Live interaction prototype" },
+    gallery: [
+      {
+        image: "images/projects/enterprise-ai-assistant-real.jpg",
+        mode: "crop",
+        position: "25% 48%",
+        imageAlt: { zh: "小优助手左侧导航与异常会话列表局部", en: "Xiaoyou Assistant navigation and exception history detail" },
+        caption: { zh: "入口与历史会话", en: "Entry and history" }
+      },
+      {
+        image: "images/projects/enterprise-ai-assistant-real.jpg",
+        mode: "crop",
+        position: "76% 42%",
+        imageAlt: { zh: "小优助手诊断编号、问题类型与话术内容局部", en: "Xiaoyou Assistant diagnosis, issue type, and response detail" },
+        caption: { zh: "诊断与话术", en: "Diagnosis and response" }
+      },
+      {
+        image: "images/projects/enterprise-ai-assistant-real.jpg",
+        mode: "crop",
+        position: "73% 88%",
+        imageAlt: { zh: "小优助手处理结果与补充记录操作区局部", en: "Xiaoyou Assistant outcome and follow-up action detail" },
+        caption: { zh: "处理结果", en: "Case outcome" }
+      }
+    ],
     type: { zh: "企业 AI 产品线", en: "Enterprise AI Product Line" },
     name: { zh: "企业 AI 助手产品线", en: "Enterprise AI Assistant Suite" },
     short: {
-      zh: "围绕识别、检索、诊断和业务规则，做了五个面向具体业务的企业智能体。",
+      zh: "围绕识别、检索、诊断和业务规则，把五个具体问题做成能接住业务的企业智能体。",
       en: "A practical suite of enterprise agents for recognition, retrieval, diagnosis, and rule-based decisions."
     },
     status: { zh: "持续迭代", en: "In active development" },
     summary: {
-      zh: "这条产品线来自真实企业业务。每个智能体都对应一个明确问题，也有自己的知识来源、人工复核和验收边界。",
+      zh: "这些项目都来自真实企业业务。我把一个大问题拆成几个能验证的环节：知识从哪里来，结论凭什么成立，出了异常谁来接。",
       en: "This suite grew out of real enterprise workflows. Each agent addresses a defined problem with traceable knowledge, human review, and explicit acceptance boundaries."
     },
     facts: [
@@ -25,11 +48,11 @@ window.PROJECTS = {
       { label: { zh: "公开范围", en: "Disclosure" }, value: { zh: "真实交互原型截图", en: "Live prototype screenshot" } }
     ],
     challenge: {
-      zh: "企业智能体最容易卡在三个地方：知识不可靠、结论没有出处、异常情况没人接手。",
+      zh: "企业智能体真正难的，通常不是把答案说出来，而是知识不可靠、结论没出处，异常来了没人接。",
       en: "Enterprise agents tend to fail in three places: unreliable knowledge, conclusions without evidence, and exceptions with no human owner."
     },
     approach: {
-      zh: "先把问题、数据和责任边界说清楚，再设计检索、规则比对、证据链和转人工流程。产品交付以可评审、可测试为准。",
+      zh: "我先把问题、数据和责任边界捋清楚，再安排检索、规则比对、证据链和转人工。每一块都要能评审、能测试。",
       en: "The work starts by defining the problem, data, and ownership boundaries, then designs retrieval, rule checks, evidence chains, and human handoff. Deliverables must be reviewable and testable."
     },
     evidence: [
@@ -62,21 +85,33 @@ window.PROJECTS = {
   },
   compliance: {
     group: "enterprise",
-    image: "images/projects/ai-video-compliance.webp",
+    image: "images/projects/compliance-live.webp",
     imageAlt: {
-      zh: "工业现场称重行为识别效果，标注称重显示器、危险废物与地磅区域",
-      en: "Industrial weighing recognition showing the weight display, material, and scale area"
+      zh: "优废环保危废智能合规监管平台一期监管工作台真实原型",
+      en: "Live supervision workspace from the YOFI hazardous-waste compliance platform prototype"
     },
-    mediaLabel: { zh: "视觉算法场景效果", en: "Computer vision scenario" },
+    mediaLabel: { zh: "真实监管工作台原型", en: "Live supervision prototype" },
+    gallery: [
+      {
+        image: "images/projects/compliance-scene-weighing.webp",
+        imageAlt: { zh: "危废称重行为识别画面，标注称重显示器、危废袋和地磅区域", en: "Hazardous-waste weighing recognition with labels for the display, bag, and scale area" },
+        caption: { zh: "称重行为识别", en: "Weighing recognition" }
+      },
+      {
+        image: "images/projects/compliance-scene-label.webp",
+        imageAlt: { zh: "危废标签识别场景效果", en: "Hazardous-waste label recognition scene" },
+        caption: { zh: "标签识别与复核", en: "Label recognition and review" }
+      }
+    ],
     type: { zh: "企业 AI 系统", en: "Enterprise AI System" },
     name: { zh: "AI 视频智能合规监管平台", en: "AI Video Compliance Platform" },
     short: {
-      zh: "把视频事件、业务台账和人工复核接成一条可追溯的处理链。",
+      zh: "让视频里发现的事件，真正进入台账、复核和后续处理。",
       en: "Connects video events, business ledgers, and human review into a traceable compliance loop."
     },
     status: { zh: "一期原型", en: "Phase-one prototype" },
     summary: {
-      zh: "平台面向工业现场的视频监管场景。算法事件需要进入业务台账，经过复核并留下证据。",
+      zh: "现场视频发现的事件，不能只停在告警里。它还要进台账、有人复核，最后留下能回看的证据。",
       en: "Designed for industrial video supervision, the platform focuses on turning algorithm events into reviewed, ledger-linked, and traceable business records."
     },
     facts: [
@@ -85,11 +120,11 @@ window.PROJECTS = {
       { label: { zh: "公开范围", en: "Disclosure" }, value: { zh: "已脱敏", en: "Sanitized case study" } }
     ],
     challenge: {
-      zh: "视觉算法可以报出事件，但如果点位、业务台账、复核责任和证据规则没有接上，告警很快会变成新的信息噪声。",
+      zh: "算法能报出事件，但点位、台账、复核责任和证据规则接不上，告警很快就会变成新的噪声。",
       en: "Visual algorithms can raise events, but without point mapping, ledger links, review ownership, and evidence rules, alerts quickly become another source of noise."
     },
     approach: {
-      zh: "一期范围包括事件进入、点位映射、台账校验、人工复核、证据留存和结果回写。",
+      zh: "一期先把事件进入、点位映射、台账校验、人工复核、证据留存和结果回写这条链跑通。",
       en: "Phase one is limited to the regulator’s essential loop: event intake, point mapping, ledger validation, human review, evidence retention, and result write-back."
     },
     evidence: [
@@ -100,21 +135,38 @@ window.PROJECTS = {
   },
   admin: {
     group: "enterprise",
-    image: "images/projects/ruoyi-agent-admin.svg",
+    image: "images/projects/admin-live.webp",
     imageAlt: {
-      zh: "基于 RuoYi-AI 的企业智能体管理后台脱敏界面示意",
-      en: "Sanitized enterprise agent administration interface based on RuoYi-AI"
+      zh: "基于 RuoYi-AI 的企业智能体管理后台评审原型",
+      en: "Enterprise agent administration review prototype based on RuoYi-AI"
     },
-    mediaLabel: { zh: "脱敏界面示意", en: "Sanitized interface overview" },
+    mediaLabel: { zh: "RuoYi-AI 风格真实原型", en: "RuoYi-AI style live prototype" },
+    gallery: [
+      {
+        image: "images/projects/admin-agent-list.webp",
+        imageAlt: { zh: "优废智能体管理系统的智能体配置列表", en: "Agent configuration list in the enterprise admin console" },
+        caption: { zh: "智能体配置列表", en: "Agent configuration list" }
+      },
+      {
+        image: "images/projects/admin-op-log.webp",
+        imageAlt: { zh: "优废智能体管理系统的调用日志页面", en: "Call log view in the enterprise admin console" },
+        caption: { zh: "调用日志", en: "Call logs" }
+      },
+      {
+        image: "images/projects/admin-chat.webp",
+        imageAlt: { zh: "优废智能体管理系统的对话工作区", en: "Conversation workspace in the enterprise admin console" },
+        caption: { zh: "对话工作区", en: "Conversation workspace" }
+      }
+    ],
     type: { zh: "企业管理后台", en: "Enterprise Admin System" },
     name: { zh: "企业智能体管理后台", en: "Enterprise Agent Administration" },
     short: {
-      zh: "基于 RuoYi-AI 框架，统一管理智能体配置、知识库、调用日志和用户反馈。",
+      zh: "沿着 RuoYi-AI 的底座，把智能体配置、知识库、调用日志和反馈放到一个后台里。",
       en: "Built on RuoYi-AI to manage agent configurations, knowledge bases, call logs, and user feedback."
     },
     status: { zh: "MVP 设计", en: "MVP design" },
     summary: {
-      zh: "项目基于 RuoYi-AI 框架扩展企业智能体管理能力。产品工作集中在后台入口、字段口径、启停规则、日志和反馈处理。",
+      zh: "这个项目没有另起炉灶，而是沿着 RuoYi-AI 补齐企业日常真正会用到的后台：入口、字段、启停、日志和反馈。",
       en: "This project extends the RuoYi-AI framework for enterprise agent operations. Product work focuses on navigation, field definitions, enable/disable rules, logs, and feedback loops."
     },
     facts: [
@@ -123,11 +175,11 @@ window.PROJECTS = {
       { label: { zh: "公开范围", en: "Disclosure" }, value: { zh: "已脱敏", en: "Sanitized case study" } }
     ],
     challenge: {
-      zh: "智能体数量增加后，配置、知识来源和调用情况散落在不同位置，运营人员很难判断哪个版本正在使用、哪里出了问题。",
+      zh: "智能体一多，配置、知识来源和调用记录就会散开。运营人员常常不知道现在跑的是哪个版本，问题又卡在哪里。",
       en: "As the number of agents grows, configurations, knowledge sources, and usage records become fragmented, making version and issue tracking difficult."
     },
     approach: {
-      zh: "沿用 RuoYi-AI 的技术底座，补充企业日常要用的管理入口和字段规则，不重复建设框架已有能力。",
+      zh: "我保留 RuoYi-AI 已经有的能力，只补企业后台真正缺的入口和字段规则，不重复造轮子。",
       en: "The design keeps the RuoYi-AI foundation and adds the enterprise management views and field rules that are actually needed instead of rebuilding existing framework capabilities."
     },
     evidence: [
@@ -138,12 +190,12 @@ window.PROJECTS = {
   },
   skilllens: {
     group: "lab",
-    image: "images/projects/skilllens.svg",
+    image: "images/projects/skilllens-app.webp",
     imageAlt: {
       zh: "SkillLens 中文技能图鉴界面示意，展示搜索、中文用途、调用方法与健康状态",
       en: "SkillLens interface overview with search, Chinese guidance, invocation examples, and health status"
     },
-    mediaLabel: { zh: "产品界面示意", en: "Product interface overview" },
+    mediaLabel: { zh: "macOS 实机截图", en: "macOS app capture" },
     type: { zh: "macOS 本地应用", en: "macOS Local App" },
     name: { zh: "SkillLens｜加强版 Skill 管理器", en: "SkillLens | Advanced Skill Manager" },
     short: {
@@ -152,7 +204,7 @@ window.PROJECTS = {
     },
     status: { zh: "1.0.0 已验收", en: "Version 1.0.0 verified" },
     summary: {
-      zh: "Skill 数量增加后，问题是看不懂、找不到，也不知道什么时候该用。SkillLens 把扫描、搜索、中文说明和健康检查放进一个本地应用。",
+      zh: "Skill 一多，最先遇到的不是不会用，而是看不懂、找不到，也不知道什么时候该用。SkillLens 把扫描、搜索、中文说明和健康检查放进一个本地应用。",
       en: "As Skill libraries grow, the real problem is understanding what exists and when to use it. SkillLens combines scanning, search, Chinese guidance, and health checks in one local app."
     },
     facts: [
@@ -161,11 +213,11 @@ window.PROJECTS = {
       { label: { zh: "边界", en: "Boundary" }, value: { zh: "默认只读", en: "Read-only by default" } }
     ],
     challenge: {
-      zh: "用户 Skill、项目 Skill 和插件 Skill 分散在不同目录，英文说明和依赖信息也不容易快速看懂。",
+      zh: "用户 Skill、项目 Skill 和插件 Skill 分在不同目录，英文说明和依赖信息也不太适合拿来快速扫一眼。",
       en: "User, project, and plugin Skills live in different directories, while English descriptions and dependencies are hard to scan quickly."
     },
     approach: {
-      zh: "统一扫描本地目录，建立可搜索索引，再生成中文用途、调用方法和依赖说明。默认不执行脚本，也不修改原文件。",
+      zh: "我先统一扫描本地目录，做出可搜索的索引，再补上中文用途、调用方法和依赖说明。默认只读，不执行脚本，也不改原文件。",
       en: "The app scans local directories into a searchable index, then adds Chinese usage and dependency guidance. It does not execute scripts or modify source files by default."
     },
     evidence: [
@@ -178,19 +230,26 @@ window.PROJECTS = {
     group: "lab",
     image: "images/projects/hairstyle-studio.webp",
     imageAlt: {
-      zh: "发型镜产品首页，展示同一人物的三种发型预览",
-      en: "AI Hairstyle Studio homepage showing three hairstyle previews for the same person"
+      zh: "发型镜产品首页，展示三种发型参考与比较流程",
+      en: "HairMirror product home showing three hairstyle references and the comparison flow"
     },
-    mediaLabel: { zh: "产品 Demo", en: "Product demo" },
+    mediaLabel: { zh: "真实产品 Demo", en: "Live product demo" },
+    gallery: [
+      {
+        image: "images/projects/hairstyle-live.webp",
+        imageAlt: { zh: "发型镜真实产品入口与角色选择页", en: "HairMirror live product entry and role selection" },
+        caption: { zh: "产品入口与角色选择", en: "Entry and role selection" }
+      }
+    ],
     type: { zh: "AI 消费产品", en: "AI Consumer Product" },
     name: { zh: "发型镜｜AI Hairstyle Studio", en: "AI Hairstyle Studio" },
     short: {
-      zh: "上传照片，提前看看不同发型的效果。",
+      zh: "上传一张照片，先看看换个发型会是什么样。",
       en: "Upload a photo and preview different hairstyles before making a change."
     },
     status: { zh: "真人内测整改中", en: "Private testing" },
     summary: {
-      zh: "这是一个面向个人用户和理发门店的发型预览产品。Demo 已跑通上传、选择、生成、历史记录和后台管理，公开收费前仍在补真人样本评测。",
+      zh: "这是给个人用户和理发门店用的发型预览产品。上传、选择、生成、历史记录和后台管理已经跑通，公开收费前还要把真人样本评测补完。",
       en: "A hairstyle preview product for individuals and salons. The demo covers upload, selection, generation, history, and operations, while real-person evaluation continues before any public paid release."
     },
     facts: [
@@ -199,11 +258,11 @@ window.PROJECTS = {
       { label: { zh: "状态", en: "Status" }, value: { zh: "本地 Demo 可用", en: "Local demo available" } }
     ],
     challenge: {
-      zh: "生成一张图不难。产品难点是照片隐私、任务排队、失败重试、模型成本和用户权益。",
+      zh: "生成一张图不算难，难的是照片隐私、任务排队、失败重试、模型成本和用户权益都要接得住。",
       en: "Generating one image is easy. The product challenge lies in photo privacy, queues, retries, model costs, and user entitlements."
     },
     approach: {
-      zh: "把生成能力放进完整任务流程，并为个人用户、门店和管理员设计不同权限。未完成真人样本评测前不开放收费。",
+      zh: "我把生成放进完整任务流程，再按个人用户、门店和管理员分开权限。真人样本评测没做完之前，不急着收费。",
       en: "Generation is placed inside a complete task flow with distinct permissions for individuals, salons, and administrators. Paid access remains closed until real-person evaluation is complete."
     },
     evidence: [
@@ -214,40 +273,78 @@ window.PROJECTS = {
   },
   parentvoice: {
     group: "lab",
-    image: "images/projects/parent-voice-scene.webp",
+    image: "images/projects/parentvoice-reading.webp",
     imageAlt: {
-      zh: "父母声场景伴读小程序中的家庭场景插画",
-      en: "Home-scene artwork used in the Parent Voice reading mini program"
+      zh: "父母声已上线微信小程序识字页，展示场景分类、点读卡片和学习进度",
+      en: "Live Parent Voice WeChat mini program reading screen with scene filters, word cards, and progress"
     },
-    mediaLabel: { zh: "产品场景素材", en: "In-product scene artwork" },
+    mediaLabel: { zh: "已上线小程序截图", en: "Live mini-program capture" },
+    launch: {
+      qr: "images/projects/parentvoice-qr.webp",
+      alt: { zh: "父母声场景伴读微信小程序二维码", en: "QR code for the Parent Voice Scene Reading WeChat mini program" },
+      label: { zh: "现在可以体验", en: "Try it now" },
+      text: { zh: "微信扫一扫，或搜索「父母声场景伴读」", en: "Scan in WeChat or search for “父母声场景伴读”" }
+    },
+    gallery: [
+      {
+        image: "images/projects/parentvoice-explore.webp",
+        imageAlt: { zh: "父母声小程序探索场景页，包含 AI 标准音、拍照添加场景和精选场景", en: "Parent Voice scene explorer with standard AI voice, photo scene creation, and featured scenes" },
+        caption: { zh: "探索生活场景", en: "Explore everyday scenes" }
+      },
+      {
+        image: "images/projects/parentvoice-scene.webp",
+        imageAlt: { zh: "父母声游乐园场景点读页，展示图片热点和语音引导", en: "Parent Voice amusement-park scene with image hotspots and voice guidance" },
+        caption: { zh: "场景点读", en: "Scene-based reading" }
+      },
+      {
+        image: "images/projects/parentvoice-card.webp",
+        imageAlt: { zh: "父母声场景点读结果，显示中文词语、拼音和点读反馈", en: "Parent Voice scene reading result with the Chinese word, pinyin, and tap feedback" },
+        caption: { zh: "词语与拼音反馈", en: "Word and pinyin feedback" }
+      },
+      {
+        image: "images/projects/parentvoice-progress.webp",
+        imageAlt: { zh: "父母声我的页面，展示连续学习、词语数量和场景进度", en: "Parent Voice profile screen with streaks, learned words, and scene progress" },
+        caption: { zh: "学习记录", en: "Learning record" }
+      },
+      {
+        image: "images/projects/parentvoice-voice.webp",
+        imageAlt: { zh: "父母声声音设置页，展示 AI 标准女声和爸妈声音复刻入口", en: "Parent Voice voice settings with the standard AI voice and parent voice cloning entry" },
+        caption: { zh: "爸妈声音复刻", en: "Parent voice cloning" }
+      },
+      {
+        image: "images/projects/parentvoice-live.webp",
+        imageAlt: { zh: "父母声产品介绍页，说明多语言点读和爸妈声音陪伴方向", en: "Parent Voice product page introducing multilingual reading and familiar parent voices" },
+        caption: { zh: "产品方向与上线介绍", en: "Product direction and launch" }
+      }
+    ],
     type: { zh: "亲子教育小程序", en: "Family Learning Mini Program" },
     name: { zh: "父母声｜场景伴读小程序", en: "Parent Voice | Scene Reading" },
     short: {
-      zh: "用父母熟悉的声音，陪孩子在生活场景中识字和跟读。",
-      en: "Uses a familiar parent voice to help children learn words through everyday scenes."
+      zh: "已经上线的微信小程序：用父母熟悉的声音，陪孩子在生活场景中识字和跟读。",
+      en: "A live WeChat mini program that uses a familiar parent voice for everyday-scene reading practice."
     },
-    status: { zh: "Demo 已公开提交", en: "Public demo submitted" },
+    status: { zh: "已上线｜微信小程序", en: "Live｜WeChat mini program" },
     summary: {
-      zh: "项目围绕亲子伴读设计，把场景卡片、识字、语音和短时学习节奏放进一个微信小程序 Demo。",
-      en: "A WeChat mini-program demo for parent-child reading that combines scene cards, word learning, voice, and short learning sessions."
+      zh: "它已经从 Demo 变成了可以直接搜索体验的微信小程序。孩子可以按生活场景点卡识字，家长可以录下自己的声音，也可以拍照把身边的东西加入词库。",
+      en: "It has moved from a demo to a live WeChat mini program. Children can learn through everyday-scene cards, while parents can record a familiar voice or add objects from photos to the word library."
     },
     facts: [
       { label: { zh: "平台", en: "Platform" }, value: { zh: "微信小程序", en: "WeChat Mini Program" } },
-      { label: { zh: "场景", en: "Use case" }, value: { zh: "亲子识字与伴读", en: "Parent-child word learning" } },
-      { label: { zh: "状态", en: "Status" }, value: { zh: "可运行 Demo", en: "Playable demo" } }
+      { label: { zh: "面向", en: "For" }, value: { zh: "2–6 岁儿童与家长", en: "Children aged 2–6 and parents" } },
+      { label: { zh: "入口", en: "Find it" }, value: { zh: "微信搜索「父母声场景伴读」", en: "Search WeChat for “父母声场景伴读”" } }
     ],
     challenge: {
-      zh: "儿童识字不适合一次塞入太多内容。学习动作需要短、清楚，而且每一步都有反馈。",
-      en: "Early word learning should not overload children. Each learning action needs to be short, clear, and immediately acknowledged."
+      zh: "很多识字产品能解决内容和发音，但孩子听到的往往是没有关系感的标准机器音；家长也很难每天抽出固定时间陪读。",
+      en: "Many literacy products provide content and pronunciation, but the voice often feels distant and parents still struggle to find time for daily reading together."
     },
     approach: {
-      zh: "按厨房、动物、交通等生活场景组织卡片，通过语音和轻量互动完成一次短学习，再让孩子自然切换到下一个场景。",
-      en: "Cards are organized around everyday scenes such as kitchens, animals, and transport, using voice and lightweight interactions to complete short sessions."
+      zh: "先把闭环做短：家长录音，AI 复刻声音，孩子点卡，系统用熟悉的声音读词，再留下学习记录。第一版不堆课程和游戏，把最重要的体验先跑通。",
+      en: "The first loop stays short: a parent records, AI creates a familiar voice, a child taps a card, the word is read aloud, and the session is recorded. The first release keeps the focus on this experience instead of adding heavy course or game systems."
     },
     evidence: [
-      { zh: "场景、卡片、学习和语音页面", en: "Scene, card, learning, and voice screens" },
-      { zh: "语音授权、音频管理与云函数", en: "Voice consent, audio management, and cloud functions" },
-      { zh: "快速上手、演示页与公开提交", en: "Quick start, demo page, and public submission" }
+      { zh: "场景化识字卡片、中文发音、拼音和英文", en: "Scene-based cards with Chinese pronunciation, pinyin, and English" },
+      { zh: "爸妈声音复刻、拍照识字和学习记录", en: "Parent voice cloning, photo-based word capture, and learning records" },
+      { zh: "已上线微信小程序，可搜索体验", en: "Live WeChat mini program available by search" }
     ]
   },
   endless: {
@@ -257,16 +354,38 @@ window.PROJECTS = {
       zh: "无尽防线科幻肉鸽游戏运行画面",
       en: "Final City Surge sci-fi roguelite gameplay"
     },
-    mediaLabel: { zh: "实机运行画面", en: "Gameplay capture" },
+    mediaLabel: { zh: "实机运行与系统截图", en: "Gameplay and system captures" },
+    gallery: [
+      {
+        image: "images/projects/endless-hub.webp",
+        imageAlt: { zh: "无尽防线主界面", en: "Final City Surge home hub" },
+        caption: { zh: "主界面", en: "Home hub" }
+      },
+      {
+        image: "images/projects/endless-armory.webp",
+        imageAlt: { zh: "无尽防线军械库界面", en: "Final City Surge armory" },
+        caption: { zh: "军械库", en: "Armory" }
+      },
+      {
+        image: "images/projects/endless-settings.webp",
+        imageAlt: { zh: "无尽防线设置界面", en: "Final City Surge settings" },
+        caption: { zh: "设置与本地化", en: "Settings and localization" }
+      },
+      {
+        image: "images/projects/endless-result.webp",
+        imageAlt: { zh: "无尽防线战斗结算界面", en: "Final City Surge run results" },
+        caption: { zh: "战斗结算", en: "Run results" }
+      }
+    ],
     type: { zh: "独立游戏", en: "Independent Game" },
     name: { zh: "无尽防线｜Final City Surge", en: "Final City Surge" },
     short: {
-      zh: "2.5D 科幻肉鸽游戏。围绕高密度战斗、随机构筑和武器进化，完成三分钟一局的完整体验。",
+      zh: "一款 2.5D 科幻肉鸽。三分钟一局，战斗够密，构筑会变，武器也能一路进化。",
       en: "A 2.5D sci-fi roguelite built around dense combat, randomized builds, and weapon evolution in three-minute runs."
     },
     status: { zh: "可玩商业切片", en: "Playable commercial slice" },
     summary: {
-      zh: "面向网页游戏平台和 Android 的科幻刷怪肉鸽。当前版本已经有完整单局、升级构筑、事件、Boss、局外强化和中英文切换。",
+      zh: "这是给网页和 Android 做的科幻刷怪肉鸽。现在已经能完整打一局，也有升级构筑、事件、Boss、局外强化和中英文切换。",
       en: "A sci-fi horde roguelite for web game platforms and Android. The current slice includes full runs, build choices, events, bosses, meta upgrades, and Chinese-English switching."
     },
     facts: [
@@ -275,11 +394,11 @@ window.PROJECTS = {
       { label: { zh: "单局", en: "Run" }, value: { zh: "180 秒", en: "180 seconds" } }
     ],
     challenge: {
-      zh: "短局肉鸽需要在几分钟内给出足够多的战斗变化，同时守住移动端性能和网页首包大小。",
+      zh: "一局只有几分钟，战斗得有变化，移动端还不能卡，网页首包也不能太重。",
       en: "A short-session roguelite must create enough combat variation within minutes while staying within mobile performance and web bundle budgets."
     },
     approach: {
-      zh: "用六阶段波次、随机升级、五类事件和两场 Boss 战组织单局节奏，并让 Web 与 Android 共用 TypeScript 玩法逻辑。",
+      zh: "我用六阶段波次、随机升级、五类事件和两场 Boss 战撑起一局节奏，Web 和 Android 共用 TypeScript 玩法逻辑。",
       en: "Runs are structured with six wave stages, randomized upgrades, five event types, and two boss fights, with TypeScript gameplay logic shared across web and Android."
     },
     evidence: [
@@ -290,21 +409,43 @@ window.PROJECTS = {
   },
   disorder: {
     group: "lab",
-    image: "images/projects/divine-order-fracture.webp",
+    image: "images/projects/disorder-home.webp",
     imageAlt: {
       zh: "神位失序横屏战术卡牌游戏主界面",
       en: "Divine Order: Fracture landscape tactical card game interface"
     },
-    mediaLabel: { zh: "可玩版本界面", en: "Playable build" },
+    mediaLabel: { zh: "可玩版本实机截图", en: "Playable build captures" },
+    gallery: [
+      {
+        image: "images/projects/disorder-campaign.webp",
+        imageAlt: { zh: "神位失序征战章节页面", en: "Divine Order: Fracture campaign screen" },
+        caption: { zh: "征战章节", en: "Campaign chapters" }
+      },
+      {
+        image: "images/projects/disorder-cards.webp",
+        imageAlt: { zh: "神位失序卡库页面", en: "Divine Order: Fracture card library" },
+        caption: { zh: "卡库", en: "Card library" }
+      },
+      {
+        image: "images/projects/disorder-deck.webp",
+        imageAlt: { zh: "神位失序编队页面", en: "Divine Order: Fracture deck formation" },
+        caption: { zh: "编队", en: "Formation" }
+      },
+      {
+        image: "images/projects/disorder-adventure.webp",
+        imageAlt: { zh: "神位失序历练页面", en: "Divine Order: Fracture adventure screen" },
+        caption: { zh: "历练", en: "Adventure" }
+      }
+    ],
     type: { zh: "独立游戏", en: "Independent Game" },
     name: { zh: "神位失序", en: "Divine Order: Fracture" },
     short: {
-      zh: "以封神后时代为背景的横屏战术卡牌游戏。",
+      zh: "一款放在封神之后的横屏战术卡牌游戏，先把队伍和卡组搭起来，再上场见真章。",
       en: "A landscape tactical card game set in an original post-Fengshen era."
     },
     status: { zh: "可玩版本", en: "Playable vertical slice" },
     summary: {
-      zh: "项目采用原创的封神后时代设定。玩家在横屏战场上部署单位、管理卡组并推进 PVE 章节，战斗结果会回到主城养成系统。",
+      zh: "故事放在原创的封神后时代。玩家在横屏战场部署单位、管理卡组，打完一关再把结果带回主城继续养成。",
       en: "Set in an original post-Fengshen era, players deploy units on a landscape battlefield, manage decks, and progress through PVE chapters that feed back into a persistent home-city system."
     },
     facts: [
@@ -313,11 +454,11 @@ window.PROJECTS = {
       { label: { zh: "状态", en: "Status" }, value: { zh: "完整系统外壳与可玩流程", en: "Full system shell with playable flow" } }
     ],
     challenge: {
-      zh: "战术卡牌不只需要一场能玩的战斗，还要让卡牌、编队、装备、关卡和奖励形成长期目标。",
+      zh: "战术卡牌不能只把一场战斗做出来，还得让卡牌、编队、装备、关卡和奖励彼此有关系，玩家才有继续玩的理由。",
       en: "A tactical card game needs more than one playable battle; cards, formations, equipment, stages, and rewards must form a coherent long-term loop."
     },
     approach: {
-      zh: "先打通主城、战斗和成长系统，再分阶段实装卡牌、装备、副本、挑战塔和 Boss 规则。",
+      zh: "我先把主城、战斗和成长这条线打通，再一段段补进卡牌、装备、副本、挑战塔和 Boss 规则。",
       en: "The project first connected the city-to-battle-to-progression loop, then staged deeper implementations for cards, equipment, dungeons, tower challenges, and bosses."
     },
     evidence: [
@@ -328,6 +469,19 @@ window.PROJECTS = {
   },
   fatemirror: {
     group: "archive",
+    image: "images/projects/fatemirror-home.webp",
+    imageAlt: {
+      zh: "FateMirror AI 自我探索 SaaS 首页，展示每日卡片、会员与账号边界",
+      en: "FateMirror AI self-reflection SaaS home showing daily cards, membership, and account boundaries"
+    },
+    mediaLabel: { zh: "真实产品首页截图", en: "Live product home capture" },
+    gallery: [
+      {
+        image: "images/projects/fatemirror-pricing.webp",
+        imageAlt: { zh: "FateMirror 会员方案、额度和账号边界页面", en: "FateMirror membership plans, quotas, and account boundaries" },
+        caption: { zh: "会员方案与账号边界", en: "Membership and account boundaries" }
+      }
+    ],
     type: { zh: "AI SaaS 实验", en: "AI SaaS Experiment" },
     name: { zh: "FateMirror", en: "FateMirror" },
     short: { zh: "带账号、额度、报告和支付设计的 AI 内容 SaaS。", en: "An AI content SaaS with accounts, quotas, reports, and payment design." },
@@ -340,6 +494,12 @@ window.PROJECTS = {
   },
   video: {
     group: "archive",
+    image: "images/projects/video-product-page.jpg",
+    imageAlt: {
+      zh: "牡丹花苗微信小店商品页截图，用于 AI 商业视频交付的素材核验",
+      en: "Peony product page used to verify source material for the commercial AI video delivery"
+    },
+    mediaLabel: { zh: "真实商品页与交付素材", en: "Live product page and delivery source" },
     type: { zh: "AI 商业交付", en: "AI Commercial Delivery" },
     name: { zh: "AI 视频商业交付", en: "Commercial AI Video Delivery" },
     short: { zh: "用 AI 完成商品视频生产、排期和多平台内容复盘。", en: "AI-assisted product video production, delivery scheduling, and multi-platform review." },
@@ -352,6 +512,19 @@ window.PROJECTS = {
   },
   monitoring: {
     group: "archive",
+    image: "images/projects/monitoring-weekly-0727.webp",
+    imageAlt: {
+      zh: "优废环保竞品监控周报长图",
+      en: "YOFI environmental competitor monitoring weekly report"
+    },
+    mediaLabel: { zh: "真实周报成品", en: "Delivered weekly report" },
+    gallery: [
+      {
+        image: "images/projects/monitoring-weekly-0720.webp",
+        imageAlt: { zh: "优废环保上一期竞品监控周报长图", en: "Previous YOFI competitor monitoring weekly report" },
+        caption: { zh: "上一期周报", en: "Previous issue" }
+      }
+    ],
     type: { zh: "本地自动化", en: "Local Automation" },
     name: { zh: "竞品监控周报", en: "Competitive Monitoring Weekly" },
     short: { zh: "定期整理竞品动态并生成结构化周报。", en: "Collects competitor updates and produces structured weekly reports." },
