@@ -1,0 +1,15 @@
+(person_web_static) {
+    root * /srv/apps/person-web/current
+    encode zstd gzip
+    header X-Content-Type-Options nosniff
+    header X-Site-Origin "tencent-main/person-web"
+    header Cache-Control "public, max-age=0, must-revalidate"
+    file_server
+}
+http://127.0.0.1:18082 {
+    bind 127.0.0.1
+    import person_web_static
+}
+http://zhenyi.shizibandu.icu {
+    import person_web_static
+}

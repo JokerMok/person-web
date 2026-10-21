@@ -1,0 +1,25 @@
+(person_web_static) {
+    root * /srv/apps/person-web/current
+    encode zstd gzip
+    header X-Content-Type-Options nosniff
+    header X-Site-Origin "tencent-main/person-web"
+    # 固定文件名必须重新验证；保留 ETag / Last-Modified 和条件请求。
+    header Cache-Control "public, max-age=0, must-revalidate"
+    file_server
+}
+
+http://127.0.0.1:18082 {
+    bind 127.0.0.1
+    import person_web_static
+}
+
+zhenyi.shizibandu.icu {
+    import person_web_static
+    log {
+        output file /var/log/caddy/person-web-access.log {
+            roll_size 5MiB
+            roll_keep 3
+            roll_keep_for 168h
+        }
+    }
+}

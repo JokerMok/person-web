@@ -1,0 +1,13 @@
+{
+  "provider": "Tencent Cloud DNSPod",
+  "zone": "shizibandu.icu",
+  "host": "zhenyi",
+  "type": "CNAME",
+  "value": "zhenyi.shizibandu.icu.pages.dnsoe4.com.",
+  "line": "默认",
+  "ttl": 600,
+  "remark": "由 EO 添加用于提供安全加速服务。",
+  "same_name_aaaa": [],
+  "observed_date": "2026-10-21",
+  "rollback": "修改同一条 zhenyi 记录为原 CNAME 和记录值；不要修改主域名、www 或其他产品。EdgeOne 部署保留。"
+}
