@@ -4,8 +4,9 @@
 
 - 正式网址：`https://zhenyi.shizibandu.icu/`。
 - 服务器：`ssh tencent-main`，`ubuntu@175.178.236.56`，沿用本机 SSH 配置。
-- 网站源码 commit：`de8e16619a6f0c5e418178c131195077e3209cb6`。
-- release：`20261021T100204Z-de8e16619a6f`，2026-10-21 从 EdgeOne 迁移。
+- 网站源码 commit：`548b588912c059cafa0c3cd7af07fa1c4ceda2a7`。
+- release：`20261029T003313Z-548b588912c0`，2026-10-29 发布首屏项目和文案更新；2026-10-21 已完成从 EdgeOne 迁移。
+- 服务器上一版：`20261021T100204Z-de8e16619a6f`，保留在 `previous`，可按下文回退。
 - Caddy：`/etc/caddy/sites-enabled/person-web.caddy`，共用宿主机 Caddy，独立访问日志 `/var/log/caddy/person-web-access.log`。
 - DNSPod：`zhenyi A 175.178.236.56`，默认线路，TTL 600；无同名 AAAA。其他记录未改。
 
@@ -23,7 +24,7 @@
   previous -> releases/<上个版本>/public
 ```
 
-首次迁移暂无服务器旧版 `previous`，可使用保留的 EdgeOne 部署回退。后续更新自动保留前一版。Caddy 只读取 `current`，不暴露仓库、配置或运维目录。
+每次更新自动保留前一版。Caddy 只读取 `current`，不暴露仓库、配置或运维目录。文档维护提交不重新发布，线上源码版本以 `/deployment.json` 为准。
 
 ## 发布范围与缓存
 
@@ -44,7 +45,7 @@ python3 deploy/tencent/deploy.py
 也可明确指定一个已在远端 `main` 历史中的 commit：
 
 ```sh
-python3 deploy/tencent/deploy.py de8e166
+python3 deploy/tencent/deploy.py 548b588
 ```
 
 要求本机 Python 3.12+、Git、SSH 和 SCP。脚本先 fetch，使用 `git archive` 打包，保留工作树中的未提交内容；上传后按 SHA256 校验，原子切换软链接并探测 loopback Caddy。新版本探测失败时恢复原链接。日常静态更新不重启 Caddy，不变更 DNS。
@@ -85,7 +86,9 @@ curl -fsS https://zhenyi.shizibandu.icu/deployment.json
 
 这会交换 `current` 和 `previous` 的指向，旧 release 不删除。初次迁移回 EdgeOne：在 DNSPod 将同一条 `zhenyi` 记录恢复为 `CNAME zhenyi.shizibandu.icu.pages.dnsoe4.com.`，默认线路、TTL 600，原值记录于 `deploy/tencent/dns-before-20261021.json` 及服务器 `shared/config/`。旧 EdgeOne 项目未删除、未停用。不要变更主域名、www、邮箱或其他产品记录。
 
-## 本次验证范围
+## 验证记录
+
+2026-10-29 定向验证：公网 `/deployment.json` 与服务器 `current` 均为上述 commit 和 release；本次改动的六个 HTML/CSS/JS 文件及两张新增 PNG 与 Git 提交逐字节校验一致；工作台、视频监管、拼豆三个详情路径均返回 200。发布包含 82 个公开文件，上一版软链接已保留；本次未改 DNS 或 Caddy 配置。发布后浏览器预览超时，未取得新增线上截图；复用 2026-10-27 已通过的本地首屏、文案和语言定向检查，未运行全量回归或实际回退。
 
 2026-10-21 定向验证：正式 DNS 到 `175.178.236.56`；HTTPS 证书有效、HTTP 308 保留 `id`；首页和父母声详情页直接访问、刷新、图片实际显示、语言切换、轮播上一张/下一张；固定 CSS 与 HTML 的缓存重新验证和 304；dist、Git、文档及未知路径不公开。迁移没有改网站业务代码或运行全量功能回归。
 
