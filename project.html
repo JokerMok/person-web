@@ -21,8 +21,8 @@
       </a>
       <div class="nav-links">
         <a href="index.html#enterprise" data-copy="navEnterprise">企业实践</a>
-        <a href="index.html#lab" data-copy="navLab">产品实验</a>
-        <a href="index.html#archive" data-copy="navArchive">档案</a>
+        <a href="index.html#lab" data-copy="navLab">工具与游戏</a>
+        <a href="index.html#archive" data-copy="navArchive">其他项目</a>
         <a href="index.html#contact" data-copy="navContact">联系</a>
       </div>
       <div class="lang-switch" aria-label="Language">
@@ -44,6 +44,7 @@
             <span id="projectType" class="project-type"></span>
             <h1 id="projectName"></h1>
             <p id="projectSummary" class="project-summary"></p>
+            <div id="projectActions" class="project-actions" hidden></div>
             <div id="projectLaunch" class="project-launch" hidden>
               <img id="projectLaunchQr" src="" alt="" width="128" height="128" loading="eager" decoding="async">
               <div class="project-launch-copy">
@@ -53,6 +54,10 @@
             </div>
           </div>
           <aside id="projectFacts" class="project-facts"></aside>
+        </div>
+        <div id="projectCurrent" class="project-current" hidden>
+          <strong id="projectCurrentTitle"></strong>
+          <p id="projectCurrentText"></p>
         </div>
       </div>
     </section>

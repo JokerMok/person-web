@@ -1,52 +1,53 @@
 const SITE_COPY = {
+  featuredTitle: { zh: "近期重点项目", en: "Selected projects" },
   navEnterprise: { zh: "企业实践", en: "Enterprise" },
-  navLab: { zh: "产品实验", en: "Lab" },
+  navLab: { zh: "工具与游戏", en: "Tools & Games" },
   navMethod: { zh: "方法", en: "Method" },
-  navArchive: { zh: "档案", en: "Archive" },
+  navArchive: { zh: "其他项目", en: "Other projects" },
   navContact: { zh: "联系", en: "Contact" },
   heroKicker: { zh: "臻一人工智能实验室", en: "ZHENYI AI PRODUCT LAB" },
-  heroTitleA: { zh: "持续做真实产品的", en: "BUILDING REAL" },
-  heroTitleB: { zh: "AI 实验室主理人", en: "AI PRODUCTS" },
+  heroTitleA: { zh: "我是莫臻轩", en: "I’M ZHENXUAN MO" },
+  heroTitleB: { zh: "做企业 AI 产品", en: "I BUILD AI PRODUCTS" },
   heroCopy: {
-    zh: "我是莫臻轩，一名 B 端 AI 产品经理。做了 11 年软件产品，现在更愿意把时间花在真实业务里：把一个说不清的问题，做成团队能用的 AI 产品。",
-    en: "I’m Zhenxuan Mo, a B2B AI product manager with 11 years in software products. I now focus on AI products grounded in real business and product experiments people can actually try."
+    zh: "我做了 11 年软件产品，现在主要做企业 AI 工作台和行业应用，也开发工具和游戏。",
+    en: "I’ve spent 11 years in software product work. I now focus on enterprise AI workspaces and industry applications, and also build tools and games."
   },
   heroPrimary: { zh: "查看项目", en: "View projects" },
-  heroSecondary: { zh: "联系合作", en: "Work with me" },
+  heroSecondary: { zh: "联系我", en: "Get in touch" },
   heroNoteTitle: { zh: "当前身份", en: "CURRENT ROLE" },
   heroNoteText: {
-    zh: "我现在做两件事：在业务里做 AI 产品，也自己把想法做到能运行。",
-    en: "B2B AI product manager running an independent lab that continuously ships real products."
+    zh: "做企业 AI 产品，也开发独立工具和游戏。",
+    en: "I work on enterprise AI and build independent tools and games."
   },
   proofExperience: { zh: "11 年产品经验", en: "11 years in product" },
-  proofExperienceText: { zh: "长期处理复杂业务、系统流程和跨团队交付。", en: "Complex business systems, workflows, and cross-team delivery." },
+  proofExperienceText: { zh: "从需求梳理、流程设计到跨团队交付。", en: "Requirements, workflow design, and delivery across teams." },
   proofRole: { zh: "B 端 AI 产品经理", en: "B2B AI PM" },
-  proofRoleText: { zh: "把业务问题拆成可评审、可开发、可验收的产品。", en: "Turning business problems into reviewable, buildable, and testable products." },
-  proofLab: { zh: "真实产品实验室", en: "Real product lab" },
-  proofLabText: { zh: "每个精选项目都有 Demo、原型或可核对的交付物。", en: "Every selected project has a demo, prototype, or verifiable artifact." },
+  proofRoleText: { zh: "先弄清业务，再决定 AI 能做哪一部分。", en: "Understand the work, then decide where AI can help." },
+  proofLab: { zh: "独立产品开发", en: "Independent projects" },
+  proofLabText: { zh: "工具、小程序和游戏，边做边验证。", en: "Tools, mini programs, and games, tested as they develop." },
   enterpriseTitle: { zh: "企业 AI 实践", en: "Enterprise AI Work" },
-  enterpriseText: { zh: "这里放的是我真正参与过的企业项目：先把问题捋清楚，再把产品做出来，最后留下能评审、能验收的东西。", en: "These are enterprise projects I actually worked on: frame the problem, build the product, and leave behind something teams can review and accept." },
-  labTitle: { zh: "AI Lab 精选", en: "Selected Lab Work" },
-  labText: { zh: "有些来自工作，有些只是我想验证的想法。共同点是：我会把它们做到能运行。", en: "Some started at work, some started as questions I wanted to test. The common thread is that I build them into something runnable." },
-  methodTitle: { zh: "我的方法论", en: "My Methodology" },
-  methodText: { zh: "我不先问“要不要上 AI”，先问问题卡在哪、手里有什么证据、谁来接住结果。", en: "I do not start with “should we use AI?” I start with where the work gets stuck, what evidence exists, and who owns the outcome." },
-  archiveTitle: { zh: "更多项目案例", en: "More Project Cases" },
-  contactTitle: { zh: "如果你手上也有一个难而具体的问题，来聊聊。", en: "If you have a difficult, concrete problem in front of you, let’s talk." },
-  contactText: { zh: "可以聊企业 AI 项目、产品合作，或者一个还没想清楚、但值得一起拆开的想法。", en: "I’m open to enterprise AI projects, product partnerships, or an idea that is not fully formed yet but worth unpacking together." },
+  enterpriseText: { zh: "我主要负责产品规划、业务规则和交互设计。具体做到哪一步，写在各项目里。", en: "My work focuses on product planning, business rules, and interaction design. Each case shows its current stage." },
+  labTitle: { zh: "工具与游戏", en: "Tools & Games" },
+  labText: { zh: "我自己做的工具、小程序和游戏。有些已经上线，有些还在测试。", en: "Tools, mini programs, and games I build. Some are live; others are still in testing." },
+  methodTitle: { zh: "我怎么做产品", en: "How I work" },
+  methodText: { zh: "先找到具体问题，做出一个能试的版本，再看结果。", en: "Find a specific problem, build something to try, and check the result." },
+  archiveTitle: { zh: "其他项目", en: "Other projects" },
+  contactTitle: { zh: "有项目想聊，联系我。", en: "Have a project in mind?" },
+  contactText: { zh: "企业 AI 需求、产品合作，或者想试试小优工作台，都可以给我发邮件或加微信。", en: "Email me or add me on WeChat to discuss enterprise AI, work together on a product, or request a Xiaoyou test account." },
   contactButton: { zh: "发送邮件", en: "Send email" },
-  method1Title: { zh: "先把问题讲明白", en: "Frame the problem" },
-  method1Text: { zh: "谁在什么时候卡住了？现在的办法为什么不够用？", en: "Who gets stuck, when does it happen, and why is the current way not enough?" },
-  method2Title: { zh: "把边界画出来", en: "Set the boundaries" },
-  method2Text: { zh: "哪些交给 AI，哪些交给规则、数据和人，先分开。", en: "Separate what belongs to AI, rules, data, and people." },
-  method3Title: { zh: "先做一个能用的版本", en: "Build a usable version" },
-  method3Text: { zh: "真实页面、真实流程，跑一遍就知道哪里不对。", en: "Run a real page through a real flow and the weak spots show up." },
-  method4Title: { zh: "拿证据做决定", en: "Decide with evidence" },
-  method4Text: { zh: "结果、异常、失败路径都看过，再决定要不要继续投。", en: "Look at outcomes, exceptions, and failure paths before investing more." }
+  method1Title: { zh: "先看工作怎么做", en: "Understand the work" },
+  method1Text: { zh: "谁要用，现在怎么做，哪一步最费时间或最容易出错。", en: "Who uses it, how they work now, and where time is lost or mistakes happen." },
+  method2Title: { zh: "分清 AI 该做什么", en: "Decide where AI helps" },
+  method2Text: { zh: "需要精确计算的交给工具，需要判断的保留依据，重要决定由人确认。", en: "Use tools for exact calculations, retain evidence for judgments, and keep people responsible for important decisions." },
+  method3Title: { zh: "把流程做出来", en: "Build the workflow" },
+  method3Text: { zh: "用页面和原型走一遍任务，把异常和失败也放进去。", en: "Walk through a task in working pages and prototypes, including exceptions and failures." },
+  method4Title: { zh: "核对实际结果", en: "Check the result" },
+  method4Text: { zh: "看生成的文件、查引用来源，也看失败后能不能继续。", en: "Open the output files, check the sources, and see whether work can resume after a failure." }
 };
 
 const groups = {
-  enterprise: ["assistant", "compliance", "admin"],
-  lab: ["skilllens", "hairstyle", "parentvoice", "endless", "disorder"],
+  enterprise: ["workbench", "compliance", "assistant", "admin"],
+  lab: ["beadgrid", "skilllens", "hairstyle", "parentvoice", "endless", "disorder"],
   archive: ["fatemirror", "video", "monitoring"]
 };
 
@@ -118,7 +119,33 @@ function labCard(id, index, lang) {
     </a>`;
 }
 
+function renderFeaturedProjects(lang) {
+  const root = document.querySelector("#featuredProjects");
+  if (!root) return;
+  root.innerHTML = ["workbench", "compliance", "beadgrid"].map((id) => {
+    const project = window.PROJECTS[id];
+    const t = (value) => localized(value, lang);
+    const link = project.links[0];
+    return `<article class="featured-project" data-featured-id="${id}">
+      <a class="featured-image" href="project.html?id=${id}" aria-label="${t(project.name)}">
+        <img src="${project.image}" alt="${t(project.imageAlt)}" width="320" height="216" loading="eager" decoding="async">
+      </a>
+      <div class="featured-copy">
+        <div class="featured-meta"><span>${t(project.heroStatus)}</span></div>
+        <h2><a href="project.html?id=${id}">${t(project.name)}</a></h2>
+        <p>${t(project.heroShort)}</p>
+        <div class="featured-links">
+          <a href="project.html?id=${id}">${lang === "zh" ? "了解项目" : "View project"}<span aria-hidden="true">↗</span></a>
+          <a href="${link.href}" target="_blank" rel="noopener noreferrer">${t(link.label)}<span aria-hidden="true">↗</span></a>
+        </div>
+        ${project.accessNote ? `<a class="featured-access" href="#contact">${t(project.accessNote)}<span aria-hidden="true"> →</span></a>` : ""}
+      </div>
+    </article>`;
+  }).join("");
+}
+
 function renderProjects(lang) {
+  renderFeaturedProjects(lang);
   const enterprise = document.querySelector("#enterpriseProjects");
   const lab = document.querySelector("#labProjects");
   const archive = document.querySelector("#archiveProjects");

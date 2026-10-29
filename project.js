@@ -66,6 +66,20 @@ function renderProject() {
   document.querySelector("#projectSummary").textContent = t(project.summary);
   document.querySelector("#projectChallenge").textContent = t(project.challenge);
   document.querySelector("#projectApproach").textContent = t(project.approach);
+  document.querySelector('meta[name="description"]').content = t(project.summary);
+
+  const actions = document.querySelector("#projectActions");
+  actions.hidden = !project.links?.length && !project.accessNote;
+  actions.innerHTML = (project.links || []).map((link) =>
+    `<a class="button primary" href="${link.href}" target="_blank" rel="noopener noreferrer">${t(link.label)}<span aria-hidden="true"> ↗</span></a>`
+  ).join("") + (project.accessNote
+    ? `<a class="project-access-note" href="index.html#contact">${t(project.accessNote)}<span aria-hidden="true"> →</span></a>`
+    : "");
+
+  const current = document.querySelector("#projectCurrent");
+  current.hidden = !project.currentText;
+  document.querySelector("#projectCurrentTitle").textContent = t(project.currentTitle);
+  document.querySelector("#projectCurrentText").textContent = t(project.currentText);
 
   const launch = document.querySelector("#projectLaunch");
   if (project.launch?.qr) {
@@ -83,8 +97,8 @@ function renderProject() {
   const currentIndex = Math.max(projectIds.indexOf(id), 0);
   document.querySelector("#projectNumber").textContent = `CASE / ${String(currentIndex + 1).padStart(2, "0")}`;
   document.querySelector("#storyRailText").textContent = lang === "zh"
-    ? "问题、产品决策与交付证据。"
-    : "Problem, product decisions, and delivery evidence.";
+    ? "产品设计与项目进展。"
+    : "Product design and project progress.";
 
   renderCarousel(project, lang, t);
 
@@ -100,11 +114,11 @@ function renderProject() {
   const moduleSection = document.querySelector("#moduleSection");
   if (project.modules?.length) {
     moduleSection.hidden = false;
-    document.querySelector("#moduleTitle").textContent = lang === "zh" ? "产品线包含什么" : "What the suite includes";
-    document.querySelector("#moduleIndex").textContent = "04 / SUITE";
-    document.querySelector("#moduleIntro").textContent = lang === "zh"
-      ? "这些能力属于同一条企业 AI 助手产品线，不作为互不相关的项目重复展示。"
-      : "These capabilities belong to one enterprise AI product suite rather than separate, unrelated projects.";
+    document.querySelector("#moduleTitle").textContent = project.modulesTitle ? t(project.modulesTitle) : lang === "zh" ? "产品线包含什么" : "What the suite includes";
+    document.querySelector("#moduleIndex").textContent = project.modulesTitle ? "04 / VISION" : "04 / SUITE";
+    document.querySelector("#moduleIntro").textContent = project.modulesIntro ? t(project.modulesIntro) : lang === "zh"
+      ? "围绕识别、检索、诊断、审核和规则比对，分别处理具体业务。"
+      : "Recognition, retrieval, diagnosis, review, and rule checks for specific business tasks.";
     document.querySelector("#moduleList").innerHTML = project.modules
       .map((module, index) => `
         <article class="module">
@@ -120,7 +134,7 @@ function renderProject() {
   const labels = {
     challenge: lang === "zh" ? "要解决的问题" : "The problem",
     approach: lang === "zh" ? "怎么做" : "The approach",
-    evidence: lang === "zh" ? "已有产物" : "Evidence",
+    evidence: project.evidenceTitle ? t(project.evidenceTitle) : lang === "zh" ? "已有产物" : "Evidence",
     back: lang === "zh" ? "返回项目列表" : "Back to projects",
     contact: lang === "zh" ? "联系合作" : "Get in touch"
   };
