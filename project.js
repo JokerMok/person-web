@@ -1,157 +1,193 @@
-const carouselState = { index: 0, total: 0 };
+const carousel = { index: 0 };
 
 function renderCarousel(project, lang, t) {
   const section = document.querySelector("#projectVisualSection");
+  const slides = project.image
+    ? [{ image: project.image, imageAlt: project.imageAlt, caption: project.mediaLabel }, ...(project.gallery || [])]
+    : project.gallery || [];
+  section.hidden = !slides.length;
+  if (!slides.length) return;
+
   const root = document.querySelector("#projectCarousel");
   const track = document.querySelector("#projectCarouselTrack");
   const caption = document.querySelector("#projectCarouselCaption");
   const count = document.querySelector("#carouselCount");
   const previous = document.querySelector("#carouselPrev");
   const next = document.querySelector("#carouselNext");
-  const slides = project.image
-    ? [{ image: project.image, imageAlt: project.imageAlt, caption: project.mediaLabel }, ...(project.gallery || [])]
-    : [{ placeholder: true, caption: { zh: "暂无公开截图", en: "No public screenshot yet" } }];
+  const expand = document.querySelector("#carouselExpand");
+  const thumbnails = document.querySelector("#carouselThumbnails");
+  const dialog = document.querySelector("#projectImageDialog");
+  const dialogTitle = document.querySelector("#imageDialogTitle");
+  const dialogImage = document.querySelector("#imageDialogImage");
+  const dialogCount = document.querySelector("#imageDialogCount");
+  const dialogPrevious = document.querySelector("#imageDialogPrev");
+  const dialogNext = document.querySelector("#imageDialogNext");
+  const close = document.querySelector("#imageDialogClose");
+  const single = slides.length === 1;
+  const zh = lang === "zh";
 
-  section.hidden = false;
-  carouselState.total = slides.length;
-  carouselState.index = Math.min(carouselState.index, slides.length - 1);
-  root.setAttribute("aria-label", `${t(project.name)} ${lang === "zh" ? "项目截图轮播" : "project screenshot carousel"}`);
+  root.setAttribute("aria-label", t(project.name) + (zh ? " 项目截图" : " project screenshots"));
+  root.classList.toggle("is-single", single);
+  thumbnails.hidden = single;
+  thumbnails.setAttribute("aria-label", zh ? "截图缩略图" : "Screenshot thumbnails");
+  document.querySelector("#imageDialogControls").hidden = single;
+  close.setAttribute("aria-label", zh ? "关闭大图" : "Close full-size image");
+  for (const button of [previous, dialogPrevious]) button.setAttribute("aria-label", zh ? "上一张" : "Previous screenshot");
+  for (const button of [next, dialogNext]) button.setAttribute("aria-label", zh ? "下一张" : "Next screenshot");
+
   track.innerHTML = slides.map((slide, index) => {
-    if (slide.placeholder) {
-      return `<div class="carousel-slide"><div class="carousel-placeholder"><strong>${t(slide.caption)}</strong><span>${lang === "zh" ? "后续补充真实项目画面" : "Real project screens can be added later"}</span></div></div>`;
-    }
     const mode = slide.mode === "crop" ? " carousel-slide--crop" : "";
     const position = slide.position ? ` style="--object-position:${slide.position}"` : "";
-    return `<figure class="carousel-slide${mode}"><img src="${slide.image}" alt="${t(slide.imageAlt)}" loading="${index === 0 ? "eager" : "lazy"}" decoding="async"${position}></figure>`;
+    return `<figure class="carousel-slide${mode}">
+      <img src="${slide.image}" alt="${t(slide.imageAlt)}" loading="${index === 0 ? "eager" : "lazy"}" decoding="async"${position}>
+    </figure>`;
   }).join("");
 
-  const update = () => {
-    track.style.setProperty("--carousel-index", carouselState.index);
-    const active = slides[carouselState.index];
-    caption.textContent = t(active.caption || project.mediaLabel || project.type);
-    count.textContent = `${String(carouselState.index + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
-    previous.disabled = slides.length < 2 || carouselState.index === 0;
-    next.disabled = slides.length < 2 || carouselState.index === slides.length - 1;
-    previous.setAttribute("aria-label", lang === "zh" ? "上一张" : "Previous screenshot");
-    next.setAttribute("aria-label", lang === "zh" ? "下一张" : "Next screenshot");
-    root.classList.toggle("is-single", slides.length < 2);
-  };
+  thumbnails.innerHTML = single ? "" : slides.map(slide =>
+    `<button type="button"><img src="${slide.image}" alt="" loading="lazy" decoding="async"></button>`
+  ).join("");
+  const previewButtons = Array.from(thumbnails.children);
+  const describe = slide => t(slide.caption || project.mediaLabel || slide.imageAlt) || t(project.name);
+  previewButtons.forEach((button, index) => {
+    button.setAttribute("aria-label", describe(slides[index]));
+    button.onclick = () => selectSlide(index);
+  });
 
-  previous.onclick = () => {
-    carouselState.index = Math.max(0, carouselState.index - 1);
-    update();
-  };
-  next.onclick = () => {
-    carouselState.index = Math.min(slides.length - 1, carouselState.index + 1);
-    update();
-  };
-  root.onkeydown = (event) => {
-    if (event.key === "ArrowLeft") previous.click();
-    if (event.key === "ArrowRight") next.click();
-  };
-  update();
-}
-
-function renderProject() {
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id") || "assistant";
-  const project = window.PROJECTS[id] || window.PROJECTS.assistant;
-  const lang = window.ZHENYI_I18N.currentLanguage();
-  const t = (value) => window.ZHENYI_I18N.localized(value, lang);
-
-  document.body.dataset.projectId = id;
-  document.title = `${t(project.name)} | Zhenyi`;
-  document.querySelector("#projectType").textContent = t(project.type);
-  document.querySelector("#projectName").textContent = t(project.name);
-  document.querySelector("#projectSummary").textContent = t(project.summary);
-  document.querySelector("#projectChallenge").textContent = t(project.challenge);
-  document.querySelector("#projectApproach").textContent = t(project.approach);
-  document.querySelector('meta[name="description"]').content = t(project.summary);
-
-  const actions = document.querySelector("#projectActions");
-  actions.hidden = !project.links?.length && !project.accessNote;
-  actions.innerHTML = (project.links || []).map((link) =>
-    `<a class="button primary" href="${link.href}" target="_blank" rel="noopener noreferrer">${t(link.label)}<span aria-hidden="true"> ↗</span></a>`
-  ).join("") + (project.accessNote
-    ? `<a class="project-access-note" href="index.html#contact">${t(project.accessNote)}<span aria-hidden="true"> →</span></a>`
-    : "");
-
-  const current = document.querySelector("#projectCurrent");
-  current.hidden = !project.currentText;
-  document.querySelector("#projectCurrentTitle").textContent = t(project.currentTitle);
-  document.querySelector("#projectCurrentText").textContent = t(project.currentText);
-
-  const launch = document.querySelector("#projectLaunch");
-  if (project.launch?.qr) {
-    launch.hidden = false;
-    const launchQr = document.querySelector("#projectLaunchQr");
-    launchQr.src = project.launch.qr;
-    launchQr.alt = t(project.launch.alt);
-    document.querySelector("#projectLaunchLabel").textContent = t(project.launch.label);
-    document.querySelector("#projectLaunchText").textContent = t(project.launch.text);
-  } else {
-    launch.hidden = true;
+  function updateDialog(slide) {
+    dialogTitle.textContent = describe(slide);
+    dialogCount.textContent = count.textContent;
+    dialogImage.alt = t(slide.imageAlt);
+    dialogImage.src = slide.image;
   }
 
-  const projectIds = Object.keys(window.PROJECTS);
-  const currentIndex = Math.max(projectIds.indexOf(id), 0);
-  document.querySelector("#projectNumber").textContent = `CASE / ${String(currentIndex + 1).padStart(2, "0")}`;
-  document.querySelector("#storyRailText").textContent = lang === "zh"
-    ? "产品设计与项目进展。"
-    : "Product design and project progress.";
+  function selectSlide(index = carousel.index) {
+    carousel.index = Math.max(0, Math.min(index, slides.length - 1));
+    const slide = slides[carousel.index];
+    const active = document.activeElement;
+    track.style.setProperty("--carousel-index", carousel.index);
+    caption.textContent = describe(slide);
+    count.textContent = `${carousel.index + 1} / ${slides.length}`;
+    previous.disabled = dialogPrevious.disabled = carousel.index === 0;
+    next.disabled = dialogNext.disabled = carousel.index === slides.length - 1;
+    Array.from(track.children).forEach((figure, index) => {
+      figure.setAttribute("aria-hidden", String(index !== carousel.index));
+    });
+    track.children[carousel.index].querySelector("img").loading = "eager";
+    previewButtons.forEach((button, index) => button.setAttribute("aria-pressed", String(index === carousel.index)));
 
-  renderCarousel(project, lang, t);
+    const controls = dialog.open ? [dialogPrevious, dialogNext] : [previous, next];
+    if (controls.includes(active) && active.disabled) controls.find(button => !button.disabled)?.focus();
 
-  const facts = document.querySelector("#projectFacts");
-  facts.innerHTML = project.facts.length
-    ? project.facts.map((fact) => `<div class="fact"><span>${t(fact.label)}</span><strong>${t(fact.value)}</strong></div>`).join("")
-    : `<div class="fact"><span>${lang === "zh" ? "状态" : "Status"}</span><strong>${t(project.status)}</strong></div>`;
+    if (dialog.open) updateDialog(slide);
+  }
 
-  document.querySelector("#projectEvidence").innerHTML = project.evidence
-    .map((item) => `<li>${t(item)}</li>`)
-    .join("");
+  previous.onclick = dialogPrevious.onclick = () => selectSlide(carousel.index - 1);
+  next.onclick = dialogNext.onclick = () => selectSlide(carousel.index + 1);
+  expand.onclick = () => {
+    updateDialog(slides[carousel.index]);
+    dialog.showModal();
+  };
+  close.onclick = () => dialog.close();
+  dialog.onclose = () => expand.focus({ preventScroll: true });
+  dialog.onclick = event => {
+    if (event.target === dialog) dialog.close();
+  };
+  root.onkeydown = dialog.onkeydown = event => {
+    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+      event.preventDefault();
+      selectSlide(carousel.index + (event.key === "ArrowLeft" ? -1 : 1));
+    }
+  };
+  selectSlide();
+}
 
-  const moduleSection = document.querySelector("#moduleSection");
+function renderProject(event) {
+  const { lang } = event.detail;
+  const requested = new URLSearchParams(window.location.search).get("id");
+  const id = Object.hasOwn(window.PROJECTS, requested) ? requested : "workbench";
+  const project = window.PROJECTS[id];
+  const t = value => window.ZHENYI_I18N.localized(value, lang);
+  const $ = selector => document.querySelector(selector);
+  const zh = lang === "zh";
+
+  document.body.dataset.projectId = id;
+  document.title = t(project.name) + " · 臻一";
+  $('meta[name="description"]').content = t(project.summary);
+  $("#projectType").textContent = t(project.type);
+  $("#projectName").textContent = t(project.name);
+  $("#projectSummary").textContent = t(project.summary);
+  $("#projectChallenge").textContent = t(project.challenge);
+  $("#projectApproach").textContent = t(project.approach);
+
+  const actions = $("#projectActions");
+  actions.hidden = !project.links?.length && !project.accessNote;
+  actions.innerHTML = (project.links || []).map(link =>
+    `<a class="button primary" href="${link.href}" target="_blank" rel="noopener noreferrer">${t(link.label)}<span aria-hidden="true">↗</span></a>`
+  ).join("") + (project.accessNote
+    ? `<a class="project-access-note" href="index.html#contact">${t(project.accessNote)}</a>`
+    : "");
+
+  $("#projectCurrent").hidden = !project.currentText;
+  $("#projectCurrentTitle").textContent = t(project.currentTitle);
+  $("#projectCurrentText").textContent = t(project.currentText);
+
+  $("#projectLaunch").hidden = !project.launch?.qr;
+  if (project.launch?.qr) {
+    $("#projectLaunchQr").src = project.launch.qr;
+    $("#projectLaunchQr").alt = t(project.launch.alt);
+    $("#projectLaunchLabel").textContent = t(project.launch.label);
+    $("#projectLaunchText").textContent = t(project.launch.text);
+  }
+
+  const facts = project.facts?.length ? project.facts : [{
+    label: { zh: "状态", en: "Status" },
+    value: project.status
+  }];
+  $("#projectFacts").innerHTML = facts.map(fact =>
+    `<div class="fact"><dt>${t(fact.label)}</dt><dd>${t(fact.value)}</dd></div>`
+  ).join("");
+  $("#projectEvidence").innerHTML = (project.evidence || []).map(item => `<li>${t(item)}</li>`).join("");
+
+  $("#moduleSection").hidden = !project.modules?.length;
   if (project.modules?.length) {
-    moduleSection.hidden = false;
-    document.querySelector("#moduleTitle").textContent = project.modulesTitle ? t(project.modulesTitle) : lang === "zh" ? "产品线包含什么" : "What the suite includes";
-    document.querySelector("#moduleIndex").textContent = project.modulesTitle ? "04 / VISION" : "04 / SUITE";
-    document.querySelector("#moduleIntro").textContent = project.modulesIntro ? t(project.modulesIntro) : lang === "zh"
-      ? "围绕识别、检索、诊断、审核和规则比对，分别处理具体业务。"
-      : "Recognition, retrieval, diagnosis, review, and rule checks for specific business tasks.";
-    document.querySelector("#moduleList").innerHTML = project.modules
-      .map((module, index) => `
-        <article class="module">
-          <span>${String(index + 1).padStart(2, "0")}</span>
-          <strong>${t(module.name)}</strong>
-          <p>${t(module.text)}</p>
-        </article>`)
-      .join("");
-  } else {
-    moduleSection.hidden = true;
+    $("#moduleTitle").textContent = t(project.modulesTitle) || (zh ? "产品线包含什么" : "What the suite includes");
+    $("#moduleIntro").textContent = t(project.modulesIntro);
+    const list = $("#moduleList");
+    const open = list.childElementCount
+      ? new Set(Array.from(list.querySelectorAll("details[open]"), item => item.dataset.module))
+      : new Set(["0"]);
+    list.innerHTML = project.modules.map((module, index) =>
+      `<details class="module" data-module="${index}"${open.has(String(index)) ? " open" : ""}>
+        <summary>${t(module.name)}</summary>
+        <p>${t(module.text)}</p>
+      </details>`
+    ).join("");
   }
 
   const labels = {
-    challenge: lang === "zh" ? "要解决的问题" : "The problem",
-    approach: lang === "zh" ? "怎么做" : "The approach",
-    evidence: project.evidenceTitle ? t(project.evidenceTitle) : lang === "zh" ? "已有产物" : "Evidence",
-    back: lang === "zh" ? "返回项目列表" : "Back to projects",
-    contact: lang === "zh" ? "联系合作" : "Get in touch"
+    challenge: t(project.challengeTitle) || (zh ? "要解决的问题" : "The problem"),
+    approach: t(project.approachTitle) || (zh ? "怎么做" : "The approach"),
+    evidence: t(project.evidenceTitle) || (zh ? "已有成果" : "Evidence"),
+    expand: zh ? "查看大图" : "View full size",
+    back: zh ? "返回项目列表" : "Back to projects",
+    contact: zh ? "联系合作" : "Get in touch"
   };
-  Object.entries(labels).forEach(([key, value]) => {
-    const target = document.querySelector(`[data-project-label="${key}"]`);
-    if (target) target.textContent = value;
+  document.querySelectorAll("[data-project-label]").forEach(node => {
+    node.textContent = labels[node.dataset.projectLabel];
   });
 
-  const nextId = projectIds[(currentIndex + 1) % projectIds.length];
-  const nextProject = window.PROJECTS[nextId];
-  const nextLink = document.querySelector("#nextProject");
-  nextLink.href = `project.html?id=${nextId}`;
-  document.querySelector("#nextProjectLabel").textContent = lang === "zh" ? "下一个项目" : "Next case";
-  document.querySelector("#nextProjectName").textContent = t(nextProject.name);
+  renderCarousel(project, lang, t);
 
-  window.ZHENYI_MOTION?.refresh();
+  const groups = window.ZHENYI_PROJECT_GROUPS;
+  const group = Object.keys(groups).find(key => groups[key].includes(id));
+  $("[data-project-label='back']").href = "projects.html" + (group ? "#" + group : "");
+  const ids = Object.values(groups).flat();
+  const position = ids.indexOf(id);
+  const nextId = position >= 0 ? ids[(position + 1) % ids.length] : null;
+  $("#nextProject").href = nextId ? `project.html?id=${nextId}` : "projects.html";
+  $("#nextProjectName").textContent = nextId ? t(window.PROJECTS[nextId].name) : (zh ? "全部项目" : "All projects");
+  $("#nextProjectLabel").hidden = !nextId;
+  $("#nextProjectLabel").textContent = zh ? "下一个项目" : "Next project";
 }
 
-document.addEventListener("DOMContentLoaded", renderProject);
 document.addEventListener("zhenyi-language-change", renderProject);
