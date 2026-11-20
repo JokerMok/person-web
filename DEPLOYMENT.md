@@ -4,9 +4,9 @@
 
 - 正式网址：`https://zhenyi.shizibandu.icu/`。
 - 服务器：`ssh tencent-main`，`ubuntu@175.178.236.56`，沿用本机 SSH 配置。
-- 网站源码 commit：`548b588912c059cafa0c3cd7af07fa1c4ceda2a7`。
-- release：`20261029T003313Z-548b588912c0`，2026-10-29 发布首屏项目和文案更新；2026-10-21 已完成从 EdgeOne 迁移。
-- 服务器上一版：`20261021T100204Z-de8e16619a6f`，保留在 `previous`，可按下文回退。
+- 网站源码 commit：`6814f06bf9bc81ad68ffd990807249c251a37059`。
+- release：`20261120T020042Z-6814f06bf9bc`，2026-11-20 发布首页、项目目录、详情页和站点地图改版。
+- 服务器上一版：`20261029T003313Z-548b588912c0`，由 `previous` 指向。
 - Caddy：`/etc/caddy/sites-enabled/person-web.caddy`，共用宿主机 Caddy，独立访问日志 `/var/log/caddy/person-web-access.log`。
 - DNSPod：`zhenyi A 175.178.236.56`，默认线路，TTL 600；无同名 AAAA。其他记录未改。
 
@@ -88,7 +88,9 @@ curl -fsS https://zhenyi.shizibandu.icu/deployment.json
 
 ## 验证记录
 
-2026-10-29 定向验证：公网 `/deployment.json` 与服务器 `current` 均为上述 commit 和 release；本次改动的六个 HTML/CSS/JS 文件及两张新增 PNG 与 Git 提交逐字节校验一致；工作台、视频监管、拼豆三个详情路径均返回 200。发布包含 82 个公开文件，上一版软链接已保留；本次未改 DNS 或 Caddy 配置。发布后浏览器预览超时，未取得新增线上截图；复用 2026-10-27 已通过的本地首屏、文案和语言定向检查，未运行全量回归或实际回退。
+2026-11-20 核对了 GitHub 提交、公网 `/deployment.json` 和服务器 `current`。20 个修改或新增的公开文件与 Git 提交逐字节一致。`sitemap.xml` 中的 16 个地址均返回 HTTP 200，`robots.txt` 指向该站点地图。公网 Chromium 复核了首页、图文项目目录、桌面及手机详情、截图切换与放大、工作台规划展开和语言切换。本地 WebKit 也通过了键盘操作、焦点返回和规划展开的定向检查。
+
+2026-10-29 定向验证：公网 `/deployment.json` 与服务器 `current` 均为 commit `548b588`、release `20261029T003313Z-548b588912c0`；本次改动的六个 HTML/CSS/JS 文件及两张新增 PNG 与 Git 提交逐字节校验一致；工作台、视频监管、拼豆三个详情路径均返回 200。发布包含 82 个公开文件，上一版软链接已保留；本次未改 DNS 或 Caddy 配置。发布后浏览器预览超时，未取得新增线上截图；复用 2026-10-27 已通过的本地首屏、文案和语言定向检查，未运行全量回归或实际回退。
 
 2026-10-21 定向验证：正式 DNS 到 `175.178.236.56`；HTTPS 证书有效、HTTP 308 保留 `id`；首页和父母声详情页直接访问、刷新、图片实际显示、语言切换、轮播上一张/下一张；固定 CSS 与 HTML 的缓存重新验证和 304；dist、Git、文档及未知路径不公开。迁移没有改网站业务代码或运行全量功能回归。
 
