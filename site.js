@@ -7,6 +7,12 @@ const COPY = {
   allGames: { zh: "全部游戏作品", en: "All games" },
   enterprise: { zh: "企业案例", en: "Enterprise cases" },
   products: { zh: "独立产品", en: "Independent products" },
+  geoProjectName: { zh: "臻一 GEO 工作台", en: "Zhenyi GEO Workspace" },
+  geoProjectDescription: {
+    zh: "臻一人工智能实验室推出。记录豆包、千问和 DeepSeek 的回答与引用，按原题复测。",
+    en: "Built by Zhenyi AI Lab. Save answers and citations from Doubao, Qwen, and DeepSeek, then retest with the same questions."
+  },
+  geoProjectStatus: { zh: "产品说明", en: "Product details" },
   games: { zh: "游戏作品", en: "Games" },
   name: { zh: "莫臻轩", en: "Zhenxuan Mo" },
   introName: { zh: "我是莫臻轩", en: "Zhenxuan Mo" },
@@ -115,6 +121,7 @@ function renderHome(lang) {
 function renderDirectory(lang) {
   const t = value => localized(value, lang);
   document.querySelectorAll("[data-project-group]").forEach(list => {
+    const staticProjects = [...list.children].filter(item => item.hasAttribute("data-static-project"));
     list.innerHTML = PROJECT_GROUPS[list.dataset.projectGroup].map(id => {
       const project = window.PROJECTS[id];
       return `<li><a class="index-row" data-project-id="${id}" href="project.html?id=${id}" aria-labelledby="index-${id}" aria-describedby="index-description-${id} index-status-${id}">
@@ -127,6 +134,7 @@ function renderDirectory(lang) {
         <span class="index-arrow" aria-hidden="true">→</span>
       </a></li>`;
     }).join("");
+    list.prepend(...staticProjects);
   });
 }
 
