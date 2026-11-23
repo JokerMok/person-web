@@ -4,9 +4,9 @@
 
 - 正式网址：`https://zhenyi.shizibandu.icu/`。
 - 服务器：`ssh tencent-main`，`ubuntu@175.178.236.56`，沿用本机 SSH 配置。
-- 网站源码 commit：`6814f06bf9bc81ad68ffd990807249c251a37059`。
-- release：`20261120T020042Z-6814f06bf9bc`，2026-11-20 发布首页、项目目录、详情页和站点地图改版。
-- 服务器上一版：`20261029T003313Z-548b588912c0`，由 `previous` 指向。
+- 网站源码 commit：`492fc5e0acef45d2d0a4af04336463d974ea1585`。
+- release：`20261123T063434Z-492fc5e0acef`，2026-11-23 14:35（北京时间）发布「臻一 GEO 工作台」项目入口。
+- 服务器上一版：`20261120T020042Z-6814f06bf9bc`，由 `previous` 指向。
 - Caddy：`/etc/caddy/sites-enabled/person-web.caddy`，共用宿主机 Caddy，独立访问日志 `/var/log/caddy/person-web-access.log`。
 - DNSPod：`zhenyi A 175.178.236.56`，默认线路，TTL 600；无同名 AAAA。其他记录未改。
 
@@ -64,6 +64,8 @@ python3 deploy/tencent/deploy.py --stage-only
 ssh tencent-main 'bash /srv/apps/person-web/deploy/manage.sh activate <输出的release>'
 ```
 
+网站所有权验证文件保存在服务器的 `/srv/apps/person-web/shared/site-verification/`。切换前将已存在的验证文件复制到目标版本的 `public/`，切换后对照持久副本核验公网内容。回退到早期版本时也先补齐对应文件。
+
 ## 首次 Caddy 接入或配置更新
 
 `bootstrap.caddy` 仅用于 DNS 切换前的短暂 HTTP 预验收，不用于正式 HTTPS 运行。正式候选为 `person-web.caddy`。
@@ -87,6 +89,8 @@ curl -fsS https://zhenyi.shizibandu.icu/deployment.json
 这会交换 `current` 和 `previous` 的指向，旧 release 不删除。初次迁移回 EdgeOne：在 DNSPod 将同一条 `zhenyi` 记录恢复为 `CNAME zhenyi.shizibandu.icu.pages.dnsoe4.com.`，默认线路、TTL 600，原值记录于 `deploy/tencent/dns-before-20261021.json` 及服务器 `shared/config/`。旧 EdgeOne 项目未删除、未停用。不要变更主域名、www、邮箱或其他产品记录。
 
 ## 验证记录
+
+2026-11-23，「独立产品」新增「臻一 GEO 工作台」，在 HTML 中直接链接到正式产品说明。改动的三个文件与生产逐字节一致，目录和产品页 HTTP 200。Chromium 核对目录中仅有一个入口、保留原十项、中英文切换、390 px 排版和点击跳转。Google 所有权验证文件随本次发布恢复为 HTTP 200，内容与既有留档一致。正式站的 `current` 和 `previous` 分别指向本次和 11 月 20 日版本。
 
 2026-11-20 核对了 GitHub 提交、公网 `/deployment.json` 和服务器 `current`。20 个修改或新增的公开文件与 Git 提交逐字节一致。`sitemap.xml` 中的 16 个地址均返回 HTTP 200，`robots.txt` 指向该站点地图。公网 Chromium 复核了首页、图文项目目录、桌面及手机详情、截图切换与放大、工作台规划展开和语言切换。本地 WebKit 也通过了键盘操作、焦点返回和规划展开的定向检查。
 

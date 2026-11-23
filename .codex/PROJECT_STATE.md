@@ -1,11 +1,11 @@
 # 项目状态
-核对日期：2026-11-20。范围：全站改版及腾讯云发布。依据：DEPLOYMENT.md、公网 deployment.json、服务器发布状态和浏览器复核。
+核对日期：2026-11-23。范围：项目列表的臻一 GEO 工作台入口。依据：DEPLOYMENT.md、公网 deployment.json、服务器发布状态和浏览器复核。
 
 ## 项目目标
 维护臻一个人品牌与作品网站，GitHub 管理源码，腾讯云静态托管。
 
 ## 当前状态
-新版已推送 GitHub main，并发布至 https://zhenyi.shizibandu.icu/ 。公网源码为 6814f06bf9bc81ad68ffd990807249c251a37059，release 20261120T020042Z-6814f06bf9bc。上一版 20261029T003313Z-548b588912c0 由服务器 previous 指向。
+新版已推送 GitHub main，并发布至 https://zhenyi.shizibandu.icu/ 。公网源码为 492fc5e0acef45d2d0a4af04336463d974ea1585，release 20261123T063434Z-492fc5e0acef。上一版 20261120T020042Z-6814f06bf9bc 由服务器 previous 指向。项目目录的「独立产品」新增臻一 GEO 工作台，直接连接至 https://geo.shizibandu.icu/product 。
 
 ## 已完成
 - 恢复炭黑、青柠绿和倾斜 Z 标识。首页左侧是个人介绍，右侧用工作台主图带出视频监管和豆格工坊。工作方式沿用首屏栏线，联系区、分类目录和详情使用同一底色与文字层级。
@@ -31,4 +31,6 @@
 后续改动沿用 GitHub main 和 DEPLOYMENT.md 中的腾讯云发布流程。
 
 ## 验收状态
+2026-11-23：目录和 GEO 产品页公开访问返回 200。三个改动文件与线上一致。Chromium 验证了目录项目计数、单一 GEO 链接、双语和手机布局。已有 Google 所有权验证文件公开内容与持久副本一致。
+
 2026-11-20：Git 提交、公网和服务器 current 的源码一致，20 个本次改动的公开文件逐字节核验一致。站点地图 16 个地址均返回 HTTP 200。公网站内首页、目录、桌面和手机详情、缩略图、大图、规划展开与语言切换已实测。本地 Chromium 和 WebKit 复查了键盘与焦点。详细依据见 DEPLOYMENT.md，公网截图见 .codex/homepage-preview/workbench.png 和 project-gallery.png。
