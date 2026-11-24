@@ -157,6 +157,7 @@ body[data-page="home"] {
   margin-bottom: clamp(12px, 1.8vw, 24px);
 }
 .collection-heading h2 { margin: 0; font-size: clamp(1.55rem, 3.1vw, 2.65rem); line-height: 1.2; letter-spacing: -.042em; }
+.collection-links { display: flex; flex-wrap: wrap; column-gap: 18px; }
 .collection-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, .59fr);
