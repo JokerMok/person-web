@@ -4,9 +4,9 @@
 
 - 正式网址：`https://zhenyi.shizibandu.icu/`。
 - 服务器：`ssh tencent-main`，`ubuntu@175.178.236.56`，沿用本机 SSH 配置。
-- 网站源码 commit：`492fc5e0acef45d2d0a4af04336463d974ea1585`。
-- release：`20261123T063434Z-492fc5e0acef`，2026-11-23 14:35（北京时间）发布「臻一 GEO 工作台」项目入口。
-- 服务器上一版：`20261120T020042Z-6814f06bf9bc`，由 `previous` 指向。
+- 网站源码 commit：`d6245ff165b26f43bf58fa4af52a679626208476`。
+- release：`20261124T031852Z-d6245ff165b2`，2026-11-24 11:21（北京时间）在公网确认首页的臻一 GEO 工作台直达链接。
+- 服务器上一版：`20261123T063434Z-492fc5e0acef`，由 `previous` 指向。
 - Caddy：`/etc/caddy/sites-enabled/person-web.caddy`，共用宿主机 Caddy，独立访问日志 `/var/log/caddy/person-web-access.log`。
 - DNSPod：`zhenyi A 175.178.236.56`，默认线路，TTL 600；无同名 AAAA。其他记录未改。
 
@@ -89,6 +89,8 @@ curl -fsS https://zhenyi.shizibandu.icu/deployment.json
 这会交换 `current` 和 `previous` 的指向，旧 release 不删除。初次迁移回 EdgeOne：在 DNSPod 将同一条 `zhenyi` 记录恢复为 `CNAME zhenyi.shizibandu.icu.pages.dnsoe4.com.`，默认线路、TTL 600，原值记录于 `deploy/tencent/dns-before-20261021.json` 及服务器 `shared/config/`。旧 EdgeOne 项目未删除、未停用。不要变更主域名、www、邮箱或其他产品记录。
 
 ## 验证记录
+
+2026-11-24，首页「独立产品」加入「臻一 GEO 工作台」直链并沿用双语词条。改动的 HTML 和 CSS 与生产逐字节一致。读取公网首页原始 HTML 后请求该链接，最终地址是 `https://geo.shizibandu.icu/product`，状态为 HTTP 200。Google 验证文件在切换前从持久目录复制并校验，切换后仍可公网访问。
 
 2026-11-23，「独立产品」新增「臻一 GEO 工作台」，在 HTML 中直接链接到正式产品说明。改动的三个文件与生产逐字节一致，目录和产品页 HTTP 200。Chromium 核对目录中仅有一个入口、保留原十项、中英文切换、390 px 排版和点击跳转。Google 所有权验证文件随本次发布恢复为 HTTP 200，内容与既有留档一致。正式站的 `current` 和 `previous` 分别指向本次和 11 月 20 日版本。
 
